@@ -1,0 +1,2097 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Computer Science Notes Operating System LeetCode Python Machine Learning">
+      
+      
+        <link rel="canonical" href="https://walkccc.github.io/CS/OS/Chap03/">
+      
+      
+        <meta name="author" content="Jay Chen">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.1.0">
+    
+    
+      
+        <title>Chapter 3 Processes - Computer Science Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.11e41852.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.20ef595d.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../css/style.css">
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M409.132,114.573c-19.608-33.596-46.205-60.194-79.798-79.8C295.736,15.166,259.057,5.365,219.271,5.365
+		c-39.781,0-76.472,9.804-110.063,29.408c-33.596,19.605-60.192,46.204-79.8,79.8C9.803,148.168,0,184.854,0,224.63
+		c0,47.78,13.94,90.745,41.827,128.906c27.884,38.164,63.906,64.572,108.063,79.227c5.14,0.954,8.945,0.283,11.419-1.996
+		c2.475-2.282,3.711-5.14,3.711-8.562c0-0.571-0.049-5.708-0.144-15.417c-0.098-9.709-0.144-18.179-0.144-25.406l-6.567,1.136
+		c-4.187,0.767-9.469,1.092-15.846,1c-6.374-0.089-12.991-0.757-19.842-1.999c-6.854-1.231-13.229-4.086-19.13-8.559
+		c-5.898-4.473-10.085-10.328-12.56-17.556l-2.855-6.57c-1.903-4.374-4.899-9.233-8.992-14.559
+		c-4.093-5.331-8.232-8.945-12.419-10.848l-1.999-1.431c-1.332-0.951-2.568-2.098-3.711-3.429c-1.142-1.331-1.997-2.663-2.568-3.997
+		c-0.572-1.335-0.098-2.43,1.427-3.289c1.525-0.859,4.281-1.276,8.28-1.276l5.708,0.853c3.807,0.763,8.516,3.042,14.133,6.851
+		c5.614,3.806,10.229,8.754,13.846,14.842c4.38,7.806,9.657,13.754,15.846,17.847c6.184,4.093,12.419,6.136,18.699,6.136
+		c6.28,0,11.704-0.476,16.274-1.423c4.565-0.952,8.848-2.383,12.847-4.285c1.713-12.758,6.377-22.559,13.988-29.41
+		c-10.848-1.14-20.601-2.857-29.264-5.14c-8.658-2.286-17.605-5.996-26.835-11.14c-9.235-5.137-16.896-11.516-22.985-19.126
+		c-6.09-7.614-11.088-17.61-14.987-29.979c-3.901-12.374-5.852-26.648-5.852-42.826c0-23.035,7.52-42.637,22.557-58.817
+		c-7.044-17.318-6.379-36.732,1.997-58.24c5.52-1.715,13.706-0.428,24.554,3.853c10.85,4.283,18.794,7.952,23.84,10.994
+		c5.046,3.041,9.089,5.618,12.135,7.708c17.705-4.947,35.976-7.421,54.818-7.421s37.117,2.474,54.823,7.421l10.849-6.849
+		c7.419-4.57,16.18-8.758,26.262-12.565c10.088-3.805,17.802-4.853,23.134-3.138c8.562,21.509,9.325,40.922,2.279,58.24
+		c15.036,16.18,22.559,35.787,22.559,58.817c0,16.178-1.958,30.497-5.853,42.966c-3.9,12.471-8.941,22.457-15.125,29.979
+		c-6.191,7.521-13.901,13.85-23.131,18.986c-9.232,5.14-18.182,8.85-26.84,11.136c-8.662,2.286-18.415,4.004-29.263,5.146
+		c9.894,8.562,14.842,22.077,14.842,40.539v60.237c0,3.422,1.19,6.279,3.572,8.562c2.379,2.279,6.136,2.95,11.276,1.995
+		c44.163-14.653,80.185-41.062,108.068-79.226c27.88-38.161,41.825-81.126,41.825-128.906
+		C438.536,184.851,428.728,148.168,409.132,114.573z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#chapter-3-process-concept" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://walkccc.github.io/CS" title="Computer Science Notes" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">important_devices</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Computer Science Notes
+              </span>
+              <span class="md-header-nav__topic">
+                Chapter 3 Processes
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/walkccc/CS/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      walkccc/CS
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." title="Preface" class="md-tabs__link">
+        Preface
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../LeetCode/" title="LeetCode in Python" class="md-tabs__link">
+          LeetCode in Python
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../" title="Operating System" class="md-tabs__link md-tabs__link--active">
+          Operating System
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../ML/" title="Machine Learning" class="md-tabs__link">
+          Machine Learning
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://walkccc.github.io/CS" title="Computer Science Notes" class="md-nav__button md-logo">
+      
+        <i class="md-icon">important_devices</i>
+      
+    </a>
+    Computer Science Notes
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/walkccc/CS/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      walkccc/CS
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Preface" class="md-nav__link">
+      Preface
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      LeetCode in Python
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        LeetCode in Python
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../LeetCode/" title="Preface" class="md-nav__link">
+      Preface
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+    
+    <label class="md-nav__link" for="nav-2-2">
+      001-100
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        001-100
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../LeetCode/001-100/001-010/" title="001-010" class="md-nav__link">
+      001-010
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../LeetCode/001-100/011-020/" title="011-020" class="md-nav__link">
+      011-020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../LeetCode/001-100/021-030/" title="021-030" class="md-nav__link">
+      021-030
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../LeetCode/001-100/031-040/" title="031-040" class="md-nav__link">
+      031-040
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../LeetCode/001-100/041-050/" title="041-050" class="md-nav__link">
+      041-050
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Operating System
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Operating System
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Preface" class="md-nav__link">
+      Preface
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      PART ONE | OVERVIEW
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        PART ONE | OVERVIEW
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Chap01/" title="Chapter 1 Introduction" class="md-nav__link">
+      Chapter 1 Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Chap02/" title="Chapter 2 Operating-System Structures" class="md-nav__link">
+      Chapter 2 Operating-System Structures
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3" checked>
+    
+    <label class="md-nav__link" for="nav-3-3">
+      PART TWO | PROCESS MANAGEMENT
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
+        PART TWO | PROCESS MANAGEMENT
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Chapter 3 Processes
+      </label>
+    
+    <a href="./" title="Chapter 3 Processes" class="md-nav__link md-nav__link--active">
+      Chapter 3 Processes
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#31-process-concept" title="3.1 Process Concept" class="md-nav__link">
+    3.1 Process Concept
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#311-the-process" title="3.1.1 The process" class="md-nav__link">
+    3.1.1 The process
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#312-process-state" title="3.1.2 Process State" class="md-nav__link">
+    3.1.2 Process State
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#313-process-control-block" title="3.1.3 Process Control Block" class="md-nav__link">
+    3.1.3 Process Control Block
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-process-scheduling" title="3.2 Process Scheduling" class="md-nav__link">
+    3.2 Process Scheduling
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321-scheduling-queues" title="3.2.1 Scheduling Queues" class="md-nav__link">
+    3.2.1 Scheduling Queues
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322-schedulers" title="3.2.2 Schedulers" class="md-nav__link">
+    3.2.2 Schedulers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#323-context-switch" title="3.2.3 Context Switch" class="md-nav__link">
+    3.2.3 Context Switch
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-operations-on-processes" title="3.3 Operations on Processes" class="md-nav__link">
+    3.3 Operations on Processes
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331-process-creation" title="3.3.1 Process Creation" class="md-nav__link">
+    3.3.1 Process Creation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#332-process-termination" title="3.3.2 Process Termination" class="md-nav__link">
+    3.3.2 Process Termination
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34-interprocess-communication" title="3.4 Interprocess Communication" class="md-nav__link">
+    3.4 Interprocess Communication
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#341-shared-memory-systems" title="3.4.1 Shared-Memory Systems" class="md-nav__link">
+    3.4.1 Shared-Memory Systems
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#producerconsumer-problem" title="Producer–consumer problem" class="md-nav__link">
+    Producer–consumer problem
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#342-message-passing-systems" title="3.4.2 Message-Passing Systems" class="md-nav__link">
+    3.4.2 Message-Passing Systems
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3421-naming" title="3.4.2.1 Naming" class="md-nav__link">
+    3.4.2.1 Naming
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3422-synchronization" title="3.4.2.2 Synchronization" class="md-nav__link">
+    3.4.2.2 Synchronization
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3423-buffering" title="3.4.2.3 Buffering" class="md-nav__link">
+    3.4.2.3 Buffering
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#35-examples-of-ipc-systems" title="3.5 Examples of IPC Systems" class="md-nav__link">
+    3.5 Examples of IPC Systems
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#351-an-example-posix-shared-memory" title="3.5.1 An Example: POSIX Shared Memory" class="md-nav__link">
+    3.5.1 An Example: POSIX Shared Memory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#352-an-example-mach" title="3.5.2 An Example: Mach" class="md-nav__link">
+    3.5.2 An Example: Mach
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#353-an-example-windows" title="3.5.3 An Example: Windows" class="md-nav__link">
+    3.5.3 An Example: Windows
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#36-communication-in-clientserver-systems" title="3.6 Communication in Client–Server Systems" class="md-nav__link">
+    3.6 Communication in Client–Server Systems
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#361-sockets" title="3.6.1 Sockets" class="md-nav__link">
+    3.6.1 Sockets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#362-remote-procedure-calls" title="3.6.2 Remote Procedure Calls" class="md-nav__link">
+    3.6.2 Remote Procedure Calls
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#363-pipes" title="3.6.3 Pipes" class="md-nav__link">
+    3.6.3 Pipes
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3631-ordinary-pipes" title="3.6.3.1 Ordinary Pipes" class="md-nav__link">
+    3.6.3.1 Ordinary Pipes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3632-named-pipes" title="3.6.3.2 Named Pipes" class="md-nav__link">
+    3.6.3.2 Named Pipes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Chap04/" title="Chapter 4 Threads" class="md-nav__link">
+      Chapter 4 Threads
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Chap05/" title="Chapter 5 Process Synchronization" class="md-nav__link">
+      Chapter 5 Process Synchronization
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Chap06/" title="Chapter 6 CPU Scheduling" class="md-nav__link">
+      Chapter 6 CPU Scheduling
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Chap07/" title="Chapter 7 Deadlocks" class="md-nav__link">
+      Chapter 7 Deadlocks
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4">
+    
+    <label class="md-nav__link" for="nav-3-4">
+      PART THREE | MEMORY MANAGEMENT
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-4">
+        PART THREE | MEMORY MANAGEMENT
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Chap08/" title="Chapter 8 Main Memory" class="md-nav__link">
+      Chapter 8 Main Memory
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Chap09/" title="Chapter 9 Virtual Memory" class="md-nav__link">
+      Chapter 9 Virtual Memory
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5" type="checkbox" id="nav-3-5">
+    
+    <label class="md-nav__link" for="nav-3-5">
+      Previous Exams
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-5">
+        Previous Exams
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../midterm/" title="Midterm" class="md-nav__link">
+      Midterm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../final/" title="Final" class="md-nav__link">
+      Final
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Machine Learning
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Machine Learning
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ML/" title="Preface" class="md-nav__link">
+      Preface
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ML/1/" title="Lec 1 - Regression - Case Study" class="md-nav__link">
+      Lec 1 - Regression - Case Study
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ML/2/" title="Lec 2 - Where does the error com from?" class="md-nav__link">
+      Lec 2 - Where does the error com from?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ML/3/" title="Lec 3 - Gradient Descent" class="md-nav__link">
+      Lec 3 - Gradient Descent
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ML/4/" title="Lec 4 - Classification" class="md-nav__link">
+      Lec 4 - Classification
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ML/5/" title="Lec 5 - Logistic Regression" class="md-nav__link">
+      Lec 5 - Logistic Regression
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ML/6/" title="Lec 6 - Deep Learning" class="md-nav__link">
+      Lec 6 - Deep Learning
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ML/7/" title="Lec 7 - Backpropagation" class="md-nav__link">
+      Lec 7 - Backpropagation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ML/8/" title="Lec 8 - "Hello world" of Deep Learning" class="md-nav__link">
+      Lec 8 - "Hello world" of Deep Learning
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ML/9/" title="Lec 9 - Tips for Deep Learning" class="md-nav__link">
+      Lec 9 - Tips for Deep Learning
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#31-process-concept" title="3.1 Process Concept" class="md-nav__link">
+    3.1 Process Concept
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#311-the-process" title="3.1.1 The process" class="md-nav__link">
+    3.1.1 The process
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#312-process-state" title="3.1.2 Process State" class="md-nav__link">
+    3.1.2 Process State
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#313-process-control-block" title="3.1.3 Process Control Block" class="md-nav__link">
+    3.1.3 Process Control Block
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-process-scheduling" title="3.2 Process Scheduling" class="md-nav__link">
+    3.2 Process Scheduling
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321-scheduling-queues" title="3.2.1 Scheduling Queues" class="md-nav__link">
+    3.2.1 Scheduling Queues
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322-schedulers" title="3.2.2 Schedulers" class="md-nav__link">
+    3.2.2 Schedulers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#323-context-switch" title="3.2.3 Context Switch" class="md-nav__link">
+    3.2.3 Context Switch
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-operations-on-processes" title="3.3 Operations on Processes" class="md-nav__link">
+    3.3 Operations on Processes
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331-process-creation" title="3.3.1 Process Creation" class="md-nav__link">
+    3.3.1 Process Creation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#332-process-termination" title="3.3.2 Process Termination" class="md-nav__link">
+    3.3.2 Process Termination
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34-interprocess-communication" title="3.4 Interprocess Communication" class="md-nav__link">
+    3.4 Interprocess Communication
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#341-shared-memory-systems" title="3.4.1 Shared-Memory Systems" class="md-nav__link">
+    3.4.1 Shared-Memory Systems
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#producerconsumer-problem" title="Producer–consumer problem" class="md-nav__link">
+    Producer–consumer problem
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#342-message-passing-systems" title="3.4.2 Message-Passing Systems" class="md-nav__link">
+    3.4.2 Message-Passing Systems
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3421-naming" title="3.4.2.1 Naming" class="md-nav__link">
+    3.4.2.1 Naming
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3422-synchronization" title="3.4.2.2 Synchronization" class="md-nav__link">
+    3.4.2.2 Synchronization
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3423-buffering" title="3.4.2.3 Buffering" class="md-nav__link">
+    3.4.2.3 Buffering
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#35-examples-of-ipc-systems" title="3.5 Examples of IPC Systems" class="md-nav__link">
+    3.5 Examples of IPC Systems
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#351-an-example-posix-shared-memory" title="3.5.1 An Example: POSIX Shared Memory" class="md-nav__link">
+    3.5.1 An Example: POSIX Shared Memory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#352-an-example-mach" title="3.5.2 An Example: Mach" class="md-nav__link">
+    3.5.2 An Example: Mach
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#353-an-example-windows" title="3.5.3 An Example: Windows" class="md-nav__link">
+    3.5.3 An Example: Windows
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#36-communication-in-clientserver-systems" title="3.6 Communication in Client–Server Systems" class="md-nav__link">
+    3.6 Communication in Client–Server Systems
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#361-sockets" title="3.6.1 Sockets" class="md-nav__link">
+    3.6.1 Sockets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#362-remote-procedure-calls" title="3.6.2 Remote Procedure Calls" class="md-nav__link">
+    3.6.2 Remote Procedure Calls
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#363-pipes" title="3.6.3 Pipes" class="md-nav__link">
+    3.6.3 Pipes
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3631-ordinary-pipes" title="3.6.3.1 Ordinary Pipes" class="md-nav__link">
+    3.6.3.1 Ordinary Pipes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3632-named-pipes" title="3.6.3.2 Named Pipes" class="md-nav__link">
+    3.6.3.2 Named Pipes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/walkccc/CS/edit/master/docs/OS/Chap03.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="chapter-3-process-concept">Chapter 3 Process Concept<a class="headerlink" href="#chapter-3-process-concept" title="Permanent link">&para;</a></h1>
+<h2 id="31-process-concept">3.1 Process Concept<a class="headerlink" href="#31-process-concept" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Process</p>
+<p>A program in execution, the basis of all computation.</p>
+</div>
+<ul>
+<li>Batch system: jobs (= process)</li>
+<li>Time-shared system: user programs or tasks</li>
+</ul>
+<h3 id="311-the-process">3.1.1 The process<a class="headerlink" href="#311-the-process" title="Permanent link">&para;</a></h3>
+<p>Process consists</p>
+<ul>
+<li><strong>text</strong> section: program code</li>
+<li><strong>data</strong> section: <em>global variables</em></li>
+<li><strong>heap</strong>: memory</li>
+<li>current activity (<em>program counter</em> + <em>registers</em>)</li>
+<li><strong>stack</strong>: <em>temporary data</em>:<ul>
+<li>function parameters</li>
+<li>return addresses</li>
+<li>
+<p>local variables</p>
+<p><img alt="small" src="../../assets/os/3.1.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">Program</th>
+<th align="center">Process</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><em>passive</em> entity</td>
+<td align="center"><em>active</em> entity</td>
+</tr>
+<tr>
+<td align="center">a file containing a list of instructions stored on disk (executable file)</td>
+<td align="center">program counter: specifying the next instruction to execute + a set of associated resources</td>
+</tr>
+</tbody>
+</table>
+<p>When</p>
+<ul>
+<li>double-clicking an icon</li>
+<li>prog.exe</li>
+<li>a.out</li>
+</ul>
+<p>an executable file is loaded into memory: <strong>program $\to$ process</strong>.</p>
+<p>Two different processes: the text section are equivalent, the data, heap and stack vary.</p>
+<p>Process can be an execution environment for other code. (<strong>simulation</strong>)</p>
+<p>e.g.</p>
+<div class="highlight"><pre><span></span>    <span class="n">java</span> <span class="n">testProgram</span>
+</pre></div>
+
+<div class="admonition info">
+<p>The command <code>java</code> runs the JVM as an ordinary process, then executes the Java program <code>testProgram</code> in the VM.</p>
+</div>
+<h3 id="312-process-state">3.1.2 Process State<a class="headerlink" href="#312-process-state" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>New</strong></li>
+<li><strong>Running</strong>: execute instructions</li>
+<li><strong>Waiting</strong>: wait some event (I/O, signal)</li>
+<li><strong>Ready</strong>: wait to be assigned to a processor</li>
+<li><strong>Terminated</strong></li>
+</ul>
+<p><img alt="normal" src="../../assets/os/3.2.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">Process and Processor</p>
+<p>Only <strong>1</strong> process runs on any processor. (Many processes may be <strong>ready</strong> and <strong>waiting</strong>)</p>
+</div>
+<h3 id="313-process-control-block">3.1.3 Process Control Block<a class="headerlink" href="#313-process-control-block" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Process state</strong></li>
+<li><strong>Program counter</strong>: address of the next instruction</li>
+<li><strong>CPU registers</strong>: accumulators, index registers, stack pointers, general-purpose registers, and any condition-code information</li>
+<li><strong>CPU-scheduling information</strong></li>
+<li><strong>Memory-management information</strong></li>
+<li><strong>Accounting information</strong>: the amount of CPU and real time used, time limits, account numbers, job or process numbers</li>
+<li><strong>I/O status information</strong>: the list of I/O devices allocated to the process, a list of open files</li>
+</ul>
+<p><img alt="normal" src="../../assets/os/3.4.png" /></p>
+<h2 id="32-process-scheduling">3.2 Process Scheduling<a class="headerlink" href="#32-process-scheduling" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Multiprogramming</strong>: to have some process running at all times $\to$ maximize CPU utilization</li>
+<li><strong>Time sharing</strong>: switch the CPU among processes</li>
+<li><strong>Process scheduler</strong>: selects an available process</li>
+</ul>
+<h3 id="321-scheduling-queues">3.2.1 Scheduling Queues<a class="headerlink" href="#321-scheduling-queues" title="Permanent link">&para;</a></h3>
+<p>As processes enter the system, they are put into a <strong>job queue</strong>.</p>
+<ul>
+<li><strong>Job queue</strong>: consists of all processes in the system.</li>
+<li><strong>Ready queue</strong>: keep <em>ready</em> and <em>waiting</em> processes.</li>
+</ul>
+<p><img alt="normal" src="../../assets/os/3.5.png" /></p>
+<p><img alt="normal" src="../../assets/os/3.6.png" /></p>
+<p>When a process exit, it is removed from all queues and has its PCB and resources deallocated.</p>
+<h3 id="322-schedulers">3.2.2 Schedulers<a class="headerlink" href="#322-schedulers" title="Permanent link">&para;</a></h3>
+<p>Processes are first spooled to a mass-storage device (e.g. disk). Then </p>
+<ul>
+<li>
+<p><strong>Long-term scheduler</strong> (job)</p>
+<ol>
+<li>selects processes from this pool</li>
+<li>loads them into memory <em>for</em> execution</li>
+</ol>
+</li>
+<li>
+<p><strong>Short-term scheduler</strong> (CPU)</p>
+<ol>
+<li>selects from among the processes that are ready to execute</li>
+<li>allocates CPU to one of them</li>
+</ol>
+</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Long-term scheduler</p>
+<ul>
+<li>Controls the <strong>degree of multiprogramming</strong> (# processes)</li>
+<li>Selects a good <strong>process mix</strong> of I/O-bound and CPU-bound</li>
+</ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Medium-term scheduler</p>
+<p>Swapping</p>
+</div>
+<p><img alt="normal" src="../../assets/os/3.7.png" /></p>
+<h3 id="323-context-switch">3.2.3 Context Switch<a class="headerlink" href="#323-context-switch" title="Permanent link">&para;</a></h3>
+<div class="admonition info">
+<p class="admonition-title">When a context switch occurs</p>
+<p>The kernel saves the context of the old process in its PCB and loads the saved context of the new process scheduled to run.</p>
+</div>
+<h2 id="33-operations-on-processes">3.3 Operations on Processes<a class="headerlink" href="#33-operations-on-processes" title="Permanent link">&para;</a></h2>
+<h3 id="331-process-creation">3.3.1 Process Creation<a class="headerlink" href="#331-process-creation" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Process Identifier (pid)</p>
+<p>An integer number, which provides a unique value for each process in the system, and it can be used as an <em>index</em> to access various attributes of a process within the kernel.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">init process</p>
+<p>A process has pid = 1, and serves as the root parent process for all user processes.</p>
+</div>
+<p><img alt="normal" src="../../assets/os/3.8.png" /></p>
+<p>When a process creates a child process, that child process may obtain the resources from</p>
+<ul>
+<li>OS</li>
+<li>a subset of parent process</li>
+</ul>
+<p>When a process creates a new process</p>
+<ol>
+<li>The parent continues to execute concurrently with its children.</li>
+<li>The parent waits until some or all of its children have terminated.</li>
+</ol>
+<p>There are also two address-space possibilities for the new process</p>
+<ol>
+<li>The child process is a duplicate of the parent process (it has the same program and data as the parent).</li>
+<li>The child process has a new program loaded into it.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title"><code>fork()</code></p>
+<p>The new process created by <code>fork()</code> consists of a copy of the address of parent process.</p>
+</div>
+<ul>
+<li>
+<p>Return code</p>
+<ul>
+<li>Child process: 0</li>
+<li>Parent process: pid of the child</li>
+</ul>
+</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">After <code>fork()</code> syscall</p>
+<p>One of the two processes uses the <code>exec()</code> syscall to replace the process's memory space with a new program.</p>
+</div>
+<p>Creating a separate process using the UNIX <code>fork()</code> system call.</p>
+<p><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span> 
+    <span class="kt">pid_t</span> <span class="n">pid</span><span class="p">;</span>
+
+    <span class="cm">/* fork a child process */</span>
+    <span class="n">pid</span> <span class="o">=</span> <span class="n">fork</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">pid</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>                      <span class="cm">/* error occurred */</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Fork Failed&quot;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">pid</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>              <span class="cm">/* child process */</span>
+        <span class="n">execlp</span><span class="p">(</span><span class="s">&quot;/bin/ls&quot;</span><span class="p">,</span> <span class="s">&quot;ls&quot;</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>  <span class="cm">/* a version of the `exec()` */</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>                            <span class="cm">/* parent process */</span>
+        <span class="cm">/* parent will wait for the child to complete */</span>
+        <span class="n">wait</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Child Complete&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+<img alt="normal" src="../../assets/os/3.10.png" /></p>
+<h3 id="332-process-termination">3.3.2 Process Termination<a class="headerlink" href="#332-process-termination" title="Permanent link">&para;</a></h3>
+<p>A process terminates when it finishes executing its final statement and asks the operating system to delete it by using the <code>exit()</code> system call.</p>
+<div class="admonition info">
+<p class="admonition-title">Terminating process</p>
+<p>A parent needs to know the identities of its children if it is to terminate them.</p>
+</div>
+<p>A parent can terminate its children by</p>
+<ul>
+<li>The child use too much resources. (The parent have a mechanism to inspect the state of its children)</li>
+<li>The task assigned to the child is no longer required.</li>
+<li>The parent is exiting.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Cascading Termination</p>
+<p>If a process terminates (either normally or abnormally), then all its children must also be terminated.</p>
+</div>
+<p><code>exit()</code> may be called either directly or indirectly (<code>return</code>):</p>
+<div class="highlight"><pre><span></span>    <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>    <span class="cm">/* directly exit with status 1 */</span>
+</pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Process Table Entry (PTE)</p>
+<p>Contains the process's exit status.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Zombie</p>
+<p>A process terminated, but whose parent hasn't called <code>wait()</code>. Once the parent calls <code>wait()</code>, the pid of the zombie process and its entry in the PTE are released.</p>
+</div>
+<p>The <code>init</code> process periodically invokes <code>wait()</code> to collect and release the orphan's pid and PTE.</p>
+<h2 id="34-interprocess-communication">3.4 Interprocess Communication<a class="headerlink" href="#34-interprocess-communication" title="Permanent link">&para;</a></h2>
+<p>Processes have two classifications:</p>
+<ul>
+<li>Independent</li>
+<li>Cooperating<ul>
+<li>Information sharing</li>
+<li>Computation speedup - multicore</li>
+<li>Modularity</li>
+<li>Convenience - parallel tasks</li>
+</ul>
+</li>
+</ul>
+<p>Interprocess communication (IPC)</p>
+<ul>
+<li>Shared memory: slower (syscalls are required)</li>
+<li>Message passing: faster (syscalls are required only to establish shared memory regions)</li>
+</ul>
+<p><img alt="normal" src="../../assets/os/3.12.png" /></p>
+<h3 id="341-shared-memory-systems">3.4.1 Shared-Memory Systems<a class="headerlink" href="#341-shared-memory-systems" title="Permanent link">&para;</a></h3>
+<h4 id="producerconsumer-problem">Producer–consumer problem<a class="headerlink" href="#producerconsumer-problem" title="Permanent link">&para;</a></h4>
+<p>A <strong>producer</strong> process produces information that is consumed by a <strong>consumer</strong> process.</p>
+<p>e.g.</p>
+<ul>
+<li>A compiler produce assembly code that is consumed by an assembler. The assembler, in turn, may produce object modules that are consumed by the loader.</li>
+<li>A server as a producer and a client as a consumer.</li>
+</ul>
+<p>We need a buffer which resides in a region of shared memory (producer &amp; consumer), and can be filled by the producer and emptied by the consumer.</p>
+<ul>
+<li>Unbounded buffer</li>
+<li>Bounded buffer (more practical)</li>
+</ul>
+<p>Implement the shared <code>buffer</code> as a circular array.
+<div class="highlight"><pre><span></span><span class="cp">#define BUFFER_SIZE 10</span>
+
+<span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="p">...</span>
+<span class="p">}</span> <span class="n">item</span><span class="p">;</span>
+
+<span class="n">item</span> <span class="n">buffer</span><span class="p">[</span><span class="n">BUFFER_SIZE</span><span class="p">];</span>
+<span class="kt">int</span> <span class="n">in</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>     <span class="cm">/* points to the next free position */</span>
+<span class="kt">int</span> <span class="n">out</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>    <span class="cm">/* points to the first full position */</span>
+</pre></div></p>
+<div class="highlight"><pre><span></span><span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
+    <span class="cm">/* produce an item in next_produced */</span>
+
+    <span class="k">while</span> <span class="p">(((</span><span class="n">in</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">BUFFER_SIZE</span><span class="p">)</span> <span class="o">==</span> <span class="n">out</span><span class="p">)</span>
+        <span class="p">;</span> <span class="cm">/* do nothing */</span>
+
+    <span class="n">buffer</span><span class="p">[</span><span class="n">in</span><span class="p">]</span> <span class="o">=</span> <span class="n">next_produced</span><span class="p">;</span>
+    <span class="n">in</span> <span class="o">=</span> <span class="p">(</span><span class="n">in</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">BUFFER_SIZE</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<div class="highlight"><pre><span></span><span class="n">item</span> <span class="n">next_consumed</span><span class="p">;</span>
+
+<span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">in</span> <span class="o">==</span> <span class="n">out</span><span class="p">)</span>
+        <span class="p">;</span> <span class="cm">/* do nothing */</span>
+
+        <span class="n">next_consumed</span> <span class="o">=</span> <span class="n">buffer</span><span class="p">[</span><span class="n">out</span><span class="p">];</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="p">(</span><span class="n">out</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">BUFFER_SIZE</span><span class="p">;</span>
+
+        <span class="cm">/* consume the item in next_consumed */</span>
+<span class="p">}</span>
+</pre></div>
+
+<h3 id="342-message-passing-systems">3.4.2 Message-Passing Systems<a class="headerlink" href="#342-message-passing-systems" title="Permanent link">&para;</a></h3>
+<p>Message passing provides a mechanism to allow processes to communicate and to synchronize their actions <em>without sharing the same address space</em>.</p>
+<div class="admonition note">
+<p class="admonition-title">Communication link</p>
+<p>If processes $P$ and $Q$ want to communicate, they must send messages to and receive messages from each other.</p>
+</div>
+<p>Several implentation of <code>send()</code>/<code>receive()</code> operations:</p>
+<ul>
+<li>Direct of indirect communication</li>
+<li>Synchronous or asynchronous communication</li>
+<li>Automatic or explicit buffering</li>
+</ul>
+<h4 id="3421-naming">3.4.2.1 Naming<a class="headerlink" href="#3421-naming" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p><strong>Direct communication</strong></p>
+<p>The messages are sent to and received from processes.</p>
+<ul>
+<li>
+<p>Symmetry</p>
+<ul>
+<li><code>send(P, message)</code></li>
+<li><code>receive(Q, message)</code></li>
+</ul>
+</li>
+<li>
+<p>Asymmetry</p>
+<ul>
+<li><code>send(P, message)</code></li>
+<li><code>receive(id, message)</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Indirect communication</strong></p>
+<p>The messages are sent to and received from <strong><em>mailboxes</em></strong>, or <strong><em>ports</em></strong>.</p>
+<ul>
+<li><code>send(A, message)</code> — send a message to mailbox A</li>
+<li><code>receive(A, message)</code> — receive a message from mailbox A</li>
+</ul>
+</li>
+</ul>
+<p>The process that creates a new mailbox is that mailbox's owner by default.</p>
+<div class="admonition info">
+<p>A mailbox can be owned by the OS.</p>
+</div>
+<h4 id="3422-synchronization">3.4.2.2 Synchronization<a class="headerlink" href="#3422-synchronization" title="Permanent link">&para;</a></h4>
+<p>Message passing may be either</p>
+<ul>
+<li>
+<p>Blocking (synchronous)</p>
+<ul>
+<li>Blocking send (blocked until the message is received)</li>
+<li>Blocking receive</li>
+</ul>
+</li>
+<li>
+<p>Nonblocking (asynchronous)</p>
+<ul>
+<li>Nonblocking send</li>
+<li>Nonblocking receive (valid message or a null)</li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Rendezvous</p>
+<p>When both <code>send()</code> and <code>receive()</code> are blocking.</p>
+</div>
+<h4 id="3423-buffering">3.4.2.3 Buffering<a class="headerlink" href="#3423-buffering" title="Permanent link">&para;</a></h4>
+<p>Messages reside in a temporary queue:</p>
+<ul>
+<li>Zero capacity (no buffering)</li>
+<li>Bounded capacity</li>
+<li>Unbounded capacity</li>
+</ul>
+<h2 id="35-examples-of-ipc-systems">3.5 Examples of IPC Systems<a class="headerlink" href="#35-examples-of-ipc-systems" title="Permanent link">&para;</a></h2>
+<h3 id="351-an-example-posix-shared-memory">3.5.1 An Example: POSIX Shared Memory<a class="headerlink" href="#351-an-example-posix-shared-memory" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><span class="n">message</span> <span class="n">next_consumed</span><span class="p">;</span>
+
+<span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">receive</span><span class="p">(</span><span class="n">next_consumed</span><span class="p">);</span>
+
+    <span class="cm">/* consume the item in next consumed */</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>A process must first create a shared-memory:</p>
+<div class="highlight"><pre><span></span>    <span class="n">shm_fd</span> <span class="o">=</span> <span class="n">shm_open</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">O_CREAT</span> <span class="o">|</span> <span class="n">O_RDRW</span><span class="p">,</span> <span class="mo">0666</span><span class="p">);</span>
+</pre></div>
+
+<p>The <code>ftruncate()</code> function configure the size of the object in bytes:</p>
+<div class="highlight"><pre><span></span>    <span class="n">ftruncate</span><span class="p">(</span><span class="n">shm_fd</span><span class="p">,</span> <span class="mi">4096</span><span class="p">);</span>
+</pre></div>
+
+<h3 id="352-an-example-mach">3.5.2 An Example: Mach<a class="headerlink" href="#352-an-example-mach" title="Permanent link">&para;</a></h3>
+<p>Even system calls are made by messages. When a task is created, two special mailboxes</p>
+<ul>
+<li>kernel mailbox</li>
+<li>notify mailbox</li>
+</ul>
+<p>are also created.</p>
+<p>There are three syscalls needed:</p>
+<ul>
+<li>
+<p><code>msg_send()</code></p>
+<p>If the mailbox is full:</p>
+<ol>
+<li>Wait indefinitely until there is room in the mailbox</li>
+<li>Wait at most $n$ milliseconds</li>
+<li>Do not wait at all but rather return immediately</li>
+<li>Temporarily cache a message (server tasks)</li>
+</ol>
+</li>
+<li>
+<p><code>msg_receive()</code></p>
+</li>
+<li><code>msg_rpc()</code>: sends a message and waits for exactly one return message from the sender.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Remote</p>
+<p>The RPC (Remote Procedure Call) models a typical subroutine procedure call but can work between systems.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title"><code>port_allocate()</code></p>
+<p>Creates a new mailbox and allocates space for its queue of messages.</p>
+</div>
+<p>Mach guarantees that multiple messages from the same sender are queued in first-in, first-out (FIFO) order but does not guarantee an absolute ordering</p>
+<div class="admonition info">
+<p>One task can either own or receive from a mailbox</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Mailbox set</p>
+<p>A collection of mailboxes.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">port_status()</p>
+<p>e.g. # of messages in a mailbox.</p>
+</div>
+<h3 id="353-an-example-windows">3.5.3 An Example: Windows<a class="headerlink" href="#353-an-example-windows" title="Permanent link">&para;</a></h3>
+<p>Application programs can be considered clients of a subsystem server.</p>
+<div class="admonition note">
+<p class="admonition-title">Advanced Local Procedure Call (ALPC)</p>
+<p>It is used for communication between two processes <em>on the same machine</em>.</p>
+</div>
+<p>Windows uses two types of ports</p>
+<ul>
+<li>Connection ports</li>
+<li>Communication ports</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Callback</p>
+<p>Allows the client and server to accept requests when they would normally be expecting a reply.</p>
+</div>
+<p>When an ALPC channel is created, 1 of 3 message-passing techniques is chosen:</p>
+<ol>
+<li>Small messages: using the port's message queue.</li>
+<li>Larger messages: passed through a <strong>section object</strong> (a region of shared memory)</li>
+<li>Very large messages: calling API to read/write directly into the address space.</li>
+</ol>
+<p><img alt="normal" src="../../assets/os/3.19.png" /></p>
+<h2 id="36-communication-in-clientserver-systems">3.6 Communication in Client–Server Systems<a class="headerlink" href="#36-communication-in-clientserver-systems" title="Permanent link">&para;</a></h2>
+<h3 id="361-sockets">3.6.1 Sockets<a class="headerlink" href="#361-sockets" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Socket</p>
+<p>An endpoint for communication. (IP + port#)</p>
+</div>
+<p>A pair of processes communicating over a network employs <em>a pair</em> of sockets—one for each process.</p>
+<div class="admonition info">
+<p class="admonition-title">Socket behavior</p>
+<p>The server waits for incoming client requests by listening to a specified port. Once a request is received, the server accepts a connection from the client socket to complete the connection.</p>
+</div>
+<p>Well-known ports: (all ports below 1024 are considered well known)</p>
+<ul>
+<li>23: telnet</li>
+<li>21: FTP</li>
+<li>80: HTTP</li>
+</ul>
+<p><img alt="normal" src="../../assets/os/3.20.png" /></p>
+<p>Java provides:</p>
+<ul>
+<li>Connection-oriented (TCP) sockets: <code>Socket</code></li>
+<li>Connectionless (UDP) sockets: <code>DatagramSocket</code></li>
+<li><code>MulticastSocket</code>: a subclass of <code>DatagramSocket</code>. It allows data to be sent to multiple recipients.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Loopback</p>
+<p>IP address 127.0.0.1.</p>
+</div>
+<h3 id="362-remote-procedure-calls">3.6.2 Remote Procedure Calls<a class="headerlink" href="#362-remote-procedure-calls" title="Permanent link">&para;</a></h3>
+<p>The RPC was designed as a way to abstract the procedure-call mechanism for use between systems with network connections.</p>
+<p>Each message is addressed to an RPC daemon listening to a port on the remote system, and each contains an identifier specifying the function to execute and the parameters to pass to that function.</p>
+<div class="admonition info">
+<p>The semantics of RPCs allows a client to invoke a procedure on a remote host as it would invoke a procedure locally.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Stub</p>
+<p>The RPC system hides the details that allow communication to take place by providing a stub on the client side.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Parameter marshalling</p>
+<p>Packaging the parameters into a form that can be transmitted over a network.</p>
+</div>
+<p>Procedure of RPCs:</p>
+<ol>
+<li>The client invokes a RPC</li>
+<li>RPC system<ul>
+<li>calls the appropriate stub (client side)</li>
+<li>passes the stub the parameters to the RPC</li>
+</ul>
+</li>
+<li>Marshals parameter: packaging the parameters into a form that can be transmitted over a network</li>
+<li>The stub transmits a message to the server using message passing.</li>
+<li>A stub (server side) <ul>
+<li>receives this message</li>
+<li>invokes the procedure on the server</li>
+</ul>
+</li>
+<li>(optional) Return values using the same technique</li>
+</ol>
+<p>Issues for RPC:</p>
+<ul>
+<li>Data representation<ul>
+<li>External Data Representation (XDR)<ul>
+<li>Parameter marshalling</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Semantics of a call<ul>
+<li>at most once</li>
+<li>exactly once (ACK)</li>
+</ul>
+</li>
+<li>Binding of the client and server port<ul>
+<li>Matchmaker (a rendezvous mechanism)</li>
+</ul>
+</li>
+</ul>
+<p><img alt="normal" src="../../assets/os/3.23.png" /></p>
+<h3 id="363-pipes">3.6.3 Pipes<a class="headerlink" href="#363-pipes" title="Permanent link">&para;</a></h3>
+<p>In implementing a pipe, four issues:</p>
+<ol>
+<li>Does the pipe allow bidirectional communication, or is communication unidirectional?</li>
+<li>If two-way communication is allowed, is it half duplex (data can travel only one way at a time) or full duplex (data can travel in both directions at the same time)?</li>
+<li>Must a relationship (such as parent–child) exist between the communicating processes?</li>
+<li>Can the pipes communicate over a network, or must the communicating processes reside on the same machine?</li>
+</ol>
+<h4 id="3631-ordinary-pipes">3.6.3.1 Ordinary Pipes<a class="headerlink" href="#3631-ordinary-pipes" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span>    <span class="n">pipe</span><span class="p">(</span><span class="kt">int</span> <span class="n">fd</span><span class="p">[])</span>
+</pre></div>
+
+<p><img alt="normal" src="../../assets/os/3.24.png" /></p>
+<p>Ordinarya pipes on on Windows: <strong>anonymous pipes</strong> (similar to UNIX)</p>
+<h4 id="3632-named-pipes">3.6.3.2 Named Pipes<a class="headerlink" href="#3632-named-pipes" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th align="center">Ordinary Pipes</th>
+<th align="center">Named Pipes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">unidirectional</td>
+<td align="center">bidirectional</td>
+</tr>
+<tr>
+<td align="center">parent-child required</td>
+<td align="center">not required</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p>In UNIX, named pipes = FIFOs. A FIFO is created with the <code>mkfifo()</code>.</p>
+</div>
+<p>Pipes in practice:</p>
+<div class="highlight"><pre><span></span> <span class="c1"># In this scenario, the ls command serves as the producer, and its output is consumed by the more command.</span>
+ $ ls <span class="p">|</span> more
+</pre></div>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../Chap02/" title="Chapter 2 Operating-System Structures" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Chapter 2 Operating-System Structures
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../Chap04/" title="Chapter 4 Threads" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Chapter 4 Threads
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Built by <a href="http://github.com/walkccc">Jay Chen</a> &copy; 2017 - 2019
+          </div>
+        
+        Email: <a href="mailto:walkccray@gmail.com">walkccray@gmail.com</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/walkccc" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://walkccc.github.io/blog" class="md-footer-social__link fa fa-quote-left"></a>
+    
+      <a href="https://walkccc.github.io/CLRS" class="md-footer-social__link fa fa-book"></a>
+    
+      <a href="https://www.linkedin.com/in/jay-chen-57852313a" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.9e1f3b71.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="../../js/mathjax.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+    
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2237 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Computer Science Notes Operating System LeetCode Python Machine Learning">
+      
+      
+        <link rel="canonical" href="https://walkccc.github.io/CS/OS/Chap06/">
+      
+      
+        <meta name="author" content="Jay Chen">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.0.5">
+    
+    
+      
+        <title>Chapter 6 CPU Scheduling - Computer Science Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.451f80e5.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+      <link rel="stylesheet" href="../../css/style.css">
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M409.132,114.573c-19.608-33.596-46.205-60.194-79.798-79.8C295.736,15.166,259.057,5.365,219.271,5.365
+		c-39.781,0-76.472,9.804-110.063,29.408c-33.596,19.605-60.192,46.204-79.8,79.8C9.803,148.168,0,184.854,0,224.63
+		c0,47.78,13.94,90.745,41.827,128.906c27.884,38.164,63.906,64.572,108.063,79.227c5.14,0.954,8.945,0.283,11.419-1.996
+		c2.475-2.282,3.711-5.14,3.711-8.562c0-0.571-0.049-5.708-0.144-15.417c-0.098-9.709-0.144-18.179-0.144-25.406l-6.567,1.136
+		c-4.187,0.767-9.469,1.092-15.846,1c-6.374-0.089-12.991-0.757-19.842-1.999c-6.854-1.231-13.229-4.086-19.13-8.559
+		c-5.898-4.473-10.085-10.328-12.56-17.556l-2.855-6.57c-1.903-4.374-4.899-9.233-8.992-14.559
+		c-4.093-5.331-8.232-8.945-12.419-10.848l-1.999-1.431c-1.332-0.951-2.568-2.098-3.711-3.429c-1.142-1.331-1.997-2.663-2.568-3.997
+		c-0.572-1.335-0.098-2.43,1.427-3.289c1.525-0.859,4.281-1.276,8.28-1.276l5.708,0.853c3.807,0.763,8.516,3.042,14.133,6.851
+		c5.614,3.806,10.229,8.754,13.846,14.842c4.38,7.806,9.657,13.754,15.846,17.847c6.184,4.093,12.419,6.136,18.699,6.136
+		c6.28,0,11.704-0.476,16.274-1.423c4.565-0.952,8.848-2.383,12.847-4.285c1.713-12.758,6.377-22.559,13.988-29.41
+		c-10.848-1.14-20.601-2.857-29.264-5.14c-8.658-2.286-17.605-5.996-26.835-11.14c-9.235-5.137-16.896-11.516-22.985-19.126
+		c-6.09-7.614-11.088-17.61-14.987-29.979c-3.901-12.374-5.852-26.648-5.852-42.826c0-23.035,7.52-42.637,22.557-58.817
+		c-7.044-17.318-6.379-36.732,1.997-58.24c5.52-1.715,13.706-0.428,24.554,3.853c10.85,4.283,18.794,7.952,23.84,10.994
+		c5.046,3.041,9.089,5.618,12.135,7.708c17.705-4.947,35.976-7.421,54.818-7.421s37.117,2.474,54.823,7.421l10.849-6.849
+		c7.419-4.57,16.18-8.758,26.262-12.565c10.088-3.805,17.802-4.853,23.134-3.138c8.562,21.509,9.325,40.922,2.279,58.24
+		c15.036,16.18,22.559,35.787,22.559,58.817c0,16.178-1.958,30.497-5.853,42.966c-3.9,12.471-8.941,22.457-15.125,29.979
+		c-6.191,7.521-13.901,13.85-23.131,18.986c-9.232,5.14-18.182,8.85-26.84,11.136c-8.662,2.286-18.415,4.004-29.263,5.146
+		c9.894,8.562,14.842,22.077,14.842,40.539v60.237c0,3.422,1.19,6.279,3.572,8.562c2.379,2.279,6.136,2.95,11.276,1.995
+		c44.163-14.653,80.185-41.062,108.068-79.226c27.88-38.161,41.825-81.126,41.825-128.906
+		C438.536,184.851,428.728,148.168,409.132,114.573z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#chapter-6-cpu-scheduling" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://walkccc.github.io/CS" title="Computer Science Notes" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">important_devices</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Computer Science Notes
+              </span>
+              <span class="md-header-nav__topic">
+                Chapter 6 CPU Scheduling
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/walkccc/CS/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      walkccc/CS
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." title="Preface" class="md-tabs__link">
+        Preface
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../LeetCode/" title="LeetCode in Python" class="md-tabs__link">
+          LeetCode in Python
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../" title="Operating System" class="md-tabs__link md-tabs__link--active">
+          Operating System
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../ML/" title="Machine Learning" class="md-tabs__link">
+          Machine Learning
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://walkccc.github.io/CS" title="Computer Science Notes" class="md-nav__button md-logo">
+      
+        <i class="md-icon">important_devices</i>
+      
+    </a>
+    Computer Science Notes
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/walkccc/CS/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      walkccc/CS
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Preface" class="md-nav__link">
+      Preface
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      LeetCode in Python
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        LeetCode in Python
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../LeetCode/" title="Preface" class="md-nav__link">
+      Preface
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+    
+    <label class="md-nav__link" for="nav-2-2">
+      001-100
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        001-100
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../LeetCode/001-100/001-010/" title="001-010" class="md-nav__link">
+      001-010
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../LeetCode/001-100/011-020/" title="011-020" class="md-nav__link">
+      011-020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../LeetCode/001-100/021-030/" title="021-030" class="md-nav__link">
+      021-030
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../LeetCode/001-100/031-040/" title="031-040" class="md-nav__link">
+      031-040
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../LeetCode/001-100/041-050/" title="041-050" class="md-nav__link">
+      041-050
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Operating System
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Operating System
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Preface" class="md-nav__link">
+      Preface
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      PART ONE | OVERVIEW
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        PART ONE | OVERVIEW
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Chap01/" title="Chapter 1 Introduction" class="md-nav__link">
+      Chapter 1 Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Chap02/" title="Chapter 2 Operating-System Structures" class="md-nav__link">
+      Chapter 2 Operating-System Structures
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3" checked>
+    
+    <label class="md-nav__link" for="nav-3-3">
+      PART TWO | PROCESS MANAGEMENT
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
+        PART TWO | PROCESS MANAGEMENT
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Chap03/" title="Chapter 3 Processes" class="md-nav__link">
+      Chapter 3 Processes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Chap04/" title="Chapter 4 Threads" class="md-nav__link">
+      Chapter 4 Threads
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Chap05/" title="Chapter 5 Process Synchronization" class="md-nav__link">
+      Chapter 5 Process Synchronization
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Chapter 6 CPU Scheduling
+      </label>
+    
+    <a href="./" title="Chapter 6 CPU Scheduling" class="md-nav__link md-nav__link--active">
+      Chapter 6 CPU Scheduling
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#61-basic-concepts" title="6.1 Basic Concepts" class="md-nav__link">
+    6.1 Basic Concepts
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#611-cpuio-burst-cycle" title="6.1.1 CPU–I/O Burst Cycle" class="md-nav__link">
+    6.1.1 CPU–I/O Burst Cycle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#612-cpu-scheduler" title="6.1.2 CPU Scheduler" class="md-nav__link">
+    6.1.2 CPU Scheduler
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#613-preemptive-scheduling" title="6.1.3 Preemptive Scheduling" class="md-nav__link">
+    6.1.3 Preemptive Scheduling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#614-dispatcher" title="6.1.4 Dispatcher" class="md-nav__link">
+    6.1.4 Dispatcher
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#62-scheduling-criteria" title="6.2 Scheduling Criteria" class="md-nav__link">
+    6.2 Scheduling Criteria
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#63-scheduling-algorithms" title="6.3 Scheduling Algorithms" class="md-nav__link">
+    6.3 Scheduling Algorithms
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#63-1-first-come-first-served-scheduling" title="6.3-1 First-Come, First-Served Scheduling" class="md-nav__link">
+    6.3-1 First-Come, First-Served Scheduling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#632-shortest-job-first-scheduling" title="6.3.2 Shortest-Job-First Scheduling" class="md-nav__link">
+    6.3.2 Shortest-Job-First Scheduling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#633-priority-scheduling" title="6.3.3 Priority Scheduling" class="md-nav__link">
+    6.3.3 Priority Scheduling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#634-round-robin-scheduling" title="6.3.4 Round-Robin Scheduling" class="md-nav__link">
+    6.3.4 Round-Robin Scheduling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#635-multilevel-queue-scheduling" title="6.3.5 Multilevel Queue Scheduling" class="md-nav__link">
+    6.3.5 Multilevel Queue Scheduling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#636-multilevel-feedback-queue-scheduling" title="6.3.6 Multilevel Feedback Queue Scheduling" class="md-nav__link">
+    6.3.6 Multilevel Feedback Queue Scheduling
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#64-thread-scheduling" title="6.4 Thread Scheduling" class="md-nav__link">
+    6.4 Thread Scheduling
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#641-contention-scope" title="6.4.1 Contention Scope" class="md-nav__link">
+    6.4.1 Contention Scope
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#642-pthread-scheduling" title="6.4.2 Pthread Scheduling" class="md-nav__link">
+    6.4.2 Pthread Scheduling
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#65-multiple-processor-scheduling" title="6.5 Multiple-Processor Scheduling" class="md-nav__link">
+    6.5 Multiple-Processor Scheduling
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#651-approaches-to-multiple-processor-scheduling" title="6.5.1 Approaches to Multiple-Processor Scheduling" class="md-nav__link">
+    6.5.1 Approaches to Multiple-Processor Scheduling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#652-processor-affinity" title="6.5.2 Processor Affinity" class="md-nav__link">
+    6.5.2 Processor Affinity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#653-load-balancing" title="6.5.3 Load Balancing" class="md-nav__link">
+    6.5.3 Load Balancing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#654-multicore-processors" title="6.5.4 Multicore Processors" class="md-nav__link">
+    6.5.4 Multicore Processors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#66-real-time-cpu-scheduling" title="6.6 Real-Time CPU Scheduling" class="md-nav__link">
+    6.6 Real-Time CPU Scheduling
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#661-minimizing-latency" title="6.6.1 Minimizing Latency" class="md-nav__link">
+    6.6.1 Minimizing Latency
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#662-priority-based-scheduling" title="6.6.2 Priority-Based Scheduling" class="md-nav__link">
+    6.6.2 Priority-Based Scheduling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#663-rate-monotonic-scheduling" title="6.6.3 Rate-Monotonic Scheduling" class="md-nav__link">
+    6.6.3 Rate-Monotonic Scheduling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#664-earliest-deadline-first-scheduling" title="6.6.4 Earliest-Deadline-First Scheduling" class="md-nav__link">
+    6.6.4 Earliest-Deadline-First Scheduling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#665-proportional-share-scheduling" title="6.6.5 Proportional Share Scheduling" class="md-nav__link">
+    6.6.5 Proportional Share Scheduling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#666-posix-real-time-scheduling" title="6.6.6 POSIX Real-Time Scheduling" class="md-nav__link">
+    6.6.6 POSIX Real-Time Scheduling
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#67-operating-system-examples" title="6.7 Operating-System Examples" class="md-nav__link">
+    6.7 Operating-System Examples
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#671-example-linux-scheduling" title="6.7.1 Example: Linux Scheduling" class="md-nav__link">
+    6.7.1 Example: Linux Scheduling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#672-example-windows-scheduling" title="6.7.2 Example: Windows Scheduling" class="md-nav__link">
+    6.7.2 Example: Windows Scheduling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#673-example-solaris-scheduling" title="6.7.3 Example: Solaris Scheduling" class="md-nav__link">
+    6.7.3 Example: Solaris Scheduling
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#68-algorithm-evaluation" title="6.8 Algorithm Evaluation" class="md-nav__link">
+    6.8 Algorithm Evaluation
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#681-deterministic-modeling" title="6.8.1 Deterministic Modeling" class="md-nav__link">
+    6.8.1 Deterministic Modeling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#682-queueing-models" title="6.8.2 Queueing Models" class="md-nav__link">
+    6.8.2 Queueing Models
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#683-simulations" title="6.8.3 Simulations" class="md-nav__link">
+    6.8.3 Simulations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#684-implementation" title="6.8.4 Implementation" class="md-nav__link">
+    6.8.4 Implementation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Chap07/" title="Chapter 7 Deadlocks" class="md-nav__link">
+      Chapter 7 Deadlocks
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4">
+    
+    <label class="md-nav__link" for="nav-3-4">
+      PART THREE | MEMORY MANAGEMENT
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-4">
+        PART THREE | MEMORY MANAGEMENT
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Chap08/" title="Chapter 8 Main Memory" class="md-nav__link">
+      Chapter 8 Main Memory
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Chap09/" title="Chapter 9 Virtual Memory" class="md-nav__link">
+      Chapter 9 Virtual Memory
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5" type="checkbox" id="nav-3-5">
+    
+    <label class="md-nav__link" for="nav-3-5">
+      Previous Exams
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-5">
+        Previous Exams
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../midterm/" title="Midterm" class="md-nav__link">
+      Midterm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../final/" title="Final" class="md-nav__link">
+      Final
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Machine Learning
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Machine Learning
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ML/" title="Preface" class="md-nav__link">
+      Preface
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ML/1/" title="Lec 1 - Regression - Case Study" class="md-nav__link">
+      Lec 1 - Regression - Case Study
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ML/2/" title="Lec 2 - Where does the error com from?" class="md-nav__link">
+      Lec 2 - Where does the error com from?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ML/3/" title="Lec 3 - Gradient Descent" class="md-nav__link">
+      Lec 3 - Gradient Descent
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ML/4/" title="Lec 4 - Classification" class="md-nav__link">
+      Lec 4 - Classification
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ML/5/" title="Lec 5 - Logistic Regression" class="md-nav__link">
+      Lec 5 - Logistic Regression
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ML/6/" title="Lec 6 - Deep Learning" class="md-nav__link">
+      Lec 6 - Deep Learning
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ML/7/" title="Lec 7 - Backpropagation" class="md-nav__link">
+      Lec 7 - Backpropagation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ML/8/" title="Lec 8 - "Hello world" of Deep Learning" class="md-nav__link">
+      Lec 8 - "Hello world" of Deep Learning
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ML/9/" title="Lec 9 - Tips for Deep Learning" class="md-nav__link">
+      Lec 9 - Tips for Deep Learning
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#61-basic-concepts" title="6.1 Basic Concepts" class="md-nav__link">
+    6.1 Basic Concepts
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#611-cpuio-burst-cycle" title="6.1.1 CPU–I/O Burst Cycle" class="md-nav__link">
+    6.1.1 CPU–I/O Burst Cycle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#612-cpu-scheduler" title="6.1.2 CPU Scheduler" class="md-nav__link">
+    6.1.2 CPU Scheduler
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#613-preemptive-scheduling" title="6.1.3 Preemptive Scheduling" class="md-nav__link">
+    6.1.3 Preemptive Scheduling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#614-dispatcher" title="6.1.4 Dispatcher" class="md-nav__link">
+    6.1.4 Dispatcher
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#62-scheduling-criteria" title="6.2 Scheduling Criteria" class="md-nav__link">
+    6.2 Scheduling Criteria
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#63-scheduling-algorithms" title="6.3 Scheduling Algorithms" class="md-nav__link">
+    6.3 Scheduling Algorithms
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#63-1-first-come-first-served-scheduling" title="6.3-1 First-Come, First-Served Scheduling" class="md-nav__link">
+    6.3-1 First-Come, First-Served Scheduling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#632-shortest-job-first-scheduling" title="6.3.2 Shortest-Job-First Scheduling" class="md-nav__link">
+    6.3.2 Shortest-Job-First Scheduling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#633-priority-scheduling" title="6.3.3 Priority Scheduling" class="md-nav__link">
+    6.3.3 Priority Scheduling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#634-round-robin-scheduling" title="6.3.4 Round-Robin Scheduling" class="md-nav__link">
+    6.3.4 Round-Robin Scheduling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#635-multilevel-queue-scheduling" title="6.3.5 Multilevel Queue Scheduling" class="md-nav__link">
+    6.3.5 Multilevel Queue Scheduling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#636-multilevel-feedback-queue-scheduling" title="6.3.6 Multilevel Feedback Queue Scheduling" class="md-nav__link">
+    6.3.6 Multilevel Feedback Queue Scheduling
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#64-thread-scheduling" title="6.4 Thread Scheduling" class="md-nav__link">
+    6.4 Thread Scheduling
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#641-contention-scope" title="6.4.1 Contention Scope" class="md-nav__link">
+    6.4.1 Contention Scope
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#642-pthread-scheduling" title="6.4.2 Pthread Scheduling" class="md-nav__link">
+    6.4.2 Pthread Scheduling
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#65-multiple-processor-scheduling" title="6.5 Multiple-Processor Scheduling" class="md-nav__link">
+    6.5 Multiple-Processor Scheduling
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#651-approaches-to-multiple-processor-scheduling" title="6.5.1 Approaches to Multiple-Processor Scheduling" class="md-nav__link">
+    6.5.1 Approaches to Multiple-Processor Scheduling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#652-processor-affinity" title="6.5.2 Processor Affinity" class="md-nav__link">
+    6.5.2 Processor Affinity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#653-load-balancing" title="6.5.3 Load Balancing" class="md-nav__link">
+    6.5.3 Load Balancing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#654-multicore-processors" title="6.5.4 Multicore Processors" class="md-nav__link">
+    6.5.4 Multicore Processors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#66-real-time-cpu-scheduling" title="6.6 Real-Time CPU Scheduling" class="md-nav__link">
+    6.6 Real-Time CPU Scheduling
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#661-minimizing-latency" title="6.6.1 Minimizing Latency" class="md-nav__link">
+    6.6.1 Minimizing Latency
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#662-priority-based-scheduling" title="6.6.2 Priority-Based Scheduling" class="md-nav__link">
+    6.6.2 Priority-Based Scheduling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#663-rate-monotonic-scheduling" title="6.6.3 Rate-Monotonic Scheduling" class="md-nav__link">
+    6.6.3 Rate-Monotonic Scheduling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#664-earliest-deadline-first-scheduling" title="6.6.4 Earliest-Deadline-First Scheduling" class="md-nav__link">
+    6.6.4 Earliest-Deadline-First Scheduling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#665-proportional-share-scheduling" title="6.6.5 Proportional Share Scheduling" class="md-nav__link">
+    6.6.5 Proportional Share Scheduling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#666-posix-real-time-scheduling" title="6.6.6 POSIX Real-Time Scheduling" class="md-nav__link">
+    6.6.6 POSIX Real-Time Scheduling
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#67-operating-system-examples" title="6.7 Operating-System Examples" class="md-nav__link">
+    6.7 Operating-System Examples
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#671-example-linux-scheduling" title="6.7.1 Example: Linux Scheduling" class="md-nav__link">
+    6.7.1 Example: Linux Scheduling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#672-example-windows-scheduling" title="6.7.2 Example: Windows Scheduling" class="md-nav__link">
+    6.7.2 Example: Windows Scheduling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#673-example-solaris-scheduling" title="6.7.3 Example: Solaris Scheduling" class="md-nav__link">
+    6.7.3 Example: Solaris Scheduling
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#68-algorithm-evaluation" title="6.8 Algorithm Evaluation" class="md-nav__link">
+    6.8 Algorithm Evaluation
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#681-deterministic-modeling" title="6.8.1 Deterministic Modeling" class="md-nav__link">
+    6.8.1 Deterministic Modeling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#682-queueing-models" title="6.8.2 Queueing Models" class="md-nav__link">
+    6.8.2 Queueing Models
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#683-simulations" title="6.8.3 Simulations" class="md-nav__link">
+    6.8.3 Simulations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#684-implementation" title="6.8.4 Implementation" class="md-nav__link">
+    6.8.4 Implementation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/walkccc/CS/edit/master/docs/OS/Chap06.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="chapter-6-cpu-scheduling">Chapter 6 CPU Scheduling<a class="headerlink" href="#chapter-6-cpu-scheduling" title="Permanent link">&para;</a></h1>
+<h2 id="61-basic-concepts">6.1 Basic Concepts<a class="headerlink" href="#61-basic-concepts" title="Permanent link">&para;</a></h2>
+<p>The objective of multiprogramming is to have some process running at all times, to maximize CPU utilization.</p>
+<p>A process is executed until it must wait, typically for the completion of some I/O request.</p>
+<h3 id="611-cpuio-burst-cycle">6.1.1 CPU–I/O Burst Cycle<a class="headerlink" href="#611-cpuio-burst-cycle" title="Permanent link">&para;</a></h3>
+<p>Process execution = cycle of CPU + I/O wait.</p>
+<p><img alt="small" src="../../assets/os/6.1.png" /></p>
+<h3 id="612-cpu-scheduler">6.1.2 CPU Scheduler<a class="headerlink" href="#612-cpu-scheduler" title="Permanent link">&para;</a></h3>
+<p><strong>Short-term scheduler</strong> (CPU scheduler): select process in the ready queue.</p>
+<h3 id="613-preemptive-scheduling">6.1.3 Preemptive Scheduling<a class="headerlink" href="#613-preemptive-scheduling" title="Permanent link">&para;</a></h3>
+<p>CPU-scheduling decisions when a process:</p>
+<ol>
+<li>(nonpreemptive) Switches from the running state $\to$ the waiting state (e.g. I/O request, <code>wait()</code> for child)</li>
+<li>(preemptive) Switches from the running state $\to$ the ready state (e.g. interrupt)</li>
+<li>(preemptive) Switches from the waiting state $\to$ the ready state (e.g. completion of I/O)</li>
+<li>(nonpreemptive) Terminates</li>
+</ol>
+<h3 id="614-dispatcher">6.1.4 Dispatcher<a class="headerlink" href="#614-dispatcher" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Dispatcher</p>
+<p>The module that gives control of the CPU to <em>the process selected by the short-term scheduler</em>. It should be fast.</p>
+</div>
+<ul>
+<li>Switching context</li>
+<li>Switching to user mode</li>
+<li>Jumping to the proper location in the user program to restart that program</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Dispatch latency</p>
+<p>The time it takes for the dispatcher to stop one process and start another running.</p>
+<p>Stop a process $\leftrightarrow$ Start a process</p>
+</div>
+<h2 id="62-scheduling-criteria">6.2 Scheduling Criteria<a class="headerlink" href="#62-scheduling-criteria" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>CPU utilization</strong></li>
+<li><strong>Throughput</strong></li>
+<li><strong>Turnaround time</strong>: $\text{Completion Time} - \text{Start Time}$.</li>
+<li><strong>Waiting time</strong>: The sum of the periods spent waiting in the ready queue.</li>
+<li><strong>Response time</strong></li>
+</ul>
+<h2 id="63-scheduling-algorithms">6.3 Scheduling Algorithms<a class="headerlink" href="#63-scheduling-algorithms" title="Permanent link">&para;</a></h2>
+<h3 id="63-1-first-come-first-served-scheduling">6.3-1 First-Come, First-Served Scheduling<a class="headerlink" href="#63-1-first-come-first-served-scheduling" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The process which requests the CPU first is allocated the CPU.</li>
+<li>
+<p>Properties:</p>
+<ul>
+<li>Nonpreemptive FCFS.</li>
+<li>CPU might be hold for an extended period.</li>
+</ul>
+</li>
+<li>
+<p>Critical problem: Convoy effect!</p>
+</li>
+<li>
+<p>Example:</p>
+<ul>
+<li>
+<p>Given processes:</p>
+<table>
+<thead>
+<tr>
+<th align="center">Process</th>
+<th align="center">Busrt Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">$P_1$</td>
+<td align="center">24</td>
+</tr>
+<tr>
+<td align="center">$P_2$</td>
+<td align="center">3</td>
+</tr>
+<tr>
+<td align="center">$P_3$</td>
+<td align="center">3</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Consider order: $P_1 \to P_2 \to P_3$:</p>
+<ul>
+<li>
+<p>Gantt chart:</p>
+<p><img alt="normal" src="../../assets/os/FCFS.png" /></p>
+</li>
+<li>
+<p>Average waiting time = (0 + 24 + 27) / 3 = 17 ms.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Consider order: $P_2 \to P_3 \to P_1$:</p>
+<ul>
+<li>
+<p>Gantt chart:</p>
+<p><img alt="normal" src="../../assets/os/FCFS-2.png" /></p>
+</li>
+<li>
+<p>Average waiting time = (0 + 3 + 6) / 3 = 9 ms.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Convoy effect<p>All the other processes wait for the one big process to get off the CPU.</p>
+</p>
+</div>
+<h3 id="632-shortest-job-first-scheduling">6.3.2 Shortest-Job-First Scheduling<a class="headerlink" href="#632-shortest-job-first-scheduling" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Properties:</p>
+<ul>
+<li>Nonpreemptive SJF</li>
+<li><strong><em>Shortest-next-CPU-burst first</em></strong></li>
+</ul>
+</li>
+<li>
+<p>Problem: Measure the future!</p>
+</li>
+<li>
+<p>Example 1:</p>
+<ul>
+<li>
+<p>Given processes:</p>
+<table>
+<thead>
+<tr>
+<th align="center">Process</th>
+<th align="center">Burst Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">$P_1$</td>
+<td align="center">6</td>
+</tr>
+<tr>
+<td align="center">$P_2$</td>
+<td align="center">8</td>
+</tr>
+<tr>
+<td align="center">$P_3$</td>
+<td align="center">7</td>
+</tr>
+<tr>
+<td align="center">$P_4$</td>
+<td align="center">3</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>By SJF scheduling:</p>
+<ul>
+<li>
+<p>Gantt chart:</p>
+<p><img alt="normal" src="../../assets/os/SJF.png" /></p>
+</li>
+<li>
+<p>Average waiting time = (3 + 16 + 9 + 0) / 4 = 7 ms.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="admonition info">
+<p>SJF is used frequently in long-term (job) scheduling, but it cannot be implemented at the level of short-term CPU scheduling.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Exponential average</p>
+<p>Let $t_n$ be time of $n$th CPU burst, and $\tau_{n + 1}$ be the next CPU burst.</p>
+<p>\begin{align}
+\tau_{n + 1} &amp; = \alpha t_n + (1 - \alpha)\tau_n, \quad 0 \le \alpha \le 1. \\
+             &amp; = \alpha t_n + (1 - \alpha)\alpha t_{n - 1} + \cdots + (1 - \alpha)^j \alpha t_{n - j} + \cdots + (1 - \alpha)^{n + 1}\tau_0.
+\end{align}</p>
+</div>
+<ul>
+<li>
+<p>Example 2:</p>
+<ul>
+<li>
+<p>Given processes:</p>
+<table>
+<thead>
+<tr>
+<th align="center">Process</th>
+<th align="center">Arrival Time</th>
+<th align="center">Burst Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">$P_1$</td>
+<td align="center">0</td>
+<td align="center">8</td>
+</tr>
+<tr>
+<td align="center">$P_2$</td>
+<td align="center">1</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="center">$P_3$</td>
+<td align="center">2</td>
+<td align="center">9</td>
+</tr>
+<tr>
+<td align="center">$P_4$</td>
+<td align="center">3</td>
+<td align="center">5</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<p>By preemptive SJF scheduling:</p>
+<ul>
+<li>
+<p>Gantt chart:</p>
+<p><img alt="normal" src="../../assets/os/SJF-2.png" /></p>
+</li>
+<li>
+<p>Average waiting time = [(10 - 1) + (1 - 1) + (17 - 2) + (5 - 3)] / 4 = 26 / 4 = 6.5 ms.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="633-priority-scheduling">6.3.3 Priority Scheduling<a class="headerlink" href="#633-priority-scheduling" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Properties: </p>
+<ul>
+<li>CPU is assigned to the process with the highest priority — A framework for various scheduling algorithms:<ul>
+<li>FCFS: Equal-priority with tie-breaking</li>
+<li>SJF: Priority = 1 / next CPU burst length</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Example:</p>
+<ul>
+<li>
+<p>Given processes:</p>
+<table>
+<thead>
+<tr>
+<th align="center">Process</th>
+<th align="center">Burst Time</th>
+<th align="center">Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">$P_1$</td>
+<td align="center">10</td>
+<td align="center">3</td>
+</tr>
+<tr>
+<td align="center">$P_2$</td>
+<td align="center">1</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">$P_3$</td>
+<td align="center">2</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="center">$P_4$</td>
+<td align="center">1</td>
+<td align="center">5</td>
+</tr>
+<tr>
+<td align="center">$P_5$</td>
+<td align="center">5</td>
+<td align="center">2</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>By preemptive SJF scheduling:</p>
+<ul>
+<li>
+<p>Gantt chart:</p>
+<p><img alt="normal" src="../../assets/os/priority.png" /></p>
+</li>
+<li>
+<p>Average waiting time = (6 + 0 + 16 + 18 + 1) / 5 = 8.2 ms.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Problem with priority scheduling</p>
+<ul>
+<li>indefinite blocking: low-priority processes could starve to death!</li>
+<li>starvation</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Aging</p>
+<p>Aging gradually increase the priority of processes that wait in the system for a long time.</p>
+</div>
+<h3 id="634-round-robin-scheduling">6.3.4 Round-Robin Scheduling<a class="headerlink" href="#634-round-robin-scheduling" title="Permanent link">&para;</a></h3>
+<ul>
+<li>RR is similar to FCFS except that preemption is added to switch between processes.</li>
+<li>
+<p>Goal: fairness, time sharing.</p>
+</li>
+<li>
+<p>Example:</p>
+<ul>
+<li>
+<p>Given processes with quantum = 4ms:</p>
+<table>
+<thead>
+<tr>
+<th align="center">Process</th>
+<th align="center">Burst Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">$P_1$</td>
+<td align="center">24</td>
+</tr>
+<tr>
+<td align="center">$P_2$</td>
+<td align="center">3</td>
+</tr>
+<tr>
+<td align="center">$P_3$</td>
+<td align="center">3</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Gantt chart:</p>
+<p><img alt="normal" src="../../assets/os/RR.png" /></p>
+</li>
+<li>
+<p>Average waiting time = [(10 - 4) + 4 + 7] / 3 = 5.66 ms.</p>
+</li>
+</ul>
+</li>
+</ul>
+<div class="admonition info">
+<p>Although the time quantum should be large compared with the context switch time, it should not be too large.</p>
+</div>
+<h3 id="635-multilevel-queue-scheduling">6.3.5 Multilevel Queue Scheduling<a class="headerlink" href="#635-multilevel-queue-scheduling" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Intra-queue scheduling</p>
+<ul>
+<li>Independent choice of scheduling algorithms</li>
+</ul>
+</li>
+<li>
+<p>Inter-queue scheduling</p>
+<ul>
+<li>Fixed-priority preemptive scheduling<ul>
+<li>e.g., foreground queues always have absolute priority over the background queues.</li>
+</ul>
+</li>
+<li>Time slice between queues<ul>
+<li>e.g., 80% CPU is given to foreground processes, and 20% CPU is given to background processes.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Each queue has absolute priority over lower-priority queues.</p>
+<p>If an interactive editing process entered the ready queue while a batch process was running, the batch process would be preempted.</p>
+<p><img alt="normal" src="../../assets/os/6.6.png" /></p>
+<h3 id="636-multilevel-feedback-queue-scheduling">6.3.6 Multilevel Feedback Queue Scheduling<a class="headerlink" href="#636-multilevel-feedback-queue-scheduling" title="Permanent link">&para;</a></h3>
+<div class="admonition info">
+<p>Multilevel feedback queue allows a process to move between queues.</p>
+</div>
+<p>A multilevel feedback queue is defined by:</p>
+<ul>
+<li>#queues</li>
+<li>The scheduling algorithm for each queue</li>
+<li>
+<p>The method used to determine when to </p>
+<ul>
+<li>upgrade a process to a higher priority queue</li>
+<li>demote a process to a lower priority queue</li>
+</ul>
+</li>
+<li>
+<p>The method used to determine which queue a process will enter when that process needs service</p>
+</li>
+</ul>
+<h2 id="64-thread-scheduling">6.4 Thread Scheduling<a class="headerlink" href="#64-thread-scheduling" title="Permanent link">&para;</a></h2>
+<h3 id="641-contention-scope">6.4.1 Contention Scope<a class="headerlink" href="#641-contention-scope" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Process Contention Scope (PCS)</p>
+<p>On systems implementing the <a href="./Chap04/#431-many-to-one-model">many-to-one</a> and <a href="./Chap04/#433-many-to-many-model">many-to-many</a> models, the thread library schedules user-level threads to run on an available LWP, since competition for the CPU takes place among threads belonging to the same process.</p>
+<p>It is important to note that PCS will typically preempt the thread currently running in favor of a higher-priority thread</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">System Contention Scope (SCS)</p>
+<p>Competition for the CPU with SCS scheduling takes place among all threads in the system. Systems using the <a href="./Chap04/#432-one-to-one-model">one-to-one</a> model.</p>
+</div>
+<h3 id="642-pthread-scheduling">6.4.2 Pthread Scheduling<a class="headerlink" href="#642-pthread-scheduling" title="Permanent link">&para;</a></h3>
+<ul>
+<li>PCS: <code>PTHREAD_SCOPE_PROCESS</code></li>
+<li>SCS: <code>PTHREAD_SCOPE_SYSTEM</code></li>
+</ul>
+<p>2 methods:</p>
+<ul>
+<li><code>pthread_attr_setscope(pthread attr_t *attr, int scope)</code></li>
+<li><code>pthread_attr_getscope(pthread attr_t *attr, int *scope)</code></li>
+</ul>
+<h2 id="65-multiple-processor-scheduling">6.5 Multiple-Processor Scheduling<a class="headerlink" href="#65-multiple-processor-scheduling" title="Permanent link">&para;</a></h2>
+<h3 id="651-approaches-to-multiple-processor-scheduling">6.5.1 Approaches to Multiple-Processor Scheduling<a class="headerlink" href="#651-approaches-to-multiple-processor-scheduling" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Asymmetric multiprocessing</strong>: only <em>the master server</em> process accesses the system data structures, reducing the need for data sharing.</li>
+<li><strong>Symmetric multiprocessing (SMP)</strong>: each processor is self-scheduling.</li>
+</ul>
+<h3 id="652-processor-affinity">6.5.2 Processor Affinity<a class="headerlink" href="#652-processor-affinity" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Processor Affinity</p>
+<p>A process has an affinity for the processor on which it is currently running.</p>
+</div>
+<ul>
+<li><strong>Soft affinity</strong></li>
+<li><strong>Hard affinity</strong> (e.g. Linux: <code>sched_setaffinity()</code>)</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Non-Uniform Memory Access (NUMA)</p>
+<p>A CPU has faster access to some parts of main memory than to other parts.</p>
+</div>
+<p><img alt="small" src="../../assets/os/6.9.png" /></p>
+<h3 id="653-load-balancing">6.5.3 Load Balancing<a class="headerlink" href="#653-load-balancing" title="Permanent link">&para;</a></h3>
+<p>On systems with a common run queue, load balancing is often unnecessary, because once a processor becomes idle, it immediately extracts a runnable process from the common run queue.</p>
+<ul>
+<li><strong>Push migration</strong>: pushing processes from overloaded to less-busy processors.</li>
+<li><strong>Pull migration</strong>: pulling a waiting task from a busy processor.</li>
+</ul>
+<h3 id="654-multicore-processors">6.5.4 Multicore Processors<a class="headerlink" href="#654-multicore-processors" title="Permanent link">&para;</a></h3>
+<p>SMP systems that use multicore processors are faster and consume less power than systems in which each processor has its own physical chip.</p>
+<p>There are two ways to multithread a processing core:</p>
+<ul>
+<li><strong>Coarse-grained</strong>: a thread executes on a processor until a long-latency event such as a memory stall occurs.</li>
+<li><strong>Fine-grained (interleaved)</strong>: switches between threads at a much finer level of granularity</li>
+</ul>
+<h2 id="66-real-time-cpu-scheduling">6.6 Real-Time CPU Scheduling<a class="headerlink" href="#66-real-time-cpu-scheduling" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Soft real-time systems</strong></li>
+<li><strong>Hard real-time systems</strong></li>
+</ul>
+<h3 id="661-minimizing-latency">6.6.1 Minimizing Latency<a class="headerlink" href="#661-minimizing-latency" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Event latency</p>
+<p>The amount of time that elapses from when an event occurs to when it is serviced.</p>
+</div>
+<p>There are 2 types:</p>
+<ol>
+<li>Interrupt latency</li>
+<li>Dispatch latency</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Interrupt latency</p>
+<p>The period of time from the arrival of an interrupt at the CPU to the start of the interrupt service routine (ISR) that services the interrupt.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Dispatch latency</p>
+<p>The amount of time required for the scheduling dispatcher to stop one process and start another.</p>
+</div>
+<h3 id="662-priority-based-scheduling">6.6.2 Priority-Based Scheduling<a class="headerlink" href="#662-priority-based-scheduling" title="Permanent link">&para;</a></h3>
+<p>The processes are considered <strong>periodic</strong>. That is, they require the CPU at constant intervals (periods). ($t$: fixed processing time, $d$: deadline, and $p$: period.)</p>
+<p>$$0 \le t \le d \le p.$$</p>
+<p>$$rate = 1 / p.$$</p>
+<p><strong>Admission-control</strong>:</p>
+<ol>
+<li>Admits the process.</li>
+<li>Rejects the request.</li>
+</ol>
+<h3 id="663-rate-monotonic-scheduling">6.6.3 Rate-Monotonic Scheduling<a class="headerlink" href="#663-rate-monotonic-scheduling" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Example 1:</p>
+<ul>
+<li>
+<p>Given processes: (the deadline for each process requires that it complete its CPU burst by the start of its next period.)</p>
+<table>
+<thead>
+<tr>
+<th align="center">Process</th>
+<th align="center">Period</th>
+<th align="center">ProcTime</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">$P_1$</td>
+<td align="center">$p_1 = 50$</td>
+<td align="center">$t_1 = 20$</td>
+</tr>
+<tr>
+<td align="center">$P_2$</td>
+<td align="center">$p_2 = 100$</td>
+<td align="center">$t_2 = 35$</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="normal" src="../../assets/os/6.17.png" /></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Example 2:</p>
+<ul>
+<li>
+<p>Given processes:</p>
+<table>
+<thead>
+<tr>
+<th align="center">Process</th>
+<th align="center">Period</th>
+<th align="center">ProcTime</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">$P_1$</td>
+<td align="center">$p_1 = 50$</td>
+<td align="center">$t_1 = 25$</td>
+</tr>
+<tr>
+<td align="center">$P_2$</td>
+<td align="center">$p_2 = 80$</td>
+<td align="center">$t_2 = 35$</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="normal" src="../../assets/os/6.18.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="664-earliest-deadline-first-scheduling">6.6.4 Earliest-Deadline-First Scheduling<a class="headerlink" href="#664-earliest-deadline-first-scheduling" title="Permanent link">&para;</a></h3>
+<p><img alt="normal" src="../../assets/os/6.19.png" /></p>
+<h3 id="665-proportional-share-scheduling">6.6.5 Proportional Share Scheduling<a class="headerlink" href="#665-proportional-share-scheduling" title="Permanent link">&para;</a></h3>
+<p>Proportional share schedulers operate by allocating $T$ shares among all applications. An application can receive $N$ shares of time.</p>
+<h3 id="666-posix-real-time-scheduling">6.6.6 POSIX Real-Time Scheduling<a class="headerlink" href="#666-posix-real-time-scheduling" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>POSIX.1b — Extensions for real-time computing</p>
+<ul>
+<li><code>SCHED_FIFO</code></li>
+<li><code>SCHED_RR</code></li>
+<li><code>SCHED_OTHER</code></li>
+</ul>
+</li>
+<li>
+<p>API</p>
+<ul>
+<li><code>pthread_attr_getsched_policy(pthread_attr_t *attr, int *policy)</code></li>
+<li><code>pthread_attr_setsched_policy(pthread_attr_t *attr, int *policy)</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="67-operating-system-examples">6.7 Operating-System Examples<a class="headerlink" href="#67-operating-system-examples" title="Permanent link">&para;</a></h2>
+<h3 id="671-example-linux-scheduling">6.7.1 Example: Linux Scheduling<a class="headerlink" href="#671-example-linux-scheduling" title="Permanent link">&para;</a></h3>
+<h3 id="672-example-windows-scheduling">6.7.2 Example: Windows Scheduling<a class="headerlink" href="#672-example-windows-scheduling" title="Permanent link">&para;</a></h3>
+<h3 id="673-example-solaris-scheduling">6.7.3 Example: Solaris Scheduling<a class="headerlink" href="#673-example-solaris-scheduling" title="Permanent link">&para;</a></h3>
+<h2 id="68-algorithm-evaluation">6.8 Algorithm Evaluation<a class="headerlink" href="#68-algorithm-evaluation" title="Permanent link">&para;</a></h2>
+<h3 id="681-deterministic-modeling">6.8.1 Deterministic Modeling<a class="headerlink" href="#681-deterministic-modeling" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Deterministic modeling</p>
+<p>It is one type of analytic evaluation. This method takes a particular predetermined workload and defines the performance of each algorithm for that workload.</p>
+</div>
+<h3 id="682-queueing-models">6.8.2 Queueing Models<a class="headerlink" href="#682-queueing-models" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Little's formula ($n$: # of processes in the queue, $\lambda$: arrival rate, $W$: average waiting time in the queue.)</li>
+</ul>
+<p>$$n = \lambda \times W.$$</p>
+<h3 id="683-simulations">6.8.3 Simulations<a class="headerlink" href="#683-simulations" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Properties:</p>
+<ul>
+<li>Accurate but expensive</li>
+</ul>
+</li>
+<li>
+<p>Procedures:</p>
+<ul>
+<li>Program a model of the computer system</li>
+<li>Drive the simulation with various data sets</li>
+</ul>
+</li>
+</ul>
+<h3 id="684-implementation">6.8.4 Implementation<a class="headerlink" href="#684-implementation" title="Permanent link">&para;</a></h3>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../Chap05/" title="Chapter 5 Process Synchronization" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Chapter 5 Process Synchronization
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../Chap07/" title="Chapter 7 Deadlocks" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Chapter 7 Deadlocks
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Built by <a href="http://github.com/walkccc">Jay Chen</a> &copy; 2017 - 2019
+          </div>
+        
+        Email: <a href="mailto:walkccray@gmail.com">walkccray@gmail.com</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/walkccc" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://walkccc.github.io/blog" class="md-footer-social__link fa fa-quote-left"></a>
+    
+      <a href="https://walkccc.github.io/CLRS" class="md-footer-social__link fa fa-book"></a>
+    
+      <a href="https://walkccc.github.io/webapps" class="md-footer-social__link fa fa-gamepad"></a>
+    
+      <a href="https://www.linkedin.com/in/jay-chen-57852313a" class="md-footer-social__link fa fa-linkedin"></a>
+    
+      <a href="https://www.instagram.com/walkccc" class="md-footer-social__link fa fa-instagram"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.583bbe55.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="../../js/mathjax.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+    
+      
+    
+  </body>
+</html>

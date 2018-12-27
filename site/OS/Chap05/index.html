@@ -1,0 +1,2435 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Computer Science Notes Operating System LeetCode Python Machine Learning">
+      
+      
+        <link rel="canonical" href="https://walkccc.github.io/CS/OS/Chap05/">
+      
+      
+        <meta name="author" content="Jay Chen">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.1.0">
+    
+    
+      
+        <title>Chapter 5 Process Synchronization - Computer Science Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.11e41852.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.20ef595d.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../css/style.css">
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M409.132,114.573c-19.608-33.596-46.205-60.194-79.798-79.8C295.736,15.166,259.057,5.365,219.271,5.365
+		c-39.781,0-76.472,9.804-110.063,29.408c-33.596,19.605-60.192,46.204-79.8,79.8C9.803,148.168,0,184.854,0,224.63
+		c0,47.78,13.94,90.745,41.827,128.906c27.884,38.164,63.906,64.572,108.063,79.227c5.14,0.954,8.945,0.283,11.419-1.996
+		c2.475-2.282,3.711-5.14,3.711-8.562c0-0.571-0.049-5.708-0.144-15.417c-0.098-9.709-0.144-18.179-0.144-25.406l-6.567,1.136
+		c-4.187,0.767-9.469,1.092-15.846,1c-6.374-0.089-12.991-0.757-19.842-1.999c-6.854-1.231-13.229-4.086-19.13-8.559
+		c-5.898-4.473-10.085-10.328-12.56-17.556l-2.855-6.57c-1.903-4.374-4.899-9.233-8.992-14.559
+		c-4.093-5.331-8.232-8.945-12.419-10.848l-1.999-1.431c-1.332-0.951-2.568-2.098-3.711-3.429c-1.142-1.331-1.997-2.663-2.568-3.997
+		c-0.572-1.335-0.098-2.43,1.427-3.289c1.525-0.859,4.281-1.276,8.28-1.276l5.708,0.853c3.807,0.763,8.516,3.042,14.133,6.851
+		c5.614,3.806,10.229,8.754,13.846,14.842c4.38,7.806,9.657,13.754,15.846,17.847c6.184,4.093,12.419,6.136,18.699,6.136
+		c6.28,0,11.704-0.476,16.274-1.423c4.565-0.952,8.848-2.383,12.847-4.285c1.713-12.758,6.377-22.559,13.988-29.41
+		c-10.848-1.14-20.601-2.857-29.264-5.14c-8.658-2.286-17.605-5.996-26.835-11.14c-9.235-5.137-16.896-11.516-22.985-19.126
+		c-6.09-7.614-11.088-17.61-14.987-29.979c-3.901-12.374-5.852-26.648-5.852-42.826c0-23.035,7.52-42.637,22.557-58.817
+		c-7.044-17.318-6.379-36.732,1.997-58.24c5.52-1.715,13.706-0.428,24.554,3.853c10.85,4.283,18.794,7.952,23.84,10.994
+		c5.046,3.041,9.089,5.618,12.135,7.708c17.705-4.947,35.976-7.421,54.818-7.421s37.117,2.474,54.823,7.421l10.849-6.849
+		c7.419-4.57,16.18-8.758,26.262-12.565c10.088-3.805,17.802-4.853,23.134-3.138c8.562,21.509,9.325,40.922,2.279,58.24
+		c15.036,16.18,22.559,35.787,22.559,58.817c0,16.178-1.958,30.497-5.853,42.966c-3.9,12.471-8.941,22.457-15.125,29.979
+		c-6.191,7.521-13.901,13.85-23.131,18.986c-9.232,5.14-18.182,8.85-26.84,11.136c-8.662,2.286-18.415,4.004-29.263,5.146
+		c9.894,8.562,14.842,22.077,14.842,40.539v60.237c0,3.422,1.19,6.279,3.572,8.562c2.379,2.279,6.136,2.95,11.276,1.995
+		c44.163-14.653,80.185-41.062,108.068-79.226c27.88-38.161,41.825-81.126,41.825-128.906
+		C438.536,184.851,428.728,148.168,409.132,114.573z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#chapter-5-process-synchronization" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://walkccc.github.io/CS" title="Computer Science Notes" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">important_devices</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Computer Science Notes
+              </span>
+              <span class="md-header-nav__topic">
+                Chapter 5 Process Synchronization
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/walkccc/CS/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      walkccc/CS
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." title="Preface" class="md-tabs__link">
+        Preface
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../LeetCode/" title="LeetCode in Python" class="md-tabs__link">
+          LeetCode in Python
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../" title="Operating System" class="md-tabs__link md-tabs__link--active">
+          Operating System
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../ML/" title="Machine Learning" class="md-tabs__link">
+          Machine Learning
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://walkccc.github.io/CS" title="Computer Science Notes" class="md-nav__button md-logo">
+      
+        <i class="md-icon">important_devices</i>
+      
+    </a>
+    Computer Science Notes
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/walkccc/CS/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      walkccc/CS
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Preface" class="md-nav__link">
+      Preface
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      LeetCode in Python
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        LeetCode in Python
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../LeetCode/" title="Preface" class="md-nav__link">
+      Preface
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+    
+    <label class="md-nav__link" for="nav-2-2">
+      001-100
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        001-100
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../LeetCode/001-100/001-010/" title="001-010" class="md-nav__link">
+      001-010
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../LeetCode/001-100/011-020/" title="011-020" class="md-nav__link">
+      011-020
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../LeetCode/001-100/021-030/" title="021-030" class="md-nav__link">
+      021-030
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../LeetCode/001-100/031-040/" title="031-040" class="md-nav__link">
+      031-040
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../LeetCode/001-100/041-050/" title="041-050" class="md-nav__link">
+      041-050
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Operating System
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Operating System
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Preface" class="md-nav__link">
+      Preface
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      PART ONE | OVERVIEW
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        PART ONE | OVERVIEW
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Chap01/" title="Chapter 1 Introduction" class="md-nav__link">
+      Chapter 1 Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Chap02/" title="Chapter 2 Operating-System Structures" class="md-nav__link">
+      Chapter 2 Operating-System Structures
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3" checked>
+    
+    <label class="md-nav__link" for="nav-3-3">
+      PART TWO | PROCESS MANAGEMENT
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
+        PART TWO | PROCESS MANAGEMENT
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Chap03/" title="Chapter 3 Processes" class="md-nav__link">
+      Chapter 3 Processes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Chap04/" title="Chapter 4 Threads" class="md-nav__link">
+      Chapter 4 Threads
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Chapter 5 Process Synchronization
+      </label>
+    
+    <a href="./" title="Chapter 5 Process Synchronization" class="md-nav__link md-nav__link--active">
+      Chapter 5 Process Synchronization
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#51-background" title="5.1 Background" class="md-nav__link">
+    5.1 Background
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#52-the-critical-section-problem" title="5.2 The Critical-Section Problem" class="md-nav__link">
+    5.2 The Critical-Section Problem
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#53-petersons-solution" title="5.3 Peterson's Solution" class="md-nav__link">
+    5.3 Peterson's Solution
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bakery-algorithm" title="Bakery Algorithm" class="md-nav__link">
+    Bakery Algorithm
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#54-synchronization-hardware" title="5.4 Synchronization Hardware" class="md-nav__link">
+    5.4 Synchronization Hardware
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mutex-locks" title="Mutex Locks" class="md-nav__link">
+    Mutex Locks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#56-semaphores" title="5.6 Semaphores" class="md-nav__link">
+    5.6 Semaphores
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#561-semaphore-usage" title="5.6.1 Semaphore Usage" class="md-nav__link">
+    5.6.1 Semaphore Usage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#562-semaphore-implementation" title="5.6.2 Semaphore Implementation" class="md-nav__link">
+    5.6.2 Semaphore Implementation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#563-deadlocks-and-starvation" title="5.6.3 Deadlocks and Starvation" class="md-nav__link">
+    5.6.3 Deadlocks and Starvation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#564-priority-inversion" title="5.6.4 Priority Inversion" class="md-nav__link">
+    5.6.4 Priority Inversion
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#binary-semaphore" title="Binary Semaphore" class="md-nav__link">
+    Binary Semaphore
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#57-classic-problems-of-synchronization" title="5.7 Classic Problems of Synchronization" class="md-nav__link">
+    5.7 Classic Problems of Synchronization
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#571-the-bounded-buffer-problem" title="5.7.1 The Bounded-Buffer Problem" class="md-nav__link">
+    5.7.1 The Bounded-Buffer Problem
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#572-the-readerswriters-problem" title="5.7.2 The Readers–Writers Problem" class="md-nav__link">
+    5.7.2 The Readers–Writers Problem
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#573-the-dining-philosophers-problem" title="5.7.3 The Dining-Philosophers Problem" class="md-nav__link">
+    5.7.3 The Dining-Philosophers Problem
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#critical-regions" title="Critical Regions" class="md-nav__link">
+    Critical Regions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#58-monitors" title="5.8 Monitors" class="md-nav__link">
+    5.8 Monitors
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#581-monitor-usage" title="5.8.1 Monitor Usage" class="md-nav__link">
+    5.8.1 Monitor Usage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#582-dining-philosophers-solution-using-monitors" title="5.8.2 Dining-Philosophers Solution Using Monitors" class="md-nav__link">
+    5.8.2 Dining-Philosophers Solution Using Monitors
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#583-implementing-a-monitor-using-semaphores" title="5.8.3 Implementing a Monitor Using Semaphores" class="md-nav__link">
+    5.8.3 Implementing a Monitor Using Semaphores
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#584-resuming-processes-within-a-monitor" title="5.8.4 Resuming Processes within a Monitor" class="md-nav__link">
+    5.8.4 Resuming Processes within a Monitor
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#59-synchronization-examples" title="5.9 Synchronization Examples" class="md-nav__link">
+    5.9 Synchronization Examples
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#591-synchronization-in-windows" title="5.9.1 Synchronization in Windows" class="md-nav__link">
+    5.9.1 Synchronization in Windows
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#592-synchronization-in-linux" title="5.9.2 Synchronization in Linux" class="md-nav__link">
+    5.9.2 Synchronization in Linux
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#593-synchronization-in-solaris" title="5.9.3 Synchronization in Solaris" class="md-nav__link">
+    5.9.3 Synchronization in Solaris
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#594-pthreads-synchronization" title="5.9.4 Pthreads Synchronization" class="md-nav__link">
+    5.9.4 Pthreads Synchronization
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#510-alternative-approaches" title="5.10 Alternative Approaches" class="md-nav__link">
+    5.10 Alternative Approaches
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#5101-transactional-memory" title="5.10.1 Transactional Memory" class="md-nav__link">
+    5.10.1 Transactional Memory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5102-openmp" title="5.10.2 OpenMP" class="md-nav__link">
+    5.10.2 OpenMP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5103-functional-programming-languages" title="5.10.3 Functional Programming Languages" class="md-nav__link">
+    5.10.3 Functional Programming Languages
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Chap06/" title="Chapter 6 CPU Scheduling" class="md-nav__link">
+      Chapter 6 CPU Scheduling
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Chap07/" title="Chapter 7 Deadlocks" class="md-nav__link">
+      Chapter 7 Deadlocks
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4">
+    
+    <label class="md-nav__link" for="nav-3-4">
+      PART THREE | MEMORY MANAGEMENT
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-4">
+        PART THREE | MEMORY MANAGEMENT
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Chap08/" title="Chapter 8 Main Memory" class="md-nav__link">
+      Chapter 8 Main Memory
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Chap09/" title="Chapter 9 Virtual Memory" class="md-nav__link">
+      Chapter 9 Virtual Memory
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5" type="checkbox" id="nav-3-5">
+    
+    <label class="md-nav__link" for="nav-3-5">
+      Previous Exams
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-5">
+        Previous Exams
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../midterm/" title="Midterm" class="md-nav__link">
+      Midterm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../final/" title="Final" class="md-nav__link">
+      Final
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Machine Learning
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Machine Learning
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ML/" title="Preface" class="md-nav__link">
+      Preface
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ML/1/" title="Lec 1 - Regression - Case Study" class="md-nav__link">
+      Lec 1 - Regression - Case Study
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ML/2/" title="Lec 2 - Where does the error com from?" class="md-nav__link">
+      Lec 2 - Where does the error com from?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ML/3/" title="Lec 3 - Gradient Descent" class="md-nav__link">
+      Lec 3 - Gradient Descent
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ML/4/" title="Lec 4 - Classification" class="md-nav__link">
+      Lec 4 - Classification
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ML/5/" title="Lec 5 - Logistic Regression" class="md-nav__link">
+      Lec 5 - Logistic Regression
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ML/6/" title="Lec 6 - Deep Learning" class="md-nav__link">
+      Lec 6 - Deep Learning
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ML/7/" title="Lec 7 - Backpropagation" class="md-nav__link">
+      Lec 7 - Backpropagation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ML/8/" title="Lec 8 - "Hello world" of Deep Learning" class="md-nav__link">
+      Lec 8 - "Hello world" of Deep Learning
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ML/9/" title="Lec 9 - Tips for Deep Learning" class="md-nav__link">
+      Lec 9 - Tips for Deep Learning
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#51-background" title="5.1 Background" class="md-nav__link">
+    5.1 Background
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#52-the-critical-section-problem" title="5.2 The Critical-Section Problem" class="md-nav__link">
+    5.2 The Critical-Section Problem
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#53-petersons-solution" title="5.3 Peterson's Solution" class="md-nav__link">
+    5.3 Peterson's Solution
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bakery-algorithm" title="Bakery Algorithm" class="md-nav__link">
+    Bakery Algorithm
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#54-synchronization-hardware" title="5.4 Synchronization Hardware" class="md-nav__link">
+    5.4 Synchronization Hardware
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mutex-locks" title="Mutex Locks" class="md-nav__link">
+    Mutex Locks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#56-semaphores" title="5.6 Semaphores" class="md-nav__link">
+    5.6 Semaphores
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#561-semaphore-usage" title="5.6.1 Semaphore Usage" class="md-nav__link">
+    5.6.1 Semaphore Usage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#562-semaphore-implementation" title="5.6.2 Semaphore Implementation" class="md-nav__link">
+    5.6.2 Semaphore Implementation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#563-deadlocks-and-starvation" title="5.6.3 Deadlocks and Starvation" class="md-nav__link">
+    5.6.3 Deadlocks and Starvation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#564-priority-inversion" title="5.6.4 Priority Inversion" class="md-nav__link">
+    5.6.4 Priority Inversion
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#binary-semaphore" title="Binary Semaphore" class="md-nav__link">
+    Binary Semaphore
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#57-classic-problems-of-synchronization" title="5.7 Classic Problems of Synchronization" class="md-nav__link">
+    5.7 Classic Problems of Synchronization
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#571-the-bounded-buffer-problem" title="5.7.1 The Bounded-Buffer Problem" class="md-nav__link">
+    5.7.1 The Bounded-Buffer Problem
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#572-the-readerswriters-problem" title="5.7.2 The Readers–Writers Problem" class="md-nav__link">
+    5.7.2 The Readers–Writers Problem
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#573-the-dining-philosophers-problem" title="5.7.3 The Dining-Philosophers Problem" class="md-nav__link">
+    5.7.3 The Dining-Philosophers Problem
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#critical-regions" title="Critical Regions" class="md-nav__link">
+    Critical Regions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#58-monitors" title="5.8 Monitors" class="md-nav__link">
+    5.8 Monitors
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#581-monitor-usage" title="5.8.1 Monitor Usage" class="md-nav__link">
+    5.8.1 Monitor Usage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#582-dining-philosophers-solution-using-monitors" title="5.8.2 Dining-Philosophers Solution Using Monitors" class="md-nav__link">
+    5.8.2 Dining-Philosophers Solution Using Monitors
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#583-implementing-a-monitor-using-semaphores" title="5.8.3 Implementing a Monitor Using Semaphores" class="md-nav__link">
+    5.8.3 Implementing a Monitor Using Semaphores
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#584-resuming-processes-within-a-monitor" title="5.8.4 Resuming Processes within a Monitor" class="md-nav__link">
+    5.8.4 Resuming Processes within a Monitor
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#59-synchronization-examples" title="5.9 Synchronization Examples" class="md-nav__link">
+    5.9 Synchronization Examples
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#591-synchronization-in-windows" title="5.9.1 Synchronization in Windows" class="md-nav__link">
+    5.9.1 Synchronization in Windows
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#592-synchronization-in-linux" title="5.9.2 Synchronization in Linux" class="md-nav__link">
+    5.9.2 Synchronization in Linux
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#593-synchronization-in-solaris" title="5.9.3 Synchronization in Solaris" class="md-nav__link">
+    5.9.3 Synchronization in Solaris
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#594-pthreads-synchronization" title="5.9.4 Pthreads Synchronization" class="md-nav__link">
+    5.9.4 Pthreads Synchronization
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#510-alternative-approaches" title="5.10 Alternative Approaches" class="md-nav__link">
+    5.10 Alternative Approaches
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#5101-transactional-memory" title="5.10.1 Transactional Memory" class="md-nav__link">
+    5.10.1 Transactional Memory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5102-openmp" title="5.10.2 OpenMP" class="md-nav__link">
+    5.10.2 OpenMP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5103-functional-programming-languages" title="5.10.3 Functional Programming Languages" class="md-nav__link">
+    5.10.3 Functional Programming Languages
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/walkccc/CS/edit/master/docs/OS/Chap05.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="chapter-5-process-synchronization">Chapter 5 Process Synchronization<a class="headerlink" href="#chapter-5-process-synchronization" title="Permanent link">&para;</a></h1>
+<h2 id="51-background">5.1 Background<a class="headerlink" href="#51-background" title="Permanent link">&para;</a></h2>
+<p>Recall <a href="./Chap03/#producerconsumer-problem">producer–consumer problem</a>. We modify it as follows:</p>
+<div class="highlight"><pre><span></span><span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
+    <span class="cm">/* produce an item in next_produced */</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="n">counter</span> <span class="o">==</span> <span class="n">BUFFER_SIZE</span><span class="p">)</span> <span class="p">;</span>    <span class="c1">// do nothing</span>
+
+    <span class="n">buffer</span><span class="p">[</span><span class="n">in</span><span class="p">]</span> <span class="o">=</span> <span class="n">next_produced</span><span class="p">;</span>
+    <span class="n">in</span> <span class="o">=</span> <span class="p">(</span><span class="n">in</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">BUFFER_SIZE</span><span class="p">;</span>
+    <span class="n">counter</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<div class="highlight"><pre><span></span><span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">counter</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">;</span>      <span class="c1">// do nothing</span>
+
+    <span class="n">next_consumed</span> <span class="o">=</span> <span class="n">buffer</span><span class="p">[</span><span class="n">out</span><span class="p">];</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="p">(</span><span class="n">out</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">BUFFER_SIZE</span><span class="p">;</span>
+    <span class="n">counter</span><span class="o">--</span><span class="p">;</span>
+
+    <span class="cm">/* consume the item in next_consumed */</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Suppose <code>counter == 5</code> initially. After executing <code>counter++</code> in producer or <code>counter--</code> in consumer. The value of <code>counter</code> may be $4$, $5$, or $6$!</p>
+<p>\begin{array}{lllll}
+T_0: producer &amp; \text{execute} &amp; register_1 = \text{counter} &amp; \{register_1 = 5\} \\
+T_1: producer &amp; \text{execute} &amp; register_1 = register_1 + 1 &amp; \{register_1 = 6\} \\
+T_2: consumer &amp; \text{execute} &amp; register_2 = \text{counter} &amp; \{register_2 = 5\} \\
+T_3: consumer &amp; \text{execute} &amp; register_2 = register_2 - 1 &amp; \{register_2 = 4\} \\
+T_4: producer &amp; \text{execute} &amp; \text{counter} = register_1 &amp; \{counter = 6\} \\
+T_5: consumer &amp; \text{execute} &amp; \text{counter} = register_2 &amp; \{counter = 4\}
+\end{array}</p>
+<div class="admonition note">
+<p class="admonition-title">Race condition</p>
+<p>Several processes access and manipulate the same data concurrently and the outcome of the execution depends on the <em>particular order</em> in which the access takes place.</p>
+</div>
+<p>We need to ensure that only one process at a time can be manipulating the variable <code>counter</code>.</p>
+<h2 id="52-the-critical-section-problem">5.2 The Critical-Section Problem<a class="headerlink" href="#52-the-critical-section-problem" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Critical section</p>
+<p>In which the process may be changing common variables, updating a table, writing a file, and so on.</p>
+</div>
+<div class="highlight"><pre><span></span><span class="k">do</span> <span class="p">{</span>
+    <span class="cm">/* entry section */</span>
+        <span class="cm">/* critical section */</span>
+    <span class="cm">/* exit section */</span>
+        <span class="cm">/* remainder section */</span>
+<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+</pre></div>
+
+<p>A solution to the critical-section problem must satisfy:</p>
+<ol>
+<li><strong>Mutual exclusion</strong></li>
+<li><strong>Progress</strong>. Cannot be postponed indefinitely.</li>
+<li><strong>Bounded waiting</strong></li>
+</ol>
+<p>Two general approches are used to handle critical sections:</p>
+<ol>
+<li><strong>Preemptive kernels</strong></li>
+<li><strong>Nonpreemptive kernels</strong></li>
+</ol>
+<p>Why anyone favor a preemptive kernel over a nonpreemptive one?</p>
+<ul>
+<li>Responsive.</li>
+<li>More suitable for real-time programming.</li>
+</ul>
+<h2 id="53-petersons-solution">5.3 Peterson's Solution<a class="headerlink" href="#53-petersons-solution" title="Permanent link">&para;</a></h2>
+<p>Peterson's solution is restricted to two processes that alternate execution between their critical sections and remainder sections. The processes are named $P_i$ and $P_j$.</p>
+<p>Shared data items:</p>
+<div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">turn</span><span class="p">;</span>
+<span class="n">boolean</span> <span class="n">flag</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+</pre></div>
+
+<div class="highlight"><pre><span></span><span class="k">do</span> <span class="p">{</span>
+    <span class="n">flag</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="n">turn</span> <span class="o">=</span> <span class="n">j</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">flag</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="n">turn</span> <span class="o">==</span> <span class="n">j</span><span class="p">)</span> <span class="p">;</span>
+    <span class="cm">/* critical section */</span>
+
+    <span class="n">flag</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="cm">/* remainder section */</span>
+<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+</pre></div>
+
+<div class="admonition info">
+<p>If both processes try to enter at the same time, <code>turn</code> will be set to both $i$ and $j$ at roughly the same time. <em>Only one of these assignments will last.</em></p>
+</div>
+<p><em>Proof</em></p>
+<ol>
+<li>Mutual exclusion is preserved.</li>
+<li>The progress requirement is satisfied.</li>
+<li>
+<p>The bounded-waiting requirement is met.</p>
+<p>Suppose $P_i$ execute $turn = j$ first, then $P_j$ execute $turn = i$. In this assumption, $P_i$ will enter its critical section first and $P_j$ will be stucked in the <code>while(flag[i] &amp;&amp; turn == i</code> (remember that here <code>i</code> should be thinked as <code>j</code> in the code!). After $P_i$ entering exit section, there are two possibilities:</p>
+<ol>
+<li>$P_i$ sets <code>flag[i] = false</code>, then $P_j$ enters its critical section.</li>
+<li>After $P_i$ setting <code>flag[i] = false</code>, it immediately sets <code>flag[i] = true</code> again, consequently, it'll set <code>turn = j</code>, thus $P_j$ still can enter its critical section.</li>
+</ol>
+</li>
+</ol>
+<h2 id="bakery-algorithm">Bakery Algorithm<a class="headerlink" href="#bakery-algorithm" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Originally designed for distrubuted systems</li>
+<li>Processes which are ready to enter their critical section must take a number and wait till the number becomes the lowest.</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">number</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>          <span class="c1">// Pi&#39;s number if it is nonzeros</span>
+<span class="n">boolean</span> <span class="n">choosing</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>    <span class="c1">// Pi is taking a number</span>
+</pre></div>
+
+<div class="highlight"><pre><span></span><span class="k">do</span> <span class="p">{</span>
+    <span class="n">choosing</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>         <span class="c1">// A process want to enter its critical section</span>
+    <span class="n">number</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">number</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">...,</span> <span class="n">number</span><span class="p">[</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">choosing</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>        <span class="c1">// A process has got its number</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">choosing</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="p">;</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">number</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">number</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">j</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">number</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">i</span><span class="p">))</span> <span class="p">;</span>     <span class="c1">// If two processes got the same number, then we should compare their indices</span>
+    <span class="p">}</span>
+    <span class="cm">/* critical section */</span>
+
+    <span class="n">number</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="cm">/* remainder section */</span>
+<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+</pre></div>
+
+<ul>
+<li>An observation: If $P_i$ is in its critical section, and $P_k (k \ne i)$ , then $(number[i], i) &lt; (number[k], k)$.</li>
+</ul>
+<p><em>Proof</em></p>
+<ol>
+<li>Mutual exclusion: Only the process holds the lowest number can enter the critical section. For each process, when that process doens't get its number, the original process will be stucked in the first while-loop. After that process getting its number, we still need to compare their $numbers$ and $indices$.</li>
+<li>Progress requirement: The processes won't be forever postponed.</li>
+<li>Bounded-waiting: Assume that a process holds the biggest number, it should wait other processes in the second while-loop. But after all other process entering their exit section and again entering their entry section, they'll get a bigger number, thus the process won't wait forever.</li>
+</ol>
+<h2 id="54-synchronization-hardware">5.4 Synchronization Hardware<a class="headerlink" href="#54-synchronization-hardware" title="Permanent link">&para;</a></h2>
+<p>Disaple interrupt $\to$ No preemption:</p>
+<ul>
+<li>Infeasible in multiprocessor environment.</li>
+<li>Potential impacts on interrupt-driven system clocks.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Atomic</p>
+<p>Modern computer allow us either to test and modify the content of a word or to swap the contents of two words <strong>atomically</strong>—that is, as one uninterruptible.</p>
+</div>
+<p>Although following algorithms satisfy the mutual-exclusion requirement, they don't satisfy the bounded-waiting requirement.</p>
+<div class="highlight"><pre><span></span><span class="n">boolean</span> <span class="nf">test_and_set</span><span class="p">(</span><span class="n">boolean</span> <span class="o">*</span><span class="n">target</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">boolean</span> <span class="n">rv</span> <span class="o">=</span> <span class="o">*</span><span class="n">target</span><span class="p">;</span>
+    <span class="o">*</span><span class="n">target</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="n">rv</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<div class="highlight"><pre><span></span><span class="k">do</span> <span class="p">{</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">test_and_set</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lock</span><span class="p">))</span> <span class="p">;</span>
+    <span class="cm">/* critical section */</span>
+
+    <span class="n">lock</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="cm">/* remainder section */</span>
+<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+</pre></div>
+
+<p>The first process executing <code>while (test_and_set(&amp;lock))</code> will set the address value of <code>lock</code> to <code>true</code> and get the return value <code>rv = false</code>, thus it won't be stucked in the while-loop and it can enter its critical section.</p>
+<ol>
+<li>Mutual exclusion: OK</li>
+<li>Progress requirement: OK</li>
+<li>
+<p>Bounded-waiting: FAIL</p>
+<p>Assume there is only one CPU, after $P_i$ entering its critical section, $P_j$ will be stucked in the while-loop. After $P_i$ exiting its critical section, there are two possibilities:</p>
+<ol>
+<li>$P_i$ sets <code>lock = false</code>, the CPU context switch to $P_j$, thus $P_j$ can enters its critical section.</li>
+<li>After $P_i$ setting <code>lock = false</code>, the CPU still executes the code of $P_i$, thus $P_i$ enters its critical section again, so $P_j$ may wait forever.</li>
+</ol>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">swap</span><span class="p">(</span><span class="n">boolean</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">boolean</span> <span class="o">*</span><span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">boolean</span> <span class="n">temp</span> <span class="o">=</span> <span class="o">*</span><span class="n">a</span><span class="p">;</span>
+    <span class="o">*</span><span class="n">a</span> <span class="o">=</span> <span class="o">*</span><span class="n">b</span><span class="p">;</span>
+    <span class="o">*</span><span class="n">b</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<div class="highlight"><pre><span></span><span class="k">do</span> <span class="p">{</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">key</span> <span class="o">==</span> <span class="nb">true</span><span class="p">)</span>
+        <span class="n">swap</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lock</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">key</span><span class="p">);</span>
+    <span class="cm">/* critical section */</span>
+
+    <span class="n">lock</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="cm">/* remainder section */</span>
+<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+</pre></div>
+
+<ol>
+<li>Mutual exclusion: OK</li>
+<li>Progress requirement: OK</li>
+<li>Bounded-waiting: FAIL (the reason is like above)</li>
+</ol>
+<div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">compare_and_swap</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">value</span><span class="p">,</span> <span class="kt">int</span> <span class="n">expected</span><span class="p">,</span> <span class="kt">int</span> <span class="n">new_value</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="o">*</span><span class="n">value</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="o">*</span><span class="n">value</span> <span class="o">==</span> <span class="n">expected</span><span class="p">)</span>
+        <span class="o">*</span><span class="n">value</span> <span class="o">=</span> <span class="n">new_value</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="n">temp</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<div class="highlight"><pre><span></span><span class="k">do</span> <span class="p">{</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">compare_and_swap</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lock</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">;</span>
+    <span class="cm">/* critical section */</span>
+
+    <span class="n">lock</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="cm">/* remainder section */</span>
+<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+</pre></div>
+
+<p>Following algorithms satisfies all the critical-section requirements.</p>
+<div class="highlight"><pre><span></span><span class="n">boolean</span> <span class="n">waiting</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
+<span class="n">boolean</span> <span class="n">lock</span><span class="p">;</span>
+</pre></div>
+
+<div class="highlight"><pre><span></span><span class="k">do</span> <span class="p">{</span>
+    <span class="n">waiting</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">waiting</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="n">key</span><span class="p">)</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="n">test_and_set</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lock</span><span class="p">);</span>
+    <span class="n">waiting</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="cm">/* critical section */</span>
+
+    <span class="n">j</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">n</span><span class="p">;</span>                    <span class="c1">// Assign its next process</span>
+    <span class="k">while</span> <span class="p">((</span><span class="n">j</span> <span class="o">!=</span> <span class="n">i</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">waiting</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>     <span class="c1">// Find a following process who is waiting</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">n</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">j</span> <span class="o">==</span> <span class="n">i</span><span class="p">)</span>                         <span class="c1">// If no process is waiting</span>
+        <span class="n">lock</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="k">else</span>
+        <span class="n">waiting</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>             <span class="c1">// Thus line 4 will be false and Pj won&#39;t be stucked anymore</span>
+    <span class="cm">/* remainder section */</span>
+<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+</pre></div>
+
+<div class="highlight"><pre><span></span><span class="n">boolean</span> <span class="nf">test_and_set</span><span class="p">(</span><span class="n">boolean</span> <span class="o">*</span><span class="n">target</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">boolean</span> <span class="n">rv</span> <span class="o">=</span> <span class="o">*</span><span class="n">target</span><span class="p">;</span>
+    <span class="o">*</span><span class="n">target</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="n">rv</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Assume <code>lock</code> is initialized to <code>false</code>.</p>
+<ol>
+<li>Mutual exclusion: If many processes set their <code>waiting[i] = true</code>, after the first process execute <code>key = test_and_set(&amp;lock)</code>, <code>key</code> will be set to <code>false</code> and <code>lock</code> will be set to <code>true</code>. Therefore, other processes will be stucked in <code>while (waiting[i] &amp;&amp; key)</code> since their <code>key</code> will be set to <code>true</code> after <code>test_and_set(&amp;lock)</code> (<code>lock</code> is now <code>true</code>).</li>
+<li>Progress requirement: Only the process first run <code>test_and_set</code> can enter its critical section.</li>
+<li>Bounded-waiting: Wait at most $n - 1$ times.</li>
+</ol>
+<h2 id="mutex-locks">Mutex Locks<a class="headerlink" href="#mutex-locks" title="Permanent link">&para;</a></h2>
+<p>A high-level software solution to provide protect critical sections with mutual exclusion.</p>
+<ul>
+<li>Atomic execution of <code>acquire()</code> and <code>release()</code>.</li>
+<li>Spinlock:<ul>
+<li>pros: No context switch for multiprocessor systems.</li>
+<li>cons: Busy waiting.</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">acquire</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">available</span><span class="p">)</span> <span class="p">;</span>        <span class="c1">// busy wait</span>
+    <span class="n">available</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<div class="highlight"><pre><span></span><span class="n">release</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">available</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<div class="highlight"><pre><span></span><span class="k">do</span> <span class="p">{</span>
+    <span class="c1">// acquire lock</span>
+        <span class="cm">/* critical section */</span>
+    <span class="c1">// release lock</span>
+        <span class="cm">/* remainder section */</span>
+<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+</pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Spinlock</p>
+<p>The process "spins" while waiting for the lock to become available.</p>
+</div>
+<h2 id="56-semaphores">5.6 Semaphores<a class="headerlink" href="#56-semaphores" title="Permanent link">&para;</a></h2>
+<p>A high-level solution for more complex problems.</p>
+<ul>
+<li>A variable <code>S</code> only accessible by two atomic operations</li>
+<li>Spinlock</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">wait</span><span class="p">(</span><span class="n">S</span><span class="p">)</span> <span class="p">{</span>               <span class="cm">/* P */</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">S</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">;</span>    <span class="c1">// busy wait</span>
+    <span class="n">S</span><span class="o">--</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<div class="highlight"><pre><span></span><span class="n">signal</span><span class="p">(</span><span class="n">S</span><span class="p">)</span> <span class="p">{</span>             <span class="cm">/* V */</span>
+    <span class="n">S</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<h3 id="561-semaphore-usage">5.6.1 Semaphore Usage<a class="headerlink" href="#561-semaphore-usage" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Critical sections:</p>
+<div class="highlight"><pre><span></span><span class="k">do</span> <span class="p">{</span>
+    <span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+    <span class="cm">/* critical section */</span>
+    <span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+    <span class="cm">/* remainder section */</span>
+<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+</pre></div>
+
+</li>
+<li>
+<p>Precedence enforcement:</p>
+<ul>
+<li>
+<p>$P_1$:</p>
+<div class="highlight"><pre><span></span><span class="n">S1</span><span class="p">;</span>
+<span class="n">signal</span><span class="p">(</span><span class="n">synch</span><span class="p">);</span>
+</pre></div>
+
+</li>
+<li>
+<p>$P_2$:</p>
+<div class="highlight"><pre><span></span><span class="n">wait</span><span class="p">(</span><span class="n">synch</span><span class="p">);</span>
+<span class="n">S2</span><span class="p">;</span>
+</pre></div>
+
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="562-semaphore-implementation">5.6.2 Semaphore Implementation<a class="headerlink" href="#562-semaphore-implementation" title="Permanent link">&para;</a></h3>
+<p>It's not good for single CPU.
+Even if it's implemented in a multi-CPU environment, the locks should be held for a short time.</p>
+<p>We can implement the Semaphores with block waiting:</p>
+<div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">value</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">process</span> <span class="o">*</span><span class="n">list</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">semaphore</span><span class="p">;</span>
+</pre></div>
+
+<div class="highlight"><pre><span></span><span class="n">wait</span><span class="p">(</span><span class="n">semaphore</span> <span class="o">*</span><span class="n">S</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">S</span><span class="o">-&gt;</span><span class="n">value</span><span class="o">--</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">S</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">add</span> <span class="n">this</span> <span class="n">process</span> <span class="n">to</span> <span class="n">S</span><span class="o">-&gt;</span><span class="n">list</span><span class="p">;</span>
+        <span class="n">block</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<div class="highlight"><pre><span></span><span class="n">signal</span><span class="p">(</span><span class="n">semaphore</span> <span class="o">*</span><span class="n">S</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">S</span><span class="o">-&gt;</span><span class="n">value</span><span class="o">++</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">S</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">remove</span> <span class="n">a</span> <span class="n">process</span> <span class="n">P</span> <span class="n">from</span> <span class="n">S</span><span class="o">-&gt;</span><span class="n">list</span><span class="p">;</span>
+        <span class="n">wakeup</span><span class="p">(</span><span class="n">P</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<div class="admonition info">
+<p>$|S.value|$ = # of waiting processes if $S.value &lt; 0$.</p>
+</div>
+<p>Bounded-waiting can be satisfied by FIFO queue but may be unsatisfied by priority queue.</p>
+<h3 id="563-deadlocks-and-starvation">5.6.3 Deadlocks and Starvation<a class="headerlink" href="#563-deadlocks-and-starvation" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Deadlock</p>
+<p>A set of processes is in a deadlock state when every process in the set is waiting for an event that can be caused only by another process in the set.</p>
+</div>
+<p>\begin{array}{cc}
+P_0 &amp; P_1 \\
+wait(S); &amp; wait(Q); \\
+wait(Q); &amp; wait(S); \\
+\vdots &amp; \vdots \\
+signal(S); &amp; signal(Q); \\
+signal(Q); &amp; signal(S); \\
+\end{array}</p>
+<p>Deadlock may happen (assume $S = 1$ and $Q = 1$: </p>
+<ol>
+<li>$P_0$ calls $wait(S)$</li>
+<li>$P_1$ calls $wait(Q)$</li>
+<li>$P_1$ calls $wait(S)$</li>
+<li>$P_0$ calls $wait(Q)$</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Starvation (Indefinite blocking)</p>
+<p>A situation in which processes wait indefinitely within the semaphore.</p>
+<p>e.g. priority queue, stack (LIFO).</p>
+</div>
+<h3 id="564-priority-inversion">5.6.4 Priority Inversion<a class="headerlink" href="#564-priority-inversion" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Priority Inversion</p>
+<p>A higher-priority task is blocked by a lower-priority task due to some resource access conflict.</p>
+</div>
+<h3 id="binary-semaphore">Binary Semaphore<a class="headerlink" href="#binary-semaphore" title="Permanent link">&para;</a></h3>
+<p>We can implement counting semaphores by binary semaphores. ($S_1 = 1$, $S_2 = 0$ and $S_3 = 1$)</p>
+<div class="highlight"><pre><span></span><span class="n">WAIT</span><span class="p">(</span><span class="n">S</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">wait</span><span class="p">(</span><span class="n">S3</span><span class="p">);</span>   <span class="c1">// protect the whole program</span>
+    <span class="n">wait</span><span class="p">(</span><span class="n">S1</span><span class="p">);</span>   <span class="c1">// protect C</span>
+    <span class="n">C</span><span class="o">--</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">C</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">signal</span><span class="p">(</span><span class="n">S1</span><span class="p">);</span>
+        <span class="n">wait</span><span class="p">(</span><span class="n">S2</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="n">signal</span><span class="p">(</span><span class="n">S1</span><span class="p">);</span>
+    <span class="n">signal</span><span class="p">(</span><span class="n">S3</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+<div class="highlight"><pre><span></span><span class="n">SIGNAL</span><span class="p">(</span><span class="n">S</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">wait</span><span class="p">(</span><span class="n">S1</span><span class="p">);</span>
+    <span class="n">C</span><span class="o">++</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">C</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">signal</span><span class="p">(</span><span class="n">S2</span><span class="p">);</span>     <span class="c1">// wake up</span>
+    <span class="n">signal</span><span class="p">(</span><span class="n">S1</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+<ul>
+<li>Is <code>wait(S3)</code> necessary?</li>
+<li>Can we change the order of <code>signal(S1)</code> and <code>wait(S2)</code>?</li>
+<li>There are lots of implementation details.</li>
+</ul>
+<h2 id="57-classic-problems-of-synchronization">5.7 Classic Problems of Synchronization<a class="headerlink" href="#57-classic-problems-of-synchronization" title="Permanent link">&para;</a></h2>
+<h3 id="571-the-bounded-buffer-problem">5.7.1 The Bounded-Buffer Problem<a class="headerlink" href="#571-the-bounded-buffer-problem" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+<span class="n">semaphore</span> <span class="n">mutex</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">semaphore</span> <span class="n">empty</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>
+<span class="n">semaphore</span> <span class="n">full</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</pre></div>
+
+<ul>
+<li>
+<p>Producer:</p>
+<div class="highlight"><pre><span></span><span class="k">do</span> <span class="p">{</span>
+    <span class="cm">/* produce an item in next_produced */</span>
+
+    <span class="n">wait</span><span class="p">(</span><span class="n">empty</span><span class="p">);</span>
+    <span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+
+    <span class="cm">/* add next_produced to the buffer */</span>
+
+    <span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+    <span class="n">signal</span><span class="p">(</span><span class="n">full</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+</pre></div>
+
+</li>
+<li>
+<p>Consumer:</p>
+<div class="highlight"><pre><span></span><span class="k">do</span> <span class="p">{</span>
+    <span class="n">wait</span><span class="p">(</span><span class="n">full</span><span class="p">);</span>
+    <span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+
+    <span class="cm">/* remove an item from buffer to next_consumed */</span>
+
+    <span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+    <span class="n">signal</span><span class="p">(</span><span class="n">empty</span><span class="p">);</span>
+
+    <span class="cm">/* consume the item in next_consumed */</span>
+<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+</pre></div>
+
+</li>
+</ul>
+<h3 id="572-the-readerswriters-problem">5.7.2 The Readers–Writers Problem<a class="headerlink" href="#572-the-readerswriters-problem" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>The basic assumption:</p>
+<ul>
+<li>Readers: shared locks</li>
+<li>Writers: exclusive locks</li>
+</ul>
+</li>
+<li>
+<p>The first reader-writers problem</p>
+<ul>
+<li>No readers will be kept waiting unless a writer has already obtained permission to use the shared object $\to$ potential hazard to writers!</li>
+</ul>
+</li>
+<li>
+<p>The second reader-writers problem</p>
+<ul>
+<li>One a writer is ready, it performs its write asap $\to$ potential hazard to readers.</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">semaphore</span> <span class="n">rw_mutex</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">semaphore</span> <span class="n">mutex</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">read_count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</pre></div>
+
+<div class="highlight"><pre><span></span><span class="k">do</span> <span class="p">{</span>
+    <span class="n">wait</span><span class="p">(</span><span class="n">rw_mutex</span><span class="p">);</span>
+
+    <span class="cm">/* writing is performed */</span>
+
+    <span class="n">signal</span><span class="p">(</span><span class="n">rw_mutex</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+</pre></div>
+
+<div class="highlight"><pre><span></span><span class="k">do</span> <span class="p">{</span>
+    <span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>        <span class="c1">// protect read_count</span>
+    <span class="n">read_count</span><span class="o">++</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">read_count</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">wait</span><span class="p">(</span><span class="n">rw_mutex</span><span class="p">);</span>
+    <span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+
+    <span class="cm">/* reading is performed */</span>
+
+    <span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>        <span class="c1">// protect read_count</span>
+    <span class="n">read_count</span><span class="o">--</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">read_count</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">signal</span><span class="p">(</span><span class="n">rw_mutex</span><span class="p">);</span>
+    <span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+</pre></div>
+
+<h3 id="573-the-dining-philosophers-problem">5.7.3 The Dining-Philosophers Problem<a class="headerlink" href="#573-the-dining-philosophers-problem" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Each philosopher must pick up one chopstick beside him/her at a time.</li>
+<li>When two chopsticks are picked up, the philosopher can eat.</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">semaphore</span> <span class="n">chopstick</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
+</pre></div>
+
+<div class="highlight"><pre><span></span><span class="k">do</span> <span class="p">{</span>
+    <span class="n">wait</span><span class="p">(</span><span class="n">chopstick</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="n">wait</span><span class="p">(</span><span class="n">chopstick</span><span class="p">[(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">]);</span>
+
+    <span class="cm">/* eat for awhile */</span>
+
+    <span class="n">signal</span><span class="p">(</span><span class="n">chopstick</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="n">signal</span><span class="p">(</span><span class="n">chopstick</span><span class="p">[(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">]);</span>
+
+    <span class="cm">/* think for awhile */</span>
+<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+</pre></div>
+
+<h2 id="critical-regions">Critical Regions<a class="headerlink" href="#critical-regions" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Region $v$ when $C$ (condition) do $S$ (statements)<ul>
+<li>Variable $v$ — shared among processes and only accessible in the region.</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">buffer</span> <span class="p">{</span>
+    <span class="n">item</span> <span class="n">pool</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">count</span><span class="p">,</span> <span class="n">in</span><span class="p">,</span> <span class="n">out</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+
+<ul>
+<li>
+<p>Producer:</p>
+<div class="highlight"><pre><span></span><span class="n">region</span> <span class="n">buffer</span> <span class="nf">when</span>
+<span class="p">(</span><span class="n">count</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">pool</span><span class="p">[</span><span class="n">in</span><span class="p">]</span> <span class="o">=</span> <span class="n">next_produced</span><span class="p">;</span>
+    <span class="n">in</span> <span class="o">=</span> <span class="p">(</span><span class="n">in</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">n</span><span class="p">;</span>
+    <span class="n">count</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+</li>
+<li>
+<p>Consumer:</p>
+<div class="highlight"><pre><span></span><span class="n">region</span> <span class="n">buffer</span> <span class="nf">when</span>
+<span class="p">(</span><span class="n">count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">next_consumed</span> <span class="o">=</span> <span class="n">pool</span><span class="p">[</span><span class="n">out</span><span class="p">];</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="p">(</span><span class="n">out</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">n</span><span class="p">;</span>
+    <span class="n">count</span><span class="o">--</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+</li>
+</ul>
+<h2 id="58-monitors">5.8 Monitors<a class="headerlink" href="#58-monitors" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><span class="n">monitor</span> <span class="n">monitor</span> <span class="n">name</span> <span class="p">{</span>
+    <span class="cm">/* shared variable declarations */</span>
+
+    <span class="n">function</span> <span class="n">P1</span> <span class="p">(</span> <span class="p">.</span> <span class="p">.</span> <span class="p">.</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="p">.</span> <span class="p">.</span> <span class="p">.</span>
+    <span class="p">}</span>
+
+    <span class="n">function</span> <span class="n">P2</span> <span class="p">(</span> <span class="p">.</span> <span class="p">.</span> <span class="p">.</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="p">.</span> <span class="p">.</span> <span class="p">.</span>
+    <span class="p">}</span>
+
+        <span class="p">.</span>
+        <span class="p">.</span>
+        <span class="p">.</span>
+    <span class="n">function</span> <span class="n">Pn</span> <span class="p">(</span> <span class="p">.</span> <span class="p">.</span> <span class="p">.</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="p">.</span> <span class="p">.</span> <span class="p">.</span>
+    <span class="p">}</span>
+
+    <span class="n">initialization_code</span> <span class="p">(</span> <span class="p">.</span> <span class="p">.</span> <span class="p">.</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="p">.</span> <span class="p">.</span> <span class="p">.</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<h3 id="581-monitor-usage">5.8.1 Monitor Usage<a class="headerlink" href="#581-monitor-usage" title="Permanent link">&para;</a></h3>
+<p>An abstract data type—or ADT—encapsulates data with a set of functions to operate on that data that are independent of any specific implementation of the ADT.</p>
+<p>The monitor construct ensures that only one process at a time is active within the monitor.</p>
+<p>A programmer who needs to write a tailor-made synchronization scheme can define one or more variables of type $condition$:</p>
+<div class="highlight"><pre><span></span>    <span class="n">condition</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
+</pre></div>
+
+<p>The only operations that can be invoked on a condition variable are <code>wait()</code> and <code>signal()</code>. The operation</p>
+<div class="highlight"><pre><span></span>    <span class="n">x</span><span class="p">.</span><span class="n">wait</span><span class="p">();</span>
+</pre></div>
+
+<p>means that the process invoking this operation is suspended until another process invokes</p>
+<div class="highlight"><pre><span></span>    <span class="n">x</span><span class="p">.</span><span class="n">signal</span><span class="p">();</span>
+</pre></div>
+
+<div class="admonition info">
+<p class="admonition-title">Condition variables (of a monitor) vs. signal operation (of binary semaphore)</p>
+<p>The <code>x.signal()</code> operation resumes exactly one suspended process. If no process is suspended, then the <code>signal()</code> operation has no effect; that is, the state of <code>x</code> is the same as if the operation had never been executed. Contrast this operation with the <code>signal()</code> operation associated with semaphores, which always affects the state of the semaphore.</p>
+</div>
+<p>Suppose that, when the <code>x.signal()</code> operation is invoked by a process <code>P</code>, there exists a suspended process <code>Q</code> associated with condition <code>x</code>. Clearly, if the suspended process <code>Q</code> is allowed to resume its execution, the signaling process <code>P</code> must wait. Two possibilities exist:</p>
+<ol>
+<li>
+<p><strong>Signal and wait</strong>: <code>P</code> either waits until <code>Q</code> leaves the monitor or waits for another condition.</p>
+</li>
+<li>
+<p><strong>Signal and continue</strong>: <code>Q</code> either waits until <code>P</code> leaves the monitor or waits for another condition.</p>
+</li>
+</ol>
+<p><img alt="small" src="../../assets/os/5.17.png" /></p>
+<h3 id="582-dining-philosophers-solution-using-monitors">5.8.2 Dining-Philosophers Solution Using Monitors<a class="headerlink" href="#582-dining-philosophers-solution-using-monitors" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><span class="k">enum</span> <span class="p">{</span><span class="n">THINKING</span><span class="p">,</span> <span class="n">HUNGRY</span><span class="p">,</span> <span class="n">EATING</span><span class="p">}</span> <span class="n">state</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
+<span class="n">condition</span> <span class="n">self</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
+</pre></div>
+
+<div class="highlight"><pre><span></span><span class="n">monitor</span> <span class="n">DiningPhilosophers</span> <span class="p">{</span>
+    <span class="k">enum</span> <span class="p">{</span><span class="n">THINKING</span><span class="p">,</span> <span class="n">HUNGRY</span><span class="p">,</span> <span class="n">EATING</span><span class="p">}</span> <span class="n">state</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
+    <span class="n">condition</span> <span class="n">self</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
+
+    <span class="kt">void</span> <span class="nf">pickup</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">HUNGRY</span><span class="p">;</span>
+        <span class="n">test</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">EATING</span><span class="p">)</span>
+            <span class="n">self</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">wait</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="nf">putdown</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">THINKING</span><span class="p">;</span>
+        <span class="n">test</span><span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">);</span>      <span class="c1">// help your right-hand side to run test</span>
+        <span class="n">test</span><span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">);</span>      <span class="c1">// help your left-hand side to run test</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="nf">test</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">((</span><span class="n">state</span><span class="p">[(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">]</span> <span class="o">!=</span> <span class="n">EATING</span><span class="p">)</span> <span class="o">&amp;&amp;</span>       <span class="c1">// right-hand side</span>
+            <span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">HUNGRY</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
+            <span class="p">(</span><span class="n">state</span><span class="p">[(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">]</span> <span class="o">!=</span> <span class="n">EATING</span><span class="p">))</span> <span class="p">{</span>       <span class="c1">// left-hand side</span>
+            <span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">EATING</span><span class="p">;</span>
+            <span class="n">self</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">signal</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="n">initialization_code</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+            <span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">THINKING</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<ul>
+<li>
+<p>$P_i$:</p>
+<div class="highlight"><pre><span></span><span class="n">DiningPhilosophers</span><span class="p">.</span><span class="n">pickup</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+
+<span class="cm">/* eat */</span>
+
+<span class="n">DiningPhilosophers</span><span class="p">.</span><span class="n">putdown</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+</pre></div>
+
+</li>
+</ul>
+<p>No deadlock, but starvation could occur!</p>
+<h3 id="583-implementing-a-monitor-using-semaphores">5.8.3 Implementing a Monitor Using Semaphores<a class="headerlink" href="#583-implementing-a-monitor-using-semaphores" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Semaphores<ul>
+<li><code>mutex</code>: to protect the monitor</li>
+<li><code>next</code>: being initialized to zero, on which processes may suspend themselves<ul>
+<li><code>next_count</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Each external function <code>F</code> is replaced by</p>
+<div class="highlight"><pre><span></span><span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+
+<span class="cm">/* body of F */</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">next_count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">signal</span><span class="p">(</span><span class="n">next</span><span class="p">);</span>
+<span class="k">else</span>
+    <span class="nf">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+</pre></div>
+
+<p>For each condition <code>x</code>, we introduce a semaphore <code>x_sem</code> and an integer variable <code>x_count</code>, both initialized to $0$.</p>
+<ul>
+<li>
+<p><code>x.wait()</code></p>
+<div class="highlight"><pre><span></span><span class="n">x_count</span><span class="o">++</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">next_count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">signal</span><span class="p">(</span><span class="n">next</span><span class="p">);</span>
+<span class="k">else</span>
+    <span class="nf">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+<span class="n">wait</span><span class="p">(</span><span class="n">x_sem</span><span class="p">);</span>
+<span class="n">x_count</span><span class="o">--</span><span class="p">;</span>
+</pre></div>
+
+</li>
+<li>
+<p><code>x.signal()</code></p>
+<div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">x_count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>      <span class="cm">/* If there&#39;s somebody being waiting */</span>
+    <span class="n">next_count</span><span class="o">++</span><span class="p">;</span>
+    <span class="n">signal</span><span class="p">(</span><span class="n">x_sem</span><span class="p">);</span>
+    <span class="n">wait</span><span class="p">(</span><span class="n">next</span><span class="p">);</span>
+    <span class="n">next_count</span><span class="o">--</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+</li>
+</ul>
+<h3 id="584-resuming-processes-within-a-monitor">5.8.4 Resuming Processes within a Monitor<a class="headerlink" href="#584-resuming-processes-within-a-monitor" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>conditional-wait</strong>:</p>
+<div class="highlight"><pre><span></span><span class="n">x</span><span class="p">.</span><span class="n">wait</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+</pre></div>
+
+<p>where $c$ is a <strong>priority number</strong>. When <code>x.signal()</code> is executed, the process with the smallest priority number is resumed next.</p>
+</li>
+</ul>
+<p>Consider the <code>ResourceAllocator</code> monitor, which controls the allocation of a single resource among competing processes.</p>
+<div class="highlight"><pre><span></span><span class="n">monitor</span> <span class="n">ResourceAllocator</span> <span class="p">{</span>
+    <span class="n">boolean</span> <span class="n">busy</span><span class="p">;</span>
+    <span class="n">condition</span> <span class="n">x</span><span class="p">;</span>
+
+    <span class="kt">void</span> <span class="nf">acquire</span><span class="p">(</span><span class="kt">int</span> <span class="n">time</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">busy</span><span class="p">)</span>
+            <span class="n">x</span><span class="p">.</span><span class="n">wait</span><span class="p">(</span><span class="n">time</span><span class="p">);</span>
+        <span class="n">busy</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="nf">release</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">busy</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+        <span class="n">x</span><span class="p">.</span><span class="n">signal</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="n">initialization_code</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">busy</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<ul>
+<li>
+<p>A process that needs to access the resource in question must observe the following sequence:</p>
+<div class="highlight"><pre><span></span><span class="n">R</span><span class="p">.</span><span class="n">acquire</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
+
+<span class="cm">/* access the resource */</span>
+
+<span class="n">R</span><span class="p">.</span><span class="n">release</span><span class="p">();</span>
+</pre></div>
+
+</li>
+</ul>
+<p>The monitor concept cannot guarantee that the preceding access sequence will be observed. In particular, the following problems can occur:</p>
+<ul>
+<li>
+<p>A process might access a resource without first gaining access permission to the resource.</p>
+</li>
+<li>
+<p>A process might never release a resource once it has been granted access to the resource.</p>
+</li>
+<li>
+<p>A process might attempt to release a resource that it never requested.</p>
+</li>
+<li>
+<p>A process might request the same resource twice (without first releasing the resource).</p>
+</li>
+</ul>
+<h2 id="59-synchronization-examples">5.9 Synchronization Examples<a class="headerlink" href="#59-synchronization-examples" title="Permanent link">&para;</a></h2>
+<h3 id="591-synchronization-in-windows">5.9.1 Synchronization in Windows<a class="headerlink" href="#591-synchronization-in-windows" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>General Mechanism</p>
+<ul>
+<li>Spin-locking for short code segments in a multiprocessor platform.</li>
+<li>Interrupt disabling when the kernel accesses global variables in a uniprocessor platform.</li>
+</ul>
+</li>
+<li>
+<p>Dispatcher Object</p>
+<ul>
+<li>State: signaled or non-signaled</li>
+<li>Mutex: select one process from its waiting queue to the ready queue.<ul>
+<li>Critical-section object — user-mode mutex</li>
+</ul>
+</li>
+<li>Events: like condition variables</li>
+<li>Timers: select all waiting processes</li>
+</ul>
+</li>
+</ul>
+<h3 id="592-synchronization-in-linux">5.9.2 Synchronization in Linux<a class="headerlink" href="#592-synchronization-in-linux" title="Permanent link">&para;</a></h3>
+<p>Preemptive kernel after version 2.6.</p>
+<ul>
+<li>
+<p>Atomic integer</p>
+<div class="highlight"><pre><span></span><span class="n">atomic_t</span> <span class="n">counter</span><span class="p">;</span>
+<span class="p">...</span>
+<span class="n">atomic_set</span><span class="p">(</span><span class="o">&amp;</span><span class="n">counter</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+<span class="n">atomic_add</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">counter</span><span class="p">);</span>
+</pre></div>
+
+</li>
+<li>
+<p>Semaphores for long code segments. Mutex locks for the kernel code.</p>
+</li>
+<li>Sping-locking for short code segments in a multiprocessor platform.</li>
+<li>Preeption disabling and enabling in a uniprocessor platform.<ul>
+<li><code>preempt_disable()</code> and <code>preempt_enable()</code></li>
+<li><code>preempt_count</code> for each task in the system</li>
+</ul>
+</li>
+</ul>
+<h3 id="593-synchronization-in-solaris">5.9.3 Synchronization in Solaris<a class="headerlink" href="#593-synchronization-in-solaris" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Semaphores and condition variables</li>
+<li>Adaptive mutex<ul>
+<li>spin-locking if the lock-holding thread is running; otherwise, blocking is used</li>
+</ul>
+</li>
+<li>Readers-writers locks<ul>
+<li>expensive in implementations</li>
+</ul>
+</li>
+<li>Turnstile<ul>
+<li>A queue structure containing threads blocked on a lock</li>
+<li>Priotity inversion $\to$ priority inheritance protocol for kernel threads</li>
+</ul>
+</li>
+</ul>
+<h3 id="594-pthreads-synchronization">5.9.4 Pthreads Synchronization<a class="headerlink" href="#594-pthreads-synchronization" title="Permanent link">&para;</a></h3>
+<ul>
+<li>General Mechanism<ul>
+<li>Mutex locks: mutual exclusion</li>
+<li>condition variables: monitor</li>
+<li>Read-write locks</li>
+</ul>
+</li>
+</ul>
+<h2 id="510-alternative-approaches">5.10 Alternative Approaches<a class="headerlink" href="#510-alternative-approaches" title="Permanent link">&para;</a></h2>
+<h3 id="5101-transactional-memory">5.10.1 Transactional Memory<a class="headerlink" href="#5101-transactional-memory" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Memory transaction</p>
+<p>A sequence of memory read-write operations that are atomic.</p>
+</div>
+<p>Committed or being roleld back:</p>
+<div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">update</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">atomic</span> <span class="p">{</span>
+        <span class="cm">/* modify shared data */</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<ul>
+<li>Advantages:<ul>
+<li>No deadlock</li>
+<li>Identification of potentially concurrently executing statements in atomic blocks</li>
+</ul>
+</li>
+<li>Implementations:<ul>
+<li>Software transaction memory<ul>
+<li>Code is inserted by the <em>compiler</em>.</li>
+</ul>
+</li>
+<li>Hardware transactional memory<ul>
+<li><em>Hardware</em> cache hierarchies and cache coherency protocols are used.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="5102-openmp">5.10.2 OpenMP<a class="headerlink" href="#5102-openmp" title="Permanent link">&para;</a></h3>
+<ul>
+<li>A set of compiler directives and an API<ul>
+<li>The critical-section compiler directive behaves like a binary semaphore or mutex.</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">update</span><span class="p">()</span> <span class="p">{</span>
+    <span class="cp">#pragma omp critical {</span>
+        <span class="n">counter</span> <span class="o">+=</span> <span class="n">value</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<ul>
+<li>pros: easy to use</li>
+<li>cons: identification of protected code and potentials of deadlocks</li>
+</ul>
+<h3 id="5103-functional-programming-languages">5.10.3 Functional Programming Languages<a class="headerlink" href="#5103-functional-programming-languages" title="Permanent link">&para;</a></h3>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../Chap04/" title="Chapter 4 Threads" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Chapter 4 Threads
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../Chap06/" title="Chapter 6 CPU Scheduling" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Chapter 6 CPU Scheduling
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Built by <a href="http://github.com/walkccc">Jay Chen</a> &copy; 2017 - 2019
+          </div>
+        
+        Email: <a href="mailto:walkccray@gmail.com">walkccray@gmail.com</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/walkccc" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://walkccc.github.io/blog" class="md-footer-social__link fa fa-quote-left"></a>
+    
+      <a href="https://walkccc.github.io/CLRS" class="md-footer-social__link fa fa-book"></a>
+    
+      <a href="https://www.linkedin.com/in/jay-chen-57852313a" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.9e1f3b71.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="../../js/mathjax.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+    
+      
+    
+  </body>
+</html>

@@ -1,0 +1,7 @@
+img[alt=normal] { 
+    width: 80%;
+}
+
+img[alt=small] {
+    width: 50%;
+}
