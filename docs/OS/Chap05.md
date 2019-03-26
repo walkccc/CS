@@ -401,6 +401,7 @@ Bounded-waiting can be satisfied by FIFO queue but may be unsatisfied by priorit
 !!! note "Deadlock"
     A set of processes is in a deadlock state when every process in the set is waiting for an event that can be caused only by another process in the set.
 
+$$
 \begin{array}{cc}
 P_0 & P_1 \\\\
 wait(S); & wait(Q); \\\\
@@ -409,6 +410,7 @@ wait(Q); & wait(S); \\\\
 signal(S); & signal(Q); \\\\
 signal(Q); & signal(S); \\\\
 \end{array}
+$$
 
 Deadlock may happen (assume $S = 1$ and $Q = 1$: 
 

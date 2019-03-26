@@ -63,10 +63,10 @@ CPU-scheduling decisions when a process:
     - Given processes:
 
         | Process | Busrt Time |
-        | :--: | :--: |
-        | $P_1$ | 24 |
-        | $P_2$ | 3  |
-        | $P_3$ | 3  |
+        | :-----: | :--------: |
+        |  $P_1$  |     24     |
+        |  $P_2$  |     3      |
+        |  $P_3$  |     3      |
 
     - Consider order: $P_1 \to P_2 \to P_3$:
 
@@ -100,11 +100,11 @@ CPU-scheduling decisions when a process:
     - Given processes:
 
         | Process | Burst Time |
-        | :--: | :--: |
-        | $P_1$ | 6 |
-        | $P_2$ | 8 |
-        | $P_3$ | 7 |
-        | $P_4$ | 3 |
+        | :-----: | :--------: |
+        |  $P_1$  |     6      |
+        |  $P_2$  |     8      |
+        |  $P_3$  |     7      |
+        |  $P_4$  |     3      |
 
     - By SJF scheduling:
 
@@ -120,21 +120,23 @@ CPU-scheduling decisions when a process:
 !!! note "Exponential average"
     Let $t_n$ be time of $n$th CPU burst, and $\tau_{n + 1}$ be the next CPU burst.
 
-    \begin{align}
+    $$
+    \begin{aligned}
     \tau_{n + 1} & = \alpha t_n + (1 - \alpha)\tau_n, \quad 0 \le \alpha \le 1. \\\\
                  & = \alpha t_n + (1 - \alpha)\alpha t_{n - 1} + \cdots + (1 - \alpha)^j \alpha t_{n - j} + \cdots + (1 - \alpha)^{n + 1}\tau_0.
-    \end{align}
+    \end{aligned}
+    $$
 
 - Example 2:
 
     - Given processes:
 
         | Process | Arrival Time | Burst Time |
-        | :--: | :--: | :--: |
-        | $P_1$ | 0 | 8 |
-        | $P_2$ | 1 | 4 |
-        | $P_3$ | 2 | 9 |
-        | $P_4$ | 3 | 5 |
+        | :-----: | :----------: | :--------: |
+        |  $P_1$  |      0       |     8      |
+        |  $P_2$  |      1       |     4      |
+        |  $P_3$  |      2       |     9      |
+        |  $P_4$  |      3       |     5      |
 
     By preemptive SJF scheduling:
 
@@ -156,12 +158,12 @@ CPU-scheduling decisions when a process:
     - Given processes:
 
         | Process | Burst Time | Priority |
-        | :--: | :--: | :--: |
-        | $P_1$ | 10 | 3 |
-        | $P_2$ |  1 | 1 |
-        | $P_3$ |  2 | 4 |
-        | $P_4$ |  1 | 5 |
-        | $P_5$ |  5 | 2 |
+        | :-----: | :--------: | :------: |
+        |  $P_1$  |     10     |    3     |
+        |  $P_2$  |     1      |    1     |
+        |  $P_3$  |     2      |    4     |
+        |  $P_4$  |     1      |    5     |
+        |  $P_5$  |     5      |    2     |
 
     - By preemptive SJF scheduling:
 
@@ -188,10 +190,10 @@ CPU-scheduling decisions when a process:
     - Given processes with quantum = 4ms:
 
         | Process | Burst Time |
-        | :--: | :--: |
-        | $P_1$ | 24 |
-        | $P_2$ |  3 |
-        | $P_3$ |  3 |
+        | :-----: | :--------: |
+        |  $P_1$  |     24     |
+        |  $P_2$  |     3      |
+        |  $P_3$  |     3      |
 
     - Gantt chart:
 
@@ -332,10 +334,10 @@ $$rate = 1 / p.$$
 
     - Given processes: (the deadline for each process requires that it complete its CPU burst by the start of its next period.)
 
-        | Process | Period | ProcTime |
-        | :--: | :--: | :--: |
-        | $P_1$ | $p_1 = 50$ | $t_1 = 20$ |
-        | $P_2$ | $p_2 = 100$ | $t_2 = 35$ |
+        | Process |   Period    |  ProcTime  |
+        | :-----: | :---------: | :--------: |
+        |  $P_1$  | $p_1 = 50$  | $t_1 = 20$ |
+        |  $P_2$  | $p_2 = 100$ | $t_2 = 35$ |
 
         ![normal](../assets/os/6.17.png)
 
@@ -343,10 +345,10 @@ $$rate = 1 / p.$$
 
     - Given processes:
 
-        | Process | Period | ProcTime |
-        | :--: | :--: | :--: |
-        | $P_1$ | $p_1 = 50$ | $t_1 = 25$ |
-        | $P_2$ | $p_2 = 80$ | $t_2 = 35$ |
+        | Process |   Period   |  ProcTime  |
+        | :-----: | :--------: | :--------: |
+        |  $P_1$  | $p_1 = 50$ | $t_1 = 25$ |
+        |  $P_2$  | $p_2 = 80$ | $t_2 = 35$ |
 
         ![normal](../assets/os/6.18.png)
 

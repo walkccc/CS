@@ -42,6 +42,7 @@ extra:
     
 extra_css:
   - 'css/katex.css'
+  - 'https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css'
   - 'css/style.css'
 
 extra_javascript:
