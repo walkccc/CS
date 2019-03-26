@@ -75,6 +75,8 @@
     
       <link rel="stylesheet" href="../../css/katex.css">
     
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
+    
       <link rel="stylesheet" href="../../css/style.css">
     
     
@@ -1572,10 +1574,12 @@
 <div class="admonition note">
 <p class="admonition-title">Exponential average</p>
 <p>Let $t_n$ be time of $n$th CPU burst, and $\tau_{n + 1}$ be the next CPU burst.</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \tau_{n + 1} &amp; = \alpha t_n + (1 - \alpha)\tau_n, \quad 0 \le \alpha \le 1. \\
              &amp; = \alpha t_n + (1 - \alpha)\alpha t_{n - 1} + \cdots + (1 - \alpha)^j \alpha t_{n - j} + \cdots + (1 - \alpha)^{n + 1}\tau_0.
-\end{align}</p>
+\end{aligned}
+$$</p>
 </div>
 <ul>
 <li>

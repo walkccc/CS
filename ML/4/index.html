@@ -75,6 +75,8 @@
     
       <link rel="stylesheet" href="../../css/katex.css">
     
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
+    
       <link rel="stylesheet" href="../../css/style.css">
     
     
@@ -1033,10 +1035,12 @@ P(C_2) &amp; = 61 / (79 + 61) = 0.44
 <p>所以我們的目的是，找出一個 $(\mu^*, \Sigma^*)$ 能讓上式的 likelihood 最大：</p>
 <p>$$\mu^*, \Sigma^* = \arg \max_{\mu, \Sigma} L(\mu, \Sigma)$$</p>
 <p>透過微分可得以下結果：</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \mu^*    &amp; = \frac 1 {79} \sum_{n = 1}^{79} x^n \\
 \Sigma^* &amp; = \frac 1 {79} \sum_{n = 1}^{79} (x^n - \mu^*)(x^n - \mu^*)^T
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>所以我們可計算出：</p>
 <p><img alt="" src="https://i.imgur.com/HOWXjFd.png" /></p>
 <p>現在可以開始分類了，</p>
@@ -1059,10 +1063,12 @@ P(C_2) &amp; = 61 / (79 + 61) = 0.44
 <li>
 <p>Function Set (Model):</p>
 <p>輸入一個 $x$：$P(C_1 \mid x) = \frac{P(x \mid C_1) P(C_1)}{P(x \mid C_1) P(C_1) + P(x \mid C_2) P(C_2)}$</p>
-<p>\begin{cases}
+<p>$$
+\begin{cases}
 P(C_1 \mid x) &gt; 0.5 &amp; \text{output: class 1}, \\
 \text{else}         &amp; \text{output: class 2}
-\end{cases}</p>
+\end{cases}
+$$</p>
 </li>
 <li>
 <p>Goodness of a function</p>
@@ -1073,18 +1079,22 @@ P(C_1 \mid x) &gt; 0.5 &amp; \text{output: class 1}, \\
 </li>
 </ul>
 <h3 id="posterior-probability">Posterior Probability</h3>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 P(C_1 \mid x)
     &amp; = \frac{P(x \mid C_1) P(C_1)}{P(x \mid C_1) P(C_1) + P(x \mid C_2) P(C_2)} \\
     &amp; = \frac 1 {1 + \frac{P(x \mid C_2) P(C_2)}{P(x \mid C_1) P(C_1)}} \\
     &amp; = \frac 1 {1 + e^{-z}} = \sigma(z)
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>其中，$z = \ln \frac{P(x \mid C_1) P(C_1)}{P(x \mid C_2) P(C_2)}$ (sigmoid)</p>
 <p>經過很長一段推導（這裡就不再贅述，可直接看老師<a href="http://speech.ee.ntu.edu.tw/~tlkagk/courses/ML_2016/Lecture/Classification%20(v3).pdf">投影片</a>），可得出：</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 P(C_1 \mid x) &amp; = \sigma(z) \\
               &amp; = \sigma(w \cdot x + b)
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>其中，</p>
 <ul>
 <li>$w^T = (\mu^1 - \mu^2)^T \Sigma^{-1}$</li>

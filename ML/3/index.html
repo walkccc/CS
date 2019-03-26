@@ -75,6 +75,8 @@
     
       <link rel="stylesheet" href="../../css/katex.css">
     
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
+    
       <link rel="stylesheet" href="../../css/style.css">
     
     
@@ -1019,10 +1021,12 @@ $$</p>
 <li>$\theta$: parameters</li>
 </ul>
 <p>假設 $\theta$ 有兩個參數  ${\theta_1, \theta_2}$，我們隨機選取 $\theta ^ { 0 } = \left[ \begin{array} { l } { \theta _ { 1 } ^ { 0 } } \\ { \theta _ { 2 } ^ { 0 } } \end{array} \right]$，所以 $\nabla L ( \theta ) = \left[ \begin{array} { l } { \partial L \left( \theta _ { 1 } \right) / \partial \theta _ { 1 } } \\ { \partial L \left( \theta _ { 2 } \right) / \partial \theta _ { 2 } } \end{array} \right]$</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \left[ \begin{array} { l } { \theta _ { 1 } ^ { 1 } } \\ { \theta _ { 2 } ^ { 1 } } \end{array} \right] = \left[ \begin{array} { c } { \theta _ { 1 } ^ { 0 } } \\ { \theta _ { 2 } ^ { 0 } } \end{array} \right] - \eta \left[ \begin{array} { l } { \partial L \left( \theta _ { 1 } ^ { 0 } \right) / \partial \theta _ { 1 } } \\ { \partial L \left( \theta _ { 2 } ^ { 0 } \right) / \partial \theta _ { 2 } } \end{array} \right] \to \theta ^ { 1 } = \theta ^ { 0 } - \eta \nabla L \left( \theta ^ { 0 } \right) \\
 \left[ \begin{array} { l } { \theta _ { 1 } ^ { 2 } } \\ { \theta _ { 2 } ^ { 2 } } \end{array} \right] = \left[ \begin{array} { c } { \theta _ { 1 } ^ { 1 } } \\ { \theta _ { 2 } ^ { 1 } } \end{array} \right] - \eta \left[ \begin{array} { l } { \partial L \left( \theta _ { 1 } ^ { 1 } \right) / \partial \theta _ { 1 } } \\ { \partial L \left( \theta _ { 2 } ^ { 1 } \right) / \partial \theta _ { 2 } } \end{array} \right] \to \theta ^ { 2 } = \theta ^ { 1 } - \eta \nabla L \left( \theta ^ { 1 } \right)
-\end{align}</p>
+\end{aligned}
+$$</p>
 <h2 id="tip-1-tuning-your-learning-rates">Tip 1: Tuning your learning rates</h2>
 <p>我們必需要小心的設我們的 learning rate $\eta$</p>
 <p>$$
@@ -1044,11 +1048,13 @@ $$</p>
 </li>
 <li>
 <p>Adagrad</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 w^{t + 1} &amp; \leftarrow w^t - \frac{\eta^t}{\sigma^t} g^t \\
 \equiv w^{t + 1} &amp; \leftarrow w^t - \frac{\frac \eta { \sqrt { t + 1 } }}{\sqrt { \frac { 1 } { t + 1 } \sum _ { i = 0 } ^ { t } \left( g ^i \right) ^ { 2 } }} g^t \\
 \equiv w^{t + 1} &amp; \leftarrow w^t - \frac{\eta}{\sqrt{\sum_{i = 0}^t (g^i)^2}} g^t \\
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>其中，</p>
 <p>$\sigma^t$：<strong><em>root mean square</em></strong> of the previous derivatives of parameter $w$</p>
 </li>
@@ -1099,7 +1105,7 @@ $$</p>
 <h4 id="single-variable">Single-variable</h4>
 <p>Let $h(x)$ be any function infinitely differentiable around $x = x_0$.</p>
 <p>$$
-\begin{align} { h } ( { x } ) &amp; = \sum _ { k = 0 } ^ { \infty } \frac { { h } ^ { ( k ) } \left( x _ { 0 } \right) } { k ! } \left( x - x _ { 0 } \right) ^ { k } \\ &amp; = h \left( x _ { 0 } \right) + h ^ { \prime } \left( x _ { 0 } \right) \left( x - x _ { 0 } \right) + \frac { h ^ { \prime \prime } \left( x _ { 0 } \right) } { 2 ! } \left( x - x _ { 0 } \right) ^ { 2 } + \cdots \end{align}
+\begin{aligned} { h } ( { x } ) &amp; = \sum _ { k = 0 } ^ { \infty } \frac { { h } ^ { ( k ) } \left( x _ { 0 } \right) } { k ! } \left( x - x _ { 0 } \right) ^ { k } \\ &amp; = h \left( x _ { 0 } \right) + h ^ { \prime } \left( x _ { 0 } \right) \left( x - x _ { 0 } \right) + \frac { h ^ { \prime \prime } \left( x _ { 0 } \right) } { 2 ! } \left( x - x _ { 0 } \right) ^ { 2 } + \cdots \end{aligned}
 $$</p>
 <p>當 $x$ 接近 $x_0$ 時：$h(x) \approx h(x_0) + h'(x_0)(x - x_0)$</p>
 <h4 id="multi-variable">Multi-variable</h4>
@@ -1112,10 +1118,10 @@ $$</p>
 <p><img alt="small" src="https://i.imgur.com/tyoqtM7.png" /></p>
 <p>Based on Taylor Series: If the red circle is <strong><em>small enough</em></strong> (i.e., $\theta_1$ and $\theta_2$ is close to $a$ and $b$), in the red circle</p>
 <p>$$
-\begin{align}
+\begin{aligned}
 { L } ( \theta ) &amp; \approx { L } ( a , b ) + \frac { \partial { L } ( a , b ) } { \partial \theta _ { 1 } } \left( \theta _ { 1 } - a \right) + \frac { \partial { L } ( a , b ) } { \partial \theta _ { 2 } } \left( \theta _ { 2 } - b \right) \\
 &amp; \approx s + u \left( \theta _ { 1 } - a \right) + v \left( \theta _ { 2 } - b \right)
-\end{align}
+\end{aligned}
 $$</p>
 <p>其中，</p>
 <ul>
@@ -1125,18 +1131,18 @@ $$</p>
 <p>Goal: Find $\theta_1$ and $\theta_2$ in the <em>red circle</em> <strong>minimizing</strong> $L(\theta)$</p>
 <p>在 red circle 內代表的是一個圓的方程式：</p>
 <p>$$
-\begin{align}
+\begin{aligned}
 \left( \theta _ { 1 } - a \right) ^ { 2 } + \left( \theta _ { 2 } - b \right) ^ { 2 } &amp; \le d ^ { 2 } \\
 (\Delta \theta_1)^2 + (\Delta \theta_2)^2 &amp; \le d^2
-\end{align}
+\end{aligned}
 $$</p>
 <p>To minimize $L(\theta)$:</p>
 <p>$$
-\begin{align}
+\begin{aligned}
 \left[ \begin{array} { l } { \Delta \theta _ { 1 } } \\ { \Delta \theta _ { 2 } } \end{array} \right] &amp; = - \eta \left[ \begin{array} { l } { u } \\ { v } \end{array} \right] \\
 \Rightarrow \left[ \begin{array} { l } { \theta _ { 1 } } \\ { \theta _ { 2 } } \end{array} \right] &amp; = \left[ \begin{array} { l } { a } \\ { b } \end{array} \right] - \eta \left[ \begin{array} { l } { u } \\ { v } \end{array} \right] \\
 &amp; = \left[ \begin{array} { l } { a } \\ { b } \end{array} \right] - \eta \left[ \begin{array} { c } { \frac { \partial { L } ( a , b ) } { \partial \theta _ { 1 } } } \\ { \frac { \partial { L } ( a , b ) } { \partial \theta _ { 2 } } } \end{array} \right]
-\end{align}
+\end{aligned}
 $$</p>
                 
                   

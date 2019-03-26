@@ -75,6 +75,8 @@
     
       <link rel="stylesheet" href="../../css/katex.css">
     
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
+    
       <link rel="stylesheet" href="../../css/style.css">
     
     
@@ -1663,14 +1665,16 @@ Even if it's implemented in a multi-CPU environment, the locks should be held fo
 <p class="admonition-title">Deadlock</p>
 <p>A set of processes is in a deadlock state when every process in the set is waiting for an event that can be caused only by another process in the set.</p>
 </div>
-<p>\begin{array}{cc}
+<p>$$
+\begin{array}{cc}
 P_0 &amp; P_1 \\
 wait(S); &amp; wait(Q); \\
 wait(Q); &amp; wait(S); \\
 \vdots &amp; \vdots \\
 signal(S); &amp; signal(Q); \\
 signal(Q); &amp; signal(S); \\
-\end{array}</p>
+\end{array}
+$$</p>
 <p>Deadlock may happen (assume $S = 1$ and $Q = 1$: </p>
 <ol>
 <li>$P_0$ calls $wait(S)$</li>

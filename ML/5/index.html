@@ -75,6 +75,8 @@
     
       <link rel="stylesheet" href="../../css/katex.css">
     
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
+    
       <link rel="stylesheet" href="../../css/style.css">
     
     
@@ -939,11 +941,13 @@ P_{w, b} (C_1 \mid x) \ge 0.5 &amp; \text{output: } C_1, \\
 \text{else}                   &amp; \text{output: } C_2
 \end{cases}
 $$</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 P_{w, b} (C_1 \mid x)
   &amp; = \sigma(z) \\
   &amp; = \sigma(w \cdot x + b)
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>我們會有以下的 Function set（包含各種不同的 $w$ 和 $b$）:</p>
 <p>$$f_{w, b}(x) = P_{w, b} (C_1 \mid x)$$</p>
 <p><img alt="" src="https://i.imgur.com/3vbJcUq.png" /></p>
@@ -966,11 +970,11 @@ w ^ { * } , b ^ { * } = \arg \max _ { w , b } L ( w , b )
 $$</p>
 <p>求上式等同於求：</p>
 <p>$$
-\begin{align}
+\begin{aligned}
 w ^ { * } , b ^ { * } &amp; = \arg \min _ { w , b } - \ln L ( w , b ) \\
 &amp; = \arg \min _ { w , b } - \ln f _ { w , b } \left( x ^ { 1 } \right) - \ln f _ { w , b } \left( x ^ { 2 } \right) - \ln \left( 1 - f _ { w , b } \left( x ^ { 3 } \right) \right) \cdots - \ln f _ { w , b } \left( x ^ { N } \right) \\
 &amp; = \arg \min _ { w , b } \sum _ { n } - \left[ \hat { y } ^ { n } \ln f _ { w , b } \left( x ^ { n } \right) + \left( 1 - \hat { y } ^ { n } \right) \ln \left( 1 - f _ { w , b } \left( x ^ { n } \right) \right) \right]
-\end{align}
+\end{aligned}
 $$</p>
 <p>其中，</p>
 <ul>
@@ -1007,33 +1011,33 @@ $$</p>
 <li>$z = w \cdot x + b = \sum _ { i } w _ { i } x _ { i } + b$</li>
 </ul>
 <p>$$
-\begin{align}
+\begin{aligned}
 \frac { \partial \ln f _ { w , b } ( x ) } { \partial w _ { i } } &amp; = \frac { \partial \ln f _ { w , b } ( x ) } { \partial z } \frac { \partial z } { \partial w _ { i } } \\
 &amp; = \frac { \partial \ln \sigma ( z ) } { \partial z } \cdot x_i \\
 &amp; = \frac { 1 } { \sigma ( z ) } \frac { \partial \sigma ( z ) } { \partial z } \cdot x_i \\
 &amp; = \frac{1}{\sigma(z)} \sigma(z) (1 - \sigma(z)) \cdot x_i \\
 &amp; = (1 - \sigma(z)) \cdot x_i \\
 &amp; = \left( 1 - f _ { w , b } \left( x \right) \right) \cdot x_i
-\end{align}
+\end{aligned}
 $$</p>
 <p>$$
-\begin{align}
+\begin{aligned}
 \frac { \partial \ln \left( 1 - f _ { w , b } ( x ) \right) } { \partial w _ { i } } &amp; = \frac { \partial \ln \left( 1 - f _ { w , b } ( x ) \right) } { \partial z } \frac { \partial z } { \partial w _ { i } } \\
 &amp; = \frac { \partial \ln ( 1 - \sigma ( z ) ) } { \partial z } \cdot x_i \\
 &amp; = - \frac { 1 } { 1 - \sigma ( z ) } \frac { \partial \sigma ( z ) } { \partial z } \cdot x_i \\
 &amp; = - \frac{1}{1 - \sigma(z)} \sigma(z) (1 - \sigma(z)) \cdot x_i \\
 &amp; = -\sigma(z) \cdot x_i \\
 &amp; = -f _ { w , b } \left( x \right) \cdot x_i
-\end{align}
+\end{aligned}
 $$</p>
 <p>透過上面計算出來的結果，我們可以對 $*$ 式進行代換：</p>
 <p>$$
-\begin{align}
+\begin{aligned}
 \frac { - \ln L ( w , b ) } { \partial w _ { i } } &amp; = \sum _ { n } - \left[ \hat { y } ^ { n } \frac { \ln f _ { w , b } \left( x ^ { n } \right) } { \partial w _ { i } } + \left( 1 - \hat { y } ^ { n } \right) \frac { \ln \left( 1 - f _ { w , b } \left( x ^ { n } \right) \right) } { \partial w _ { i } } \right] \\
 &amp; = \sum _ { n } - \left[ \hat { y } ^ { n } \left( 1 - f _ { w , b } \left( x ^ { n } \right) \right) x _ { i } ^ { n } - \left( 1 - \hat { y } ^ { n } \right) f _ { w , b } \left( x ^ { n } \right) x _ { i } ^ { n } \right] \\
 &amp; = \sum _ { n } - \left[ \hat { y } ^ { n } - \hat { y } ^ { n } f _ { w , b } \left( x ^ { n } \right) - f _ { w , b } \left( x ^ { n } \right) + \hat { y } ^ { n } f _ { W , b } \left( x ^ { n } \right) \right] x _ { i } ^ { n } \\
 &amp; = \sum _ { n } - \left( \hat { y } ^ { n } - f _ { w , b } \left( x ^ { n } \right) \right) x _ { i } ^ { n }
-\end{align}
+\end{aligned}
 $$</p>
 <p>參數更新方式如下：</p>
 <p>$$
@@ -1089,10 +1093,10 @@ L ( f ) = \frac { 1 } { 2 } \sum _ { n } \left( f _ { w , b } \left( x ^ { n } \
 $$</p>
 <p>在 Step 3: Find the best function 對 $w_i$ 做微分時：</p>
 <p>$$
-\begin{align}
+\begin{aligned}
 \frac { \partial \left( f _ { w , b } ( x ) - \hat { y } \right) ^ { 2 } } { \partial w _ { i } } &amp; = 2 \left( f _ { w , b } ( x ) - \hat { y } \right) \frac { \partial f _ { w , b } ( x ) } { \partial z } \frac { \partial z } { \partial w _ { i } } \\
 &amp; = 2 \left( f _ { w , b } ( x ) - \hat { y } \right) f _ { w , b } ( x ) \left( 1 - f _ { w , b } ( x ) \right) x _ { i }
-\end{align}
+\end{aligned}
 $$</p>
 <p>不論 $\hat y^n = 1$ 或 $\hat y^n = 0$，都可能導致 $\partial L / \partial w _ { i } = 0$，無法有效更新參數。</p>
 <h2 id="generative-vs-discriminative">Generative v.s. Discriminative</h2>

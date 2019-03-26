@@ -75,6 +75,8 @@
     
       <link rel="stylesheet" href="../../css/katex.css">
     
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
+    
       <link rel="stylesheet" href="../../css/style.css">
     
     
@@ -1027,13 +1029,15 @@
 </ul>
 <h2 id="adaptive-learning-rate">Adaptive Learning Rate</h2>
 <h3 id="rmsprop">RMSProp</h3>
-<p>\begin{array} { c l } 
+<p>$$
+\begin{array} { c l } 
 { w ^ { 1 } \leftarrow w ^ { 0 } - \frac { \eta } { \sigma ^ { 0 } } g ^ { 0 } } &amp; { \sigma ^ { 0 } = g ^ { 0 } } \\
 { w ^ { 2 } \leftarrow w ^ { 1 } - \frac { \eta } { \sigma ^ { 1 } } g ^ { 1 } } &amp; { \sigma ^ { 1 } = \sqrt { \alpha \left( \sigma ^ { 0 } \right) ^ { 2 } + ( 1 - \alpha ) \left( g ^ { 2 } \right) ^ { 2 } } } \\
 { w ^ { 3 } \leftarrow w ^ { 2 } - \frac { \eta } { \sigma ^ { 2 } } g ^ { 2 } } &amp; { \sigma ^ { 2 } = \sqrt { \alpha \left( \sigma ^ { 1 } \right) ^ { 2 } + ( 1 - \alpha ) \left( g ^ { 2 } \right) ^ { 2 } } } \\
 { \vdots } &amp; { \vdots } \\
 { w ^ { t + 1 } \leftarrow w ^ { t } - \frac { \eta } { \sigma ^ { t } } g ^ { t } } &amp; { \sigma ^ { t } = \sqrt { \alpha \left( \sigma ^ { t - 1 } \right) ^ { 2 } + ( 1 - \alpha ) \left( g ^ { t } \right) ^ { 2 } } }
-\end{array}</p>
+\end{array}
+$$</p>
 <p>Root Mean Square of the gradients with previous gradients being decayed.</p>
 <h3 id="momentum">Momentum</h3>
 <p><img alt="" src="https://imgur.com/CRg6kxR.png" /></p>

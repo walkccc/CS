@@ -75,6 +75,8 @@
     
       <link rel="stylesheet" href="../../css/katex.css">
     
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
+    
       <link rel="stylesheet" href="../../css/style.css">
     
     
@@ -921,10 +923,12 @@
 <p>我們會逐次更新參數如下：$\theta^0 \to \theta^1 \to \theta^2 \to \cdots$</p>
 <p>但因為有太多參數，所以我們必需「有效地」更新參數。</p>
 <p>給定 loss function：</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 L ( \theta ) &amp; = \sum _ { n = 1 } ^ { N } C ^ { n } ( \theta ) \\
 \to \frac { \partial L ( \theta ) } { \partial w } &amp; = \sum _ { n = 1 } ^ { N } \frac { \partial C ^ { n } ( \theta ) } { \partial w }
-\end{align}</p>
+\end{aligned}
+$$</p>
 <h2 id="backpropagation_1">Backpropagation</h2>
 <p><img alt="" src="https://imgur.com/CFHtwpb.png" /></p>
 <p>假設只考慮其中一個 neuron，則 $z = x_1w_1 + x_2w_2 + b$，我們所要求的是：</p>
@@ -944,19 +948,23 @@ L ( \theta ) &amp; = \sum _ { n = 1 } ^ { N } C ^ { n } ( \theta ) \\
 <h3 id="backward-pass">Backward pass</h3>
 <p>要計算出 $\frac { \partial C } { \partial z }$ 是非常複雜的，但我們可以透過 chain rule 做些拆解：</p>
 <p><img alt="" src="https://imgur.com/C67xQpB.png" /></p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \frac { \partial C } { \partial z } &amp; = \frac { \partial a } { \partial z } \frac { \partial C } { \partial a } \\
 &amp; = \sigma ^ { \prime } ( z ) \left[ \frac { \partial z ^ { \prime } } { \partial a } \frac { \partial C } { \partial z ^ { \prime } } + \frac { \partial z ^ { \prime \prime } } { \partial a } \frac { \partial C } { \partial z ^ { \prime \prime } } \right] \\
 &amp; = \sigma ^ { \prime } ( z ) \left[ w _ { 3 } \frac { \partial C } { \partial z ^ { \prime } } + w _ { 4 } \frac { \partial C } { \partial z ^ { \prime \prime } } \right]
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>想像有另一個 network，方向是反過來的，下面這個網路即和上式所代表的意義一樣：</p>
 <p><img alt="" src="https://imgur.com/R5CVdpT.png" /></p>
 <h4 id="case-1-output-layer">Case 1. Output Layer</h4>
 <p><img alt="" src="https://imgur.com/jPZZPaa.png" /></p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \frac { \partial C } { \partial z ^ { \prime } } &amp; = \frac { \partial y _ { 1 } } { \partial z ^ { \prime } } \frac { \partial C } { \partial y _ { 1 } } \\
 \frac { \partial C } { \partial z ^ { \prime \prime } } &amp; = \frac { \partial y _ { 2 } } { \partial z ^ { \prime \prime } } \frac { \partial C } { \partial y _ { 2 } }
-\end{align}</p>
+\end{aligned}
+$$</p>
 <h4 id="case-2-not-output-layer">Case 2. Not Output Layer</h4>
 <p><img alt="" src="https://imgur.com/4LO37Jp.png" /></p>
 <p>Compute $\partial C / \partial z$ recursively until we reach the output layer.</p>

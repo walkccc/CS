@@ -75,6 +75,8 @@
     
       <link rel="stylesheet" href="../../css/katex.css">
     
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
+    
       <link rel="stylesheet" href="../../css/style.css">
     
     
@@ -934,12 +936,14 @@
 <p>Machine Learning 主要有三個步驟</p>
 <h3 id="step-1-model">Step 1: Model</h3>
 <p>我們假設預測 $y$ 值的 function 為 $y = b + w \cdot x_{cp}$，許多不同的 $w$ 和 $b$ 可構成不同的 $f_1, f_2, \dots$，例如：</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 f_1: y &amp; = 10.0 + 9.0 \cdot x_{cp} \\
 f_2: y &amp; =  9.8 + 9.2 \cdot x_{cp} \\
 f_3: y &amp; = -0.8 - 1.2 \cdot x_{cp} \\
 &amp; \vdots
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>如此一來，我們就有了 linear model:</p>
 <p>$$y = b + \sum w_ib_i$$</p>
 <p>其中，</p>
@@ -951,17 +955,21 @@ f_3: y &amp; = -0.8 - 1.2 \cdot x_{cp} \\
 <h3 id="step-2-goodness-of-function">Step 2: Goodness of Function</h3>
 <p>有了一堆 functions 後，我們必需要知道，這些 functions 有多好？因此我們需要一個評比的標準，我們可以用 Loss function $L$，它的 input 為 $f$，output 為 how bad it is？</p>
 <p>loss function 可定義如下：</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 L(f)    &amp; = \sum_{n = 1}^{10} (\hat y^n - f(x_{cp}^n))^2 \\
 L(w, b) &amp; = \sum_{n = 1}^{10} (\hat y^n - (b + w \cdot x_{cp}^n))^2
-\end{align}</p>
+\end{aligned}
+$$</p>
 <h3 id="step-3-best-function">Step 3: Best Function</h3>
 <p>最後，我們要選出 best function，即：選擇 loss 最小的 function（參數）：</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 f ^ { * } &amp; = \arg \min _ { f } L ( f )  \\ 
 w ^ { * } , b ^ { * } &amp; = \arg \min _ { w , b } L ( w , b )  \\
 &amp; = \arg \min _ { w , b } \sum _ { n = 1 } ^ { 10 } \left( \hat { y } ^ { n } - \left( b + w \cdot x _ { c p } ^ { n } \right) \right) ^ { 2 }
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>求解最佳參數的方法可以是 Gradient Descent。</p>
 <h2 id="gradient-descent">Gradient Descent</h2>
 <p><img alt="" src="https://i.imgur.com/mkxAZGT.png" /></p>
@@ -992,19 +1000,23 @@ w ^ { 2 } &amp; \leftarrow w ^ { 1 } - \eta \left. \frac { d L } { d w } \right|
 <p>複雜模型的 model space 涵蓋了簡單模型的 model space，因此在 training data 上的錯誤率更小，但並不意味著在 testing data 上錯誤率也會小，因為 Model 太複雜有很高機率會出現 overfitting。</p>
 <h2 id="what-are-the-hidden-factors">What are the hidden factors?</h2>
 <p>如果我們收集更多寶可夢進化前後的 CP 值會發現，進化後的 CP 值不只依賴於進化前的 CP 值，可能還有其它的隱藏因素（例如：寶可夢所屬的物種）。同時考慮進化前 CP 值 $x_{cp}$ 和物種 $x_s$，我們可以回到 Step 1: Model 重新選擇新的 model：</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 \text{if } &amp; x_s = \text{pidgey}:   &amp; y = b_1 + w_1 \cdot x_{cp} \\
 \text{if } &amp; x_s = \text{weedle}:   &amp; y = b_2 + w_2 \cdot x_{cp} \\
 \text{if } &amp; x_s = \text{caterpie}: &amp; y = b_3 + w_3 \cdot x_{cp} \\
 \text{if } &amp; x_s = \text{eevee}:    &amp; y = b_4 + w_4 \cdot x_{cp}
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>這仍是一個線性模型，因為它可以寫作：</p>
-<p>\begin{align}
+<p>$$
+\begin{aligned}
 y = &amp; b_1 \cdot \boldsymbol{\delta(x_s = \text{pidgey})  } &amp; + &amp; w_1 \cdot \boldsymbol{\delta(x_s = \text{pidgey})   \cdot x_{cp}} + \\
     &amp; b_2 \cdot \boldsymbol{\delta(x_s = \text{weedle})  } &amp; + &amp; w_2 \cdot \boldsymbol{\delta(x_s = \text{weedle})   \cdot x_{cp}} + \\
     &amp; b_3 \cdot \boldsymbol{\delta(x_s = \text{caterpie})} &amp; + &amp; w_3 \cdot \boldsymbol{\delta(x_s = \text{caterpie}) \cdot x_{cp}} + \\
     &amp; b_4 \cdot \boldsymbol{\delta(x_s = \text{eevee})   } &amp; + &amp; w_4 \cdot \boldsymbol{\delta(x_s = \text{eevee})    \cdot x_{cp}}
-\end{align}</p>
+\end{aligned}
+$$</p>
 <p>上式中的粗體項都是 linear model $y = b + \Sigma w_i \cdot x_i$ 中的 feature $x_i$。</p>
 <p>這個模型在 testing data 上有更好的表現，如果同時考慮寶可夢的其它屬性，選一個很複雜的模型，結果可能會導致 overfitting。</p>
 <p>對線性模型來說，我們希望選出的 best function 能平滑一點，也就是權重係數小一些，因為這樣的話，在 testing data 受 noise 影響時，預測值所受的影響會更小。</p>

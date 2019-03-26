@@ -75,6 +75,8 @@
     
       <link rel="stylesheet" href="../../css/katex.css">
     
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
+    
       <link rel="stylesheet" href="../../css/style.css">
     
     
@@ -892,10 +894,10 @@
 <p><img alt="" src="https://imgur.com/GWWtv4F.png" /></p>
 <p>每個 $W^l$ 都是一個矩陣，都是我們可以用 GPU 的平行運算去加速矩陣運算：</p>
 <p>$$
-\begin{align}
+\begin{aligned}
 y &amp; = f(x) \\
   &amp; = \sigma(W^L \cdots \sigma(W^2 \sigma(W^1x + b^1) + b^2) \cdots + b^L)
-\end{align}
+\end{aligned}
 $$</p>
 <h4 id="output-layer">Output Layer</h4>
 <p><img alt="" src="https://imgur.com/hAiDUEU.png" /></p>
