@@ -79,12 +79,38 @@ nav:
       - Final: OS/final.md
   - Machine Learning:
     - Preface: ML/index.md
-    - Lec 1 - Regression - Case Study: ML/1.md
-    - Lec 2 - Where does the error com from?: ML/2.md
-    - Lec 3 - Gradient Descent: ML/3.md
-    - Lec 4 - Classification: ML/4.md
-    - Lec 5 - Logistic Regression: ML/5.md
-    - Lec 6 - Deep Learning: ML/6.md
-    - Lec 7 - Backpropagation: ML/7.md
-    - 'Lec 8 - "Hello world" of Deep Learning': ML/8.md
-    - Lec 9 - Tips for Deep Learning: ML/9.md
+    - Lec 1 - Regression - Case Study: ML/01.md
+    - Lec 2 - Where does the error com from?: ML/02.md
+    - Lec 3 - Gradient Descent: ML/03.md
+    - Lec 4 - Classification: ML/04.md
+    - Lec 5 - Logistic Regression: ML/05.md
+    - Lec 6 - Deep Learning: ML/06.md
+    - Lec 7 - Backpropagation: ML/07.md
+    - 'Lec 8 - "Hello world" of Deep Learning': ML/08.md
+    - Lec 9 - Tips for Deep Learning: ML/09.md
+  - JavaScript DSA:
+    - Preface: JavaScript/index.md
+    - 01 - Problem Solving Patterns:
+      - Frequency Counters: JavaScript/01/frequencyCounters.md
+      - Multiple Pointers: JavaScript/01/multiplePointers.md
+      - Sliding Window: JavaScript/01/slidingWindow.md
+      - Divide and Conquer: JavaScript/01/divideAndConquer.md
+    - 02 - Recursion Problem Set:
+      - Recursion Problem Set (easy): JavaScript/02/recursionEasy.md
+      - Recursion Problem Set (hard): JavaScript/02/recursionHard.md
+    - 03 - Sorting Algorithms:
+      - Bubble Sort: JavaScript/03/bubbleSort.md
+      - Selection Sort: JavaScript/03/selectionSort.md
+      - Insertion Sort: JavaScript/03/insertionSort.md
+      - Merge Sort: JavaScript/03/mergeSort.md
+      - Quick Sort: JavaScript/03/quickSort.md
+    - 04 - Data Structures:
+      - Singly Linked List: JavaScript/04/SinglyLinkedList.md
+      - Doubly Linked List: JavaScript/04/DoublyLinkedList.md
+      - Binary Search Tree: JavaScript/04/BinarySearchTree.md
+      - Max Binary Heap: JavaScript/04/MaxBinaryHeap.md
+      - Max Priority Queue: JavaScript/04/MaxPriorityQueue.md
+    - 05 - Graphs:
+      - Graph: JavaScript/05/Graph.md
+      - Dijkstra Algorithm: JavaScript/05/Dijkstra.md
+

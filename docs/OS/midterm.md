@@ -102,7 +102,9 @@
         
         <span style="color:red">By SJF, their turnaround time should be:
 
-        <span style="color:red">\begin{array}{c|c}
+        <span style="color:red">
+        $$
+        \begin{array}{c|c}
         P_i & \text{waiting time} \\\\
         \hline
         P_1 & t_1 \\\\
@@ -111,6 +113,7 @@
         \vdots & \vdots \\\\
         P_n & t_1 + t_2 + \cdots + t_n
         \end{array}
+        $$
         
         <span style="color:red">Total waiting time:
 
@@ -271,10 +274,10 @@ The exam is 180 minutes long. The total score is 107pts. Please read the questio
 
     <span style="color:red">Given processes:
 
-    | Process | Period | ProcTime |
-    | :--: | :--: | :--: |
-    | $P_1$ | $p_1 = 50$ | $t_1 = 25$ |
-    | $P_2$ | $p_2 = 80$ | $t_2 = 35$ |
+    | Process |   Period   |  ProcTime  |
+    | :-----: | :--------: | :--------: |
+    |  $P_1$  | $p_1 = 50$ | $t_1 = 25$ |
+    |  $P_2$  | $p_2 = 80$ | $t_2 = 35$ |
 
     ![normal](../assets/os/6.18.png)
 
@@ -666,7 +669,9 @@ The exam is 180 minutes long. The total score is 108pts. Please read the questio
         
         <span style="color:red">By SJF, their waiting time should be:
 
-        <span style="color:red">\begin{array}{c|c}
+        <span style="color:red">
+        $$
+        \begin{array}{c|c}
         P_i & \text{waiting time} \\\\
         \hline
         P_1 & 0 \\\\
@@ -675,7 +680,8 @@ The exam is 180 minutes long. The total score is 108pts. Please read the questio
         \vdots & \vdots \\\\
         P_n & t_1 + t_2 + \cdots + t_{n - 1}
         \end{array}
-        
+        $$
+
         <span style="color:red">Total waiting time:
 
         <span style="color:red">$$(n - 1)t_1 + (n - 2)t_2 + \cdots + t_{n - 1}.$$
