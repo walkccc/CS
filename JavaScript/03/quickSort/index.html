@@ -1217,12 +1217,11 @@
   <span class="kd">let</span> <span class="nx">pivot</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">left</span><span class="p">];</span>
   <span class="kd">let</span> <span class="nx">swapIndex</span> <span class="o">=</span> <span class="nx">left</span><span class="p">;</span>
 
-  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">left</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">right</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">pivot</span> <span class="o">&gt;</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span> <span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">left</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">right</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">pivot</span> <span class="o">&gt;</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
       <span class="nx">swap</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span> <span class="o">++</span><span class="nx">swapIndex</span><span class="p">,</span> <span class="nx">i</span><span class="p">);</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
   <span class="nx">swap</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span> <span class="nx">left</span><span class="p">,</span> <span class="nx">swapIndex</span><span class="p">);</span>
+
   <span class="k">return</span> <span class="nx">swapIndex</span><span class="p">;</span>
 <span class="p">};</span>
 </pre></div>
@@ -1234,6 +1233,7 @@
     <span class="nx">quickSort</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span> <span class="nx">left</span><span class="p">,</span> <span class="nx">pivotIndex</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
     <span class="nx">quickSort</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span> <span class="nx">pivotIndex</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">right</span><span class="p">);</span>
   <span class="p">}</span>
+
   <span class="k">return</span> <span class="nx">arr</span><span class="p">;</span>
 <span class="p">};</span>
 </pre></div>

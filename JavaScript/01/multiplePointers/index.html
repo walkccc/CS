@@ -1244,17 +1244,15 @@
 <p>Write a function called <code>sumZero</code> which accepts a <strong>sorted</strong> array of integers. The function should find the <strong>first</strong> pair where the sum is 0. Return an array that iincludes both values that sum to zero or undefined if a pair does not exist.</p>
 </blockquote>
 <div class="highlight"><pre><span></span><span class="nx">sumZero</span><span class="p">([</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]);</span> <span class="c1">// [-3, 3]</span>
-<span class="nx">sumZero</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]);</span> <span class="c1">//undefined</span>
-<span class="nx">sumZero</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]);</span> <span class="c1">//undefined</span>
+<span class="nx">sumZero</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]);</span> <span class="c1">// undefined</span>
+<span class="nx">sumZero</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]);</span> <span class="c1">// undefined</span>
 </pre></div>
 
 <ul>
 <li>
 <p>Solution 1 (naive)</p>
-</li>
-<li>
-<p>Time: $O(n^2)$</p>
-</li>
+<ul>
+<li>Time: $O(n^2)$</li>
 <li>Space: $O(1)$</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">sumZero</span> <span class="o">=</span> <span class="nx">arr</span> <span class="p">=&gt;</span> <span class="p">{</span>
@@ -1265,13 +1263,11 @@
 <span class="p">};</span>
 </pre></div>
 
-<ul>
+</li>
 <li>
 <p>Solution 2 (refactor):</p>
-</li>
-<li>
-<p>Time: $O(n)$</p>
-</li>
+<ul>
+<li>Time: $O(n)$</li>
 <li>Space: $O(1)$</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">sumZero</span> <span class="o">=</span> <span class="nx">arr</span> <span class="p">=&gt;</span> <span class="p">{</span>
@@ -1280,6 +1276,7 @@
 
   <span class="k">while</span> <span class="p">(</span><span class="nx">left</span> <span class="o">&lt;</span> <span class="nx">right</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">let</span> <span class="nx">sum</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">left</span><span class="p">]</span> <span class="o">+</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">right</span><span class="p">];</span>
+
     <span class="k">if</span> <span class="p">(</span><span class="nx">sum</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
       <span class="k">return</span> <span class="p">[</span><span class="nx">arr</span><span class="p">[</span><span class="nx">left</span><span class="p">],</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">right</span><span class="p">]];</span>
     <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">sum</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
@@ -1291,6 +1288,8 @@
 <span class="p">};</span>
 </pre></div>
 
+</li>
+</ul>
 <h2 id="countuniquevaluesarr"><code>countUniqueValues(arr)</code></h2>
 <blockquote>
 <p>Implement a function called <code>countUniqueValues</code>, which accepts a sorted array, and counts the unique values in the array. There can be negative numbers in the array, but it will always be sorted.</p>
@@ -1303,24 +1302,24 @@
 <ul>
 <li>
 <p>Solution:</p>
-</li>
-<li>
-<p>Time: $O(n)$</p>
-</li>
+<ul>
+<li>Time: $O(n)$</li>
 <li>Space: $O(1)$</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">countUniqueValues</span> <span class="o">=</span> <span class="nx">arr</span> <span class="p">=&gt;</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">arr</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 
   <span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">!==</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">j</span><span class="p">])</span> <span class="nx">arr</span><span class="p">[</span><span class="o">++</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">j</span><span class="p">];</span>
-  <span class="p">}</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">!==</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">j</span><span class="p">])</span>
+      <span class="nx">arr</span><span class="p">[</span><span class="o">++</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">j</span><span class="p">];</span>
 
   <span class="k">return</span> <span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
 <span class="p">};</span>
 </pre></div>
 
+</li>
+</ul>
 <h2 id="averagepairarr-val"><code>averagePair(arr, val)</code></h2>
 <blockquote>
 <p>Write a function called <code>averagePair</code>. Given a sorted array of integers and a target average, determine if there is a pair of values in the array where the average of the pair equals the target average. There may be more than one pair that matches the average target.</p>
@@ -1334,10 +1333,8 @@
 <ul>
 <li>
 <p>Solution:</p>
-</li>
-<li>
-<p>Time: $O(n)$</p>
-</li>
+<ul>
+<li>Time: $O(n)$</li>
 <li>Space: $O(1)$</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">averagePair</span> <span class="o">=</span> <span class="p">(</span><span class="nx">arr</span><span class="p">,</span> <span class="nx">num</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
@@ -1346,6 +1343,7 @@
 
   <span class="k">while</span> <span class="p">(</span><span class="nx">left</span> <span class="o">&lt;</span> <span class="nx">right</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">let</span> <span class="nx">average</span> <span class="o">=</span> <span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">left</span><span class="p">]</span> <span class="o">+</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">right</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+
     <span class="k">if</span> <span class="p">(</span><span class="nx">average</span> <span class="o">===</span> <span class="nx">num</span><span class="p">)</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
     <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">average</span> <span class="o">&lt;</span> <span class="nx">num</span><span class="p">)</span> <span class="nx">left</span><span class="o">++</span><span class="p">;</span>
     <span class="k">else</span> <span class="nx">right</span><span class="o">--</span><span class="p">;</span>
@@ -1355,6 +1353,8 @@
 <span class="p">};</span>
 </pre></div>
 
+</li>
+</ul>
 <h2 id="issubsequencestr1-str2"><code>isSubsequence(str1, str2)</code></h2>
 <blockquote>
 <p>Write a function called <code>isSubsequence</code> which takes in two strings and checks whether the characters in the first string form a subsequence of the characters in the second string. In other words, the function should check whether the characters in the first string appear somewhere in the second string, <strong>without their order changing</strong>.</p>
@@ -1367,10 +1367,8 @@
 <ul>
 <li>
 <p>Solution 1 (iterative):</p>
-</li>
-<li>
-<p>Time: $O(n + m)$</p>
-</li>
+<ul>
+<li>Time: $O(n + m)$</li>
 <li>Space: $O(1)$</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">isSubsequence</span> <span class="o">=</span> <span class="p">(</span><span class="nx">str1</span><span class="p">,</span> <span class="nx">str2</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
@@ -1386,9 +1384,9 @@
 <span class="p">};</span>
 </pre></div>
 
-<ul>
-<li>Solution 2 (recursive but not $O(1)$ space):</li>
-</ul>
+</li>
+<li>
+<p>Solution 2 (recursive but not $O(1)$ space):</p>
 <div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">isSubsequence</span> <span class="o">=</span> <span class="p">(</span><span class="nx">str1</span><span class="p">,</span> <span class="nx">str2</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">str1</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">str2</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
@@ -1396,6 +1394,9 @@
   <span class="k">return</span> <span class="nx">isSubsequence</span><span class="p">(</span><span class="nx">str1</span><span class="p">,</span> <span class="nx">str2</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
 <span class="p">};</span>
 </pre></div>
+
+</li>
+</ul>
                 
                   
                 

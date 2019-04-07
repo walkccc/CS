@@ -1239,48 +1239,53 @@
 <ul>
 <li>
 <p>Solution 1 (naive):</p>
-</li>
-<li>
-<p>Time: O(N^2)</p>
-</li>
+<ul>
+<li>Time: $O(n^2)$</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">maxSubarraySum</span> <span class="o">=</span> <span class="p">(</span><span class="nx">arr</span><span class="p">,</span> <span class="nx">n</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">n</span> <span class="o">&gt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+
   <span class="kd">let</span> <span class="nx">ret</span> <span class="o">=</span> <span class="o">-</span><span class="kc">Infinity</span><span class="p">;</span>
+
   <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="nx">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">let</span> <span class="nx">temp</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span>
       <span class="nx">temp</span> <span class="o">+=</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span> <span class="o">+</span> <span class="nx">j</span><span class="p">];</span>
-    <span class="p">}</span>
+
     <span class="k">if</span> <span class="p">(</span><span class="nx">temp</span> <span class="o">&gt;</span> <span class="nx">ret</span><span class="p">)</span> <span class="nx">ret</span> <span class="o">=</span> <span class="nx">temp</span><span class="p">;</span>
   <span class="p">}</span>
+
   <span class="k">return</span> <span class="nx">ret</span><span class="p">;</span>
 <span class="p">};</span>
 </pre></div>
 
-<ul>
+</li>
 <li>
 <p>Solution 2 (refactor):</p>
-</li>
-<li>
-<p>Time: O(N)</p>
-</li>
-<li>Space: O(1)</li>
+<ul>
+<li>Time: $O(n)$</li>
+<li>Space: $O(1)$</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">maxSubarraySum</span> <span class="o">=</span> <span class="p">(</span><span class="nx">arr</span><span class="p">,</span> <span class="nx">n</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">arr</span><span class="p">.</span><span class="nx">length</span> <span class="o">&lt;</span> <span class="nx">n</span><span class="p">)</span> <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+
   <span class="kd">let</span> <span class="nx">ret</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
   <span class="kd">let</span> <span class="nx">temp</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
   <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="nx">ret</span> <span class="o">+=</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+
   <span class="nx">temp</span> <span class="o">=</span> <span class="nx">ret</span><span class="p">;</span>
   <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">temp</span> <span class="o">=</span> <span class="nx">temp</span> <span class="o">-</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span> <span class="o">-</span> <span class="nx">n</span><span class="p">]</span> <span class="o">+</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
     <span class="nx">ret</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">ret</span><span class="p">(</span><span class="nx">ret</span><span class="p">,</span> <span class="nx">temp</span><span class="p">);</span>
   <span class="p">}</span>
+
   <span class="k">return</span> <span class="nx">ret</span><span class="p">;</span>
 <span class="p">};</span>
 </pre></div>
 
+</li>
+</ul>
 <h2 id="minsubarraylenarr-num"><code>minSubArrayLen(arr, num)</code></h2>
 <blockquote>
 <p>Write a function called <code>minSubArrayLen</code> which accepts two parameters - an array of positive integers and a positive integer.</p>
@@ -1294,17 +1299,16 @@
 <ul>
 <li>
 <p>Solution</p>
-</li>
-<li>
-<p>Time: O(N)</p>
-</li>
-<li>Space: O(1)</li>
+<ul>
+<li>Time: $O(n)$</li>
+<li>Space: $O(1)$</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">minSubArrayLen</span> <span class="o">=</span> <span class="p">(</span><span class="nx">arr</span><span class="p">,</span> <span class="nx">num</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
   <span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// start</span>
   <span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// end</span>
   <span class="kd">let</span> <span class="nx">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
   <span class="kd">let</span> <span class="nx">ret</span> <span class="o">=</span> <span class="kc">Infinity</span><span class="p">;</span>
+
   <span class="k">while</span> <span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="nx">sum</span> <span class="o">&lt;</span> <span class="nx">num</span> <span class="o">&amp;&amp;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
       <span class="nx">sum</span> <span class="o">+=</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">j</span><span class="p">];</span>
@@ -1317,10 +1321,13 @@
       <span class="k">break</span><span class="p">;</span>
     <span class="p">}</span>
   <span class="p">}</span>
+
   <span class="k">return</span> <span class="nx">ret</span> <span class="o">===</span> <span class="kc">Infinity</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="nx">ret</span><span class="p">;</span>
 <span class="p">};</span>
 </pre></div>
 
+</li>
+</ul>
 <h2 id="findlongestsubstringstr"><code>findLongestSubstring(str)</code></h2>
 <blockquote>
 <p>Write a function called <code>findLongestSubstring</code>, which accepts a string and returns the length of the longest substring with all distinct characters.</p>
@@ -1334,26 +1341,27 @@
 <ul>
 <li>
 <p>Solution:</p>
-</li>
-<li>
-<p>Time: O(N)</p>
-</li>
+<ul>
+<li>Time: $O(n)$</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">findLongestSubstring</span> <span class="o">=</span> <span class="nx">str</span> <span class="p">=&gt;</span> <span class="p">{</span>
   <span class="kd">let</span> <span class="nx">ret</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
   <span class="kd">let</span> <span class="nx">seen</span> <span class="o">=</span> <span class="p">{};</span>
   <span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
   <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">str</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">let</span> <span class="kr">char</span> <span class="o">=</span> <span class="nx">str</span><span class="p">[</span><span class="nx">j</span><span class="p">];</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">seen</span><span class="p">[</span><span class="kr">char</span><span class="p">])</span> <span class="p">{</span>
-      <span class="nx">i</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">seen</span><span class="p">[</span><span class="kr">char</span><span class="p">]);</span>
-    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">seen</span><span class="p">[</span><span class="kr">char</span><span class="p">])</span> <span class="nx">i</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">seen</span><span class="p">[</span><span class="kr">char</span><span class="p">]);</span>
     <span class="nx">ret</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nx">ret</span><span class="p">,</span> <span class="nx">j</span> <span class="o">-</span> <span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
     <span class="nx">seen</span><span class="p">[</span><span class="kr">char</span><span class="p">]</span> <span class="o">=</span> <span class="nx">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
   <span class="p">}</span>
+
   <span class="k">return</span> <span class="nx">ret</span><span class="p">;</span>
 <span class="p">};</span>
 </pre></div>
+
+</li>
+</ul>
                 
                   
                 
