@@ -1395,7 +1395,9 @@
 <p><span style="color:red">Yes. <strong><em>Proof</em></strong>:</p>
 <p><span style="color:red">WLOG, given processes $P_1$, $P_2$, $\dots$, $P_n$ with CPU burst time $t_1$, $t_2$, $\dots$, $t_n$, where $t_1 &lt; t_2 &lt; \cdots &lt; t_n$.</p>
 <p><span style="color:red">By SJF, their turnaround time should be:</p>
-<p><span style="color:red">\begin{array}{c|c}
+<p><span style="color:red">
+$$
+\begin{array}{c|c}
 P_i &amp; \text{waiting time} \\
 \hline
 P_1 &amp; t_1 \\
@@ -1403,7 +1405,8 @@ P_2 &amp; t_1 + t_2 \\
 P_3 &amp; t_1 + t_2 + t_3 \\
 \vdots &amp; \vdots \\
 P_n &amp; t_1 + t_2 + \cdots + t_n
-\end{array}</p>
+\end{array}
+$$</p>
 <p><span style="color:red">Total waiting time:</p>
 <p><span style="color:red">$$nt_1 + (n - 1)t_2 + \cdots + t_n.$$</p>
 <p><span style="color:red">Obviously, this sum is minimized if $t_i$'s that are multiplied more times are smaller ones, i.e., </p>
@@ -2058,7 +2061,9 @@ Execute the device driver to set up the registers of the DMA controller. DMA mov
 <p><span style="color:red">Yes. <strong><em>Proof</em></strong>:</p>
 <p><span style="color:red">WLOG, given processes $P_1$, $P_2$, $\dots$, $P_n$ with CPU burst time $t_1$, $t_2$, $\dots$, $t_n$, where $t_1 &lt; t_2 &lt; \cdots &lt; t_n$.</p>
 <p><span style="color:red">By SJF, their waiting time should be:</p>
-<p><span style="color:red">\begin{array}{c|c}
+<p><span style="color:red">
+$$
+\begin{array}{c|c}
 P_i &amp; \text{waiting time} \\
 \hline
 P_1 &amp; 0 \\
@@ -2066,7 +2071,8 @@ P_2 &amp; t_1 \\
 P_3 &amp; t_1 + t_2 \\
 \vdots &amp; \vdots \\
 P_n &amp; t_1 + t_2 + \cdots + t_{n - 1}
-\end{array}</p>
+\end{array}
+$$</p>
 <p><span style="color:red">Total waiting time:</p>
 <p><span style="color:red">$$(n - 1)t_1 + (n - 2)t_2 + \cdots + t_{n - 1}.$$</p>
 <p><span style="color:red">Obviously, this sum is minimized if $t_i$'s that are multiplied more times are smaller ones, i.e., </p>
