@@ -132,8 +132,8 @@ isSubsequence('abc', 'acb'); // false (order matters)
   
       let i = 0;
       for (let j = 0; j < str2.length; j++) {
-        if (i == str1.length - 1) return true;
         if (str1[i] === str2[j]) i++;
+        if (i == str1.length) return true; 
       }
   
       return false;
