@@ -10,9 +10,8 @@
 	
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
       
-        <meta name="description" content="Computer Science Notes Operating System LeetCode Python Machine Learning">
+        <meta name="description" content="Computer Science Notes, Operating System, Machine Learning, Parallel and Concurrent Programming with C++">
       
       
         <link rel="canonical" href="https://walkccc.github.io/CS/OS/Chap09/">
@@ -20,27 +19,8 @@
       
         <meta name="author" content="Jay Chen">
       
-      
-        <meta name="lang:clipboard.copy" content="Copy to clipboard">
-      
-        <meta name="lang:clipboard.copied" content="Copied to clipboard">
-      
-        <meta name="lang:search.language" content="en">
-      
-        <meta name="lang:search.pipeline.stopwords" content="True">
-      
-        <meta name="lang:search.pipeline.trimmer" content="True">
-      
-        <meta name="lang:search.result.none" content="No matching documents">
-      
-        <meta name="lang:search.result.one" content="1 matching document">
-      
-        <meta name="lang:search.result.other" content="# matching documents">
-      
-        <meta name="lang:search.tokenizer" content="[\s\-]+">
-      
       <link rel="shortcut icon" href="../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.1.1">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.5.13">
     
 	<meta name="format-detection" content="telephone=no">
 
@@ -50,34 +30,31 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.3020aac5.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.077507d7.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.224b79ff.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ff0a5ce4.min.css">
       
       
         
         
-        <meta name="theme-color" content="#3f51b5">
+        <meta name="theme-color" content="#4051b5">
       
     
-    
-      <script src="../../assets/javascripts/modernizr.01ccdecf.js"></script>
     
     
       
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
-        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
       
     
-    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
       <link rel="stylesheet" href="../../css/katex.css">
     
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
+      <link rel="stylesheet" href="../../css/custom.css">
     
-      <link rel="stylesheet" href="../../css/style.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
     
     
       
@@ -85,93 +62,76 @@
     
   </head>
   
-    
-    
-    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="blue">
   
-    <svg class="md-svg">
-      <defs>
-        
-        
-          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
-    viewBox="0 0 416 448" id="__github">
-  <path fill="currentColor" d="M409.132,114.573c-19.608-33.596-46.205-60.194-79.798-79.8C295.736,15.166,259.057,5.365,219.271,5.365
-		c-39.781,0-76.472,9.804-110.063,29.408c-33.596,19.605-60.192,46.204-79.8,79.8C9.803,148.168,0,184.854,0,224.63
-		c0,47.78,13.94,90.745,41.827,128.906c27.884,38.164,63.906,64.572,108.063,79.227c5.14,0.954,8.945,0.283,11.419-1.996
-		c2.475-2.282,3.711-5.14,3.711-8.562c0-0.571-0.049-5.708-0.144-15.417c-0.098-9.709-0.144-18.179-0.144-25.406l-6.567,1.136
-		c-4.187,0.767-9.469,1.092-15.846,1c-6.374-0.089-12.991-0.757-19.842-1.999c-6.854-1.231-13.229-4.086-19.13-8.559
-		c-5.898-4.473-10.085-10.328-12.56-17.556l-2.855-6.57c-1.903-4.374-4.899-9.233-8.992-14.559
-		c-4.093-5.331-8.232-8.945-12.419-10.848l-1.999-1.431c-1.332-0.951-2.568-2.098-3.711-3.429c-1.142-1.331-1.997-2.663-2.568-3.997
-		c-0.572-1.335-0.098-2.43,1.427-3.289c1.525-0.859,4.281-1.276,8.28-1.276l5.708,0.853c3.807,0.763,8.516,3.042,14.133,6.851
-		c5.614,3.806,10.229,8.754,13.846,14.842c4.38,7.806,9.657,13.754,15.846,17.847c6.184,4.093,12.419,6.136,18.699,6.136
-		c6.28,0,11.704-0.476,16.274-1.423c4.565-0.952,8.848-2.383,12.847-4.285c1.713-12.758,6.377-22.559,13.988-29.41
-		c-10.848-1.14-20.601-2.857-29.264-5.14c-8.658-2.286-17.605-5.996-26.835-11.14c-9.235-5.137-16.896-11.516-22.985-19.126
-		c-6.09-7.614-11.088-17.61-14.987-29.979c-3.901-12.374-5.852-26.648-5.852-42.826c0-23.035,7.52-42.637,22.557-58.817
-		c-7.044-17.318-6.379-36.732,1.997-58.24c5.52-1.715,13.706-0.428,24.554,3.853c10.85,4.283,18.794,7.952,23.84,10.994
-		c5.046,3.041,9.089,5.618,12.135,7.708c17.705-4.947,35.976-7.421,54.818-7.421s37.117,2.474,54.823,7.421l10.849-6.849
-		c7.419-4.57,16.18-8.758,26.262-12.565c10.088-3.805,17.802-4.853,23.134-3.138c8.562,21.509,9.325,40.922,2.279,58.24
-		c15.036,16.18,22.559,35.787,22.559,58.817c0,16.178-1.958,30.497-5.853,42.966c-3.9,12.471-8.941,22.457-15.125,29.979
-		c-6.191,7.521-13.901,13.85-23.131,18.986c-9.232,5.14-18.182,8.85-26.84,11.136c-8.662,2.286-18.415,4.004-29.263,5.146
-		c9.894,8.562,14.842,22.077,14.842,40.539v60.237c0,3.422,1.19,6.279,3.572,8.562c2.379,2.279,6.136,2.95,11.276,1.995
-		c44.163-14.653,80.185-41.062,108.068-79.226c27.88-38.161,41.825-81.126,41.825-128.906
-		C438.536,184.851,428.728,148.168,409.132,114.573z" />
-</svg>
-        
-      </defs>
-    </svg>
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-    
-      <a href="#chapter-9-virtual-memory" tabindex="1" class="md-skip">
-        Skip to content
-      </a>
-    
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-9-virtual-memory" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
     
       <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://walkccc.github.io/CS" title="Computer Science Notes" class="md-header-nav__button md-logo">
-          
-            <i class="md-icon">important_devices</i>
-          
-        </a>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          
-            <span class="md-header-nav__topic">
-              Computer Science Notes
-            </span>
-            <span class="md-header-nav__topic">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://walkccc.github.io/CS" title="Computer Science Notes" class="md-header-nav__button md-logo" aria-label="Computer Science Notes">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 19V7H4v12h16m0-16a2 2 0 012 2v14a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h16m-7 14v-2h5v2h-5m-3.42-4L5.57 9H8.4l3.3 3.3c.39.39.39 1.03 0 1.42L8.42 17H5.59l3.99-4z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Computer Science Notes
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
               Chapter 9 Virtual Memory
-            </span>
-          
+            
+          </span>
         </div>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        
-          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-          
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
-      <label class="md-icon md-search__icon" for="__search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
-        &#xE5CD;
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
       </button>
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result">
+        <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Type to start searching
+            Initializing search
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -179,52 +139,42 @@
     </div>
   </div>
 </div>
+    
+    
+      <div class="md-header-nav__source">
         
-      </div>
-      
-        <div class="md-flex__cell md-flex__cell--shrink">
-          <div class="md-header-nav__source">
-            
-
-
-  
-
-<a href="https://github.com/walkccc/CS/" title="Go to repository" class="md-source" data-md-source="github">
-  
-    <div class="md-source__icon">
-      <svg viewBox="0 0 24 24" width="24" height="24">
-        <use xlink:href="#__github" width="24" height="24"></use>
-      </svg>
-    </div>
-  
+<a href="https://github.com/walkccc/CS/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
   <div class="md-source__repository">
     walkccc/CS
   </div>
 </a>
-          </div>
-        </div>
-      
-    </div>
+      </div>
+    
   </nav>
 </header>
     
-    <div class="md-container">
+    <div class="md-container" data-md-component="container">
       
         
       
       
         
+          
 
   
 
-<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+<nav class="md-tabs md-tabs--active" aria-label="Tabs" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
         
   <li class="md-tabs__item">
     
-      <a href="../.." title="Preface" class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         Preface
       </a>
     
@@ -236,8 +186,8 @@
   
     <li class="md-tabs__item">
       
-        <a href="../" title="Operating System" class="md-tabs__link md-tabs__link--active">
-          Operating System
+        <a href="../../PCP/" class="md-tabs__link">
+          Parallel and Concurrent Programming
         </a>
       
     </li>
@@ -249,8 +199,8 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../ML/" title="Machine Learning" class="md-tabs__link">
-          Machine Learning
+        <a href="../" class="md-tabs__link md-tabs__link--active">
+          OS
         </a>
       
     </li>
@@ -262,7 +212,20 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../JavaScript/" title="JavaScript DSA" class="md-tabs__link">
+        <a href="../../ML/" class="md-tabs__link">
+          ML
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../JavaScript/" class="md-tabs__link">
           JavaScript DSA
         </a>
       
@@ -273,38 +236,33 @@
     </ul>
   </div>
 </nav>
+        
       
-      <main class="md-main">
-        <div class="md-main__inner md-grid" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
           
             
               <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" data-md-level="0">
-  <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="https://walkccc.github.io/CS" title="Computer Science Notes" class="md-nav__button md-logo">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://walkccc.github.io/CS" title="Computer Science Notes" class="md-nav__button md-logo" aria-label="Computer Science Notes">
       
-        <i class="md-icon">important_devices</i>
-      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 19V7H4v12h16m0-16a2 2 0 012 2v14a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h16m-7 14v-2h5v2h-5m-3.42-4L5.57 9H8.4l3.3 3.3c.39.39.39 1.03 0 1.42L8.42 17H5.59l3.99-4z"/></svg>
+
     </a>
     Computer Science Notes
   </label>
   
     <div class="md-nav__source">
       
-
-
-  
-
-<a href="https://github.com/walkccc/CS/" title="Go to repository" class="md-source" data-md-source="github">
-  
-    <div class="md-source__icon">
-      <svg viewBox="0 0 24 24" width="24" height="24">
-        <use xlink:href="#__github" width="24" height="24"></use>
-      </svg>
-    </div>
-  
+<a href="https://github.com/walkccc/CS/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
   <div class="md-source__repository">
     walkccc/CS
   </div>
@@ -329,19 +287,107 @@
       
       
 
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Parallel and Concurrent Programming
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Parallel and Concurrent Programming" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Parallel and Concurrent Programming
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../PCP/" title="Preface" class="md-nav__link">
+      Preface
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../PCP/02/" title="2. Threads and Processes" class="md-nav__link">
+      2. Threads and Processes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../PCP/03/" title="3. Mutual Exclusion" class="md-nav__link">
+      3. Mutual Exclusion
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../PCP/04/" title="4. Locks" class="md-nav__link">
+      4. Locks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../PCP/05/" title="5. Liveness" class="md-nav__link">
+      5. Liveness
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
   
 
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
-    <label class="md-nav__link" for="nav-2">
-      Operating System
+    <label class="md-nav__link" for="nav-3">
+      OS
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-2">
-        Operating System
+    <nav class="md-nav" aria-label="OS" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        OS
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -365,13 +411,15 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
     
-    <label class="md-nav__link" for="nav-2-2">
+    <label class="md-nav__link" for="nav-3-2">
       PART ONE | OVERVIEW
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-2-2">
+    <nav class="md-nav" aria-label="PART ONE | OVERVIEW" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        <span class="md-nav__icon md-icon"></span>
         PART ONE | OVERVIEW
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -413,13 +461,15 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
     
-    <label class="md-nav__link" for="nav-2-3">
+    <label class="md-nav__link" for="nav-3-3">
       PART TWO | PROCESS MANAGEMENT
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-2-3">
+    <nav class="md-nav" aria-label="PART TWO | PROCESS MANAGEMENT" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
+        <span class="md-nav__icon md-icon"></span>
         PART TWO | PROCESS MANAGEMENT
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -499,13 +549,15 @@
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4" checked>
     
-    <label class="md-nav__link" for="nav-2-4">
+    <label class="md-nav__link" for="nav-3-4">
       PART THREE | MEMORY MANAGEMENT
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-2-4">
+    <nav class="md-nav" aria-label="PART THREE | MEMORY MANAGEMENT" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-4">
+        <span class="md-nav__icon md-icon"></span>
         PART THREE | MEMORY MANAGEMENT
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -532,13 +584,14 @@
 
   <li class="md-nav__item md-nav__item--active">
     
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
       
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
         Chapter 9 Virtual Memory
+        <span class="md-nav__icon md-icon"></span>
       </label>
     
     <a href="./" title="Chapter 9 Virtual Memory" class="md-nav__link md-nav__link--active">
@@ -546,39 +599,42 @@
     </a>
     
       
-<nav class="md-nav md-nav--secondary">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#91-background" title="9.1 Background" class="md-nav__link">
+  <a href="#91-background" class="md-nav__link">
     9.1 Background
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#92-demand-paging" title="9.2 Demand Paging" class="md-nav__link">
+  <a href="#92-demand-paging" class="md-nav__link">
     9.2 Demand Paging
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="9.2 Demand Paging">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#921-basic-concepts" title="9.2.1 Basic Concepts" class="md-nav__link">
+  <a href="#921-basic-concepts" class="md-nav__link">
     9.2.1 Basic Concepts
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#922-performance-of-demand-paging" title="9.2.2 Performance of Demand Paging" class="md-nav__link">
+  <a href="#922-performance-of-demand-paging" class="md-nav__link">
     9.2.2 Performance of Demand Paging
   </a>
   
@@ -590,72 +646,72 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#93-copy-on-write" title="9.3 Copy-on-Write" class="md-nav__link">
+  <a href="#93-copy-on-write" class="md-nav__link">
     9.3 Copy-on-Write
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#94-page-replacement" title="9.4 Page Replacement" class="md-nav__link">
+  <a href="#94-page-replacement" class="md-nav__link">
     9.4 Page Replacement
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="9.4 Page Replacement">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#941-basic-page-replacement" title="9.4.1 Basic Page Replacement" class="md-nav__link">
+  <a href="#941-basic-page-replacement" class="md-nav__link">
     9.4.1 Basic Page Replacement
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#942-fifo-page-replacement" title="9.4.2 FIFO Page Replacement" class="md-nav__link">
+  <a href="#942-fifo-page-replacement" class="md-nav__link">
     9.4.2 FIFO Page Replacement
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#943-optimal-page-replacement" title="9.4.3 Optimal Page Replacement" class="md-nav__link">
+  <a href="#943-optimal-page-replacement" class="md-nav__link">
     9.4.3 Optimal Page Replacement
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#944-lru-page-replacement" title="9.4.4 LRU Page Replacement" class="md-nav__link">
+  <a href="#944-lru-page-replacement" class="md-nav__link">
     9.4.4 LRU Page Replacement
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#945-lru-approximation-page-replacement" title="9.4.5 LRU-Approximation Page Replacement" class="md-nav__link">
+  <a href="#945-lru-approximation-page-replacement" class="md-nav__link">
     9.4.5 LRU-Approximation Page Replacement
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="9.4.5 LRU-Approximation Page Replacement">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#9451-additional-reference-bits-algorithm" title="9.4.5.1 Additional-Reference-Bits Algorithm" class="md-nav__link">
+  <a href="#9451-additional-reference-bits-algorithm" class="md-nav__link">
     9.4.5.1 Additional-Reference-Bits Algorithm
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#9452-second-chance-algorithm" title="9.4.5.2 Second-Chance Algorithm" class="md-nav__link">
+  <a href="#9452-second-chance-algorithm" class="md-nav__link">
     9.4.5.2 Second-Chance Algorithm
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#9453-enhanced-second-chance-algorithm" title="9.4.5.3 Enhanced Second-Chance Algorithm" class="md-nav__link">
+  <a href="#9453-enhanced-second-chance-algorithm" class="md-nav__link">
     9.4.5.3 Enhanced Second-Chance Algorithm
   </a>
   
@@ -667,21 +723,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#946-counting-based-page-replacement" title="9.4.6 Counting-Based Page Replacement" class="md-nav__link">
+  <a href="#946-counting-based-page-replacement" class="md-nav__link">
     9.4.6 Counting-Based Page Replacement
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#947-page-buffering-algorithms" title="9.4.7 Page-Buffering Algorithms" class="md-nav__link">
+  <a href="#947-page-buffering-algorithms" class="md-nav__link">
     9.4.7 Page-Buffering Algorithms
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#948-applications-and-page-replacement" title="9.4.8 Applications and Page Replacement" class="md-nav__link">
+  <a href="#948-applications-and-page-replacement" class="md-nav__link">
     9.4.8 Applications and Page Replacement
   </a>
   
@@ -691,10 +747,6 @@
     </nav>
   
 </li>
-      
-      
-      
-      
       
     </ul>
   
@@ -715,13 +767,15 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-5" type="checkbox" id="nav-2-5">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-5" type="checkbox" id="nav-3-5">
     
-    <label class="md-nav__link" for="nav-2-5">
+    <label class="md-nav__link" for="nav-3-5">
       Previous Exams
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-2-5">
+    <nav class="md-nav" aria-label="Previous Exams" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-5">
+        <span class="md-nav__icon md-icon"></span>
         Previous Exams
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -768,14 +822,16 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
-    <label class="md-nav__link" for="nav-3">
-      Machine Learning
+    <label class="md-nav__link" for="nav-4">
+      ML
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-3">
-        Machine Learning
+    <nav class="md-nav" aria-label="ML" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        ML
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -912,13 +968,15 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
-    <label class="md-nav__link" for="nav-4">
+    <label class="md-nav__link" for="nav-5">
       JavaScript DSA
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
+    <nav class="md-nav" aria-label="JavaScript DSA" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
         JavaScript DSA
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -943,13 +1001,15 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-2" type="checkbox" id="nav-5-2">
     
-    <label class="md-nav__link" for="nav-4-2">
+    <label class="md-nav__link" for="nav-5-2">
       01 - Problem Solving Patterns
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-4-2">
+    <nav class="md-nav" aria-label="01 - Problem Solving Patterns" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-2">
+        <span class="md-nav__icon md-icon"></span>
         01 - Problem Solving Patterns
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1015,13 +1075,15 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3" type="checkbox" id="nav-4-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-3" type="checkbox" id="nav-5-3">
     
-    <label class="md-nav__link" for="nav-4-3">
+    <label class="md-nav__link" for="nav-5-3">
       02 - Recursion Problem Set
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-4-3">
+    <nav class="md-nav" aria-label="02 - Recursion Problem Set" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-3">
+        <span class="md-nav__icon md-icon"></span>
         02 - Recursion Problem Set
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1063,13 +1125,15 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-4" type="checkbox" id="nav-4-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-4" type="checkbox" id="nav-5-4">
     
-    <label class="md-nav__link" for="nav-4-4">
+    <label class="md-nav__link" for="nav-5-4">
       03 - Sorting Algorithms
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-4-4">
+    <nav class="md-nav" aria-label="03 - Sorting Algorithms" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-4">
+        <span class="md-nav__icon md-icon"></span>
         03 - Sorting Algorithms
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1147,13 +1211,15 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-5" type="checkbox" id="nav-4-5">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-5" type="checkbox" id="nav-5-5">
     
-    <label class="md-nav__link" for="nav-4-5">
+    <label class="md-nav__link" for="nav-5-5">
       04 - Data Structures
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-4-5">
+    <nav class="md-nav" aria-label="04 - Data Structures" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-5">
+        <span class="md-nav__icon md-icon"></span>
         04 - Data Structures
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1231,13 +1297,15 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-6" type="checkbox" id="nav-4-6">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-6" type="checkbox" id="nav-5-6">
     
-    <label class="md-nav__link" for="nav-4-6">
+    <label class="md-nav__link" for="nav-5-6">
       05 - Graphs
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-4-6">
+    <nav class="md-nav" aria-label="05 - Graphs" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-6">
+        <span class="md-nav__icon md-icon"></span>
         05 - Graphs
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1288,39 +1356,42 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
-<nav class="md-nav md-nav--secondary">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#91-background" title="9.1 Background" class="md-nav__link">
+  <a href="#91-background" class="md-nav__link">
     9.1 Background
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#92-demand-paging" title="9.2 Demand Paging" class="md-nav__link">
+  <a href="#92-demand-paging" class="md-nav__link">
     9.2 Demand Paging
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="9.2 Demand Paging">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#921-basic-concepts" title="9.2.1 Basic Concepts" class="md-nav__link">
+  <a href="#921-basic-concepts" class="md-nav__link">
     9.2.1 Basic Concepts
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#922-performance-of-demand-paging" title="9.2.2 Performance of Demand Paging" class="md-nav__link">
+  <a href="#922-performance-of-demand-paging" class="md-nav__link">
     9.2.2 Performance of Demand Paging
   </a>
   
@@ -1332,72 +1403,72 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#93-copy-on-write" title="9.3 Copy-on-Write" class="md-nav__link">
+  <a href="#93-copy-on-write" class="md-nav__link">
     9.3 Copy-on-Write
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#94-page-replacement" title="9.4 Page Replacement" class="md-nav__link">
+  <a href="#94-page-replacement" class="md-nav__link">
     9.4 Page Replacement
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="9.4 Page Replacement">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#941-basic-page-replacement" title="9.4.1 Basic Page Replacement" class="md-nav__link">
+  <a href="#941-basic-page-replacement" class="md-nav__link">
     9.4.1 Basic Page Replacement
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#942-fifo-page-replacement" title="9.4.2 FIFO Page Replacement" class="md-nav__link">
+  <a href="#942-fifo-page-replacement" class="md-nav__link">
     9.4.2 FIFO Page Replacement
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#943-optimal-page-replacement" title="9.4.3 Optimal Page Replacement" class="md-nav__link">
+  <a href="#943-optimal-page-replacement" class="md-nav__link">
     9.4.3 Optimal Page Replacement
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#944-lru-page-replacement" title="9.4.4 LRU Page Replacement" class="md-nav__link">
+  <a href="#944-lru-page-replacement" class="md-nav__link">
     9.4.4 LRU Page Replacement
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#945-lru-approximation-page-replacement" title="9.4.5 LRU-Approximation Page Replacement" class="md-nav__link">
+  <a href="#945-lru-approximation-page-replacement" class="md-nav__link">
     9.4.5 LRU-Approximation Page Replacement
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="9.4.5 LRU-Approximation Page Replacement">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#9451-additional-reference-bits-algorithm" title="9.4.5.1 Additional-Reference-Bits Algorithm" class="md-nav__link">
+  <a href="#9451-additional-reference-bits-algorithm" class="md-nav__link">
     9.4.5.1 Additional-Reference-Bits Algorithm
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#9452-second-chance-algorithm" title="9.4.5.2 Second-Chance Algorithm" class="md-nav__link">
+  <a href="#9452-second-chance-algorithm" class="md-nav__link">
     9.4.5.2 Second-Chance Algorithm
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#9453-enhanced-second-chance-algorithm" title="9.4.5.3 Enhanced Second-Chance Algorithm" class="md-nav__link">
+  <a href="#9453-enhanced-second-chance-algorithm" class="md-nav__link">
     9.4.5.3 Enhanced Second-Chance Algorithm
   </a>
   
@@ -1409,21 +1480,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#946-counting-based-page-replacement" title="9.4.6 Counting-Based Page Replacement" class="md-nav__link">
+  <a href="#946-counting-based-page-replacement" class="md-nav__link">
     9.4.6 Counting-Based Page Replacement
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#947-page-buffering-algorithms" title="9.4.7 Page-Buffering Algorithms" class="md-nav__link">
+  <a href="#947-page-buffering-algorithms" class="md-nav__link">
     9.4.7 Page-Buffering Algorithms
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#948-applications-and-page-replacement" title="9.4.8 Applications and Page Replacement" class="md-nav__link">
+  <a href="#948-applications-and-page-replacement" class="md-nav__link">
     9.4.8 Applications and Page Replacement
   </a>
   
@@ -1433,10 +1504,6 @@
     </nav>
   
 </li>
-      
-      
-      
-      
       
     </ul>
   
@@ -1450,11 +1517,16 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/walkccc/CS/edit/master/docs/OS/Chap09.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/walkccc/CS/edit/master/docs/OS/Chap09.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
                 
                 
-                <h1 id="chapter-9-virtual-memory">Chapter 9 Virtual Memory</h1>
-<h2 id="91-background">9.1 Background</h2>
+                  
+                
+                
+                <h1 id="chapter-9-virtual-memory">Chapter 9 Virtual Memory<a class="headerlink" href="#chapter-9-virtual-memory" title="Permanent link">&para;</a></h1>
+<h2 id="91-background">9.1 Background<a class="headerlink" href="#91-background" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>For instance, the routines on U.S. government computers that balance the budget have not been used in many years.</p>
 </blockquote>
@@ -1470,7 +1542,7 @@
 <p class="admonition-title">Sparse address spaces</p>
 <p>Virtual address spaces that include holes.</p>
 </div>
-<h2 id="92-demand-paging">9.2 Demand Paging</h2>
+<h2 id="92-demand-paging">9.2 Demand Paging<a class="headerlink" href="#92-demand-paging" title="Permanent link">&para;</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Demand paging</p>
 <p>A strategy to load pages only as they are needed.</p>
@@ -1483,7 +1555,7 @@
 <li>swapper: entire processes</li>
 <li><strong>pager</strong>: individual pages of a process</li>
 </ul>
-<h3 id="921-basic-concepts">9.2.1 Basic Concepts</h3>
+<h3 id="921-basic-concepts">9.2.1 Basic Concepts<a class="headerlink" href="#921-basic-concepts" title="Permanent link">&para;</a></h3>
 <p>If the valid bit is set to "invalid", there are 2 possibilities:</p>
 <ul>
 <li>the page is invalid</li>
@@ -1498,11 +1570,11 @@
 <p class="admonition-title">Secondary memory</p>
 <p>This memory holds those pages that are not present in main memory.</p>
 </div>
-<h3 id="922-performance-of-demand-paging">9.2.2 Performance of Demand Paging</h3>
+<h3 id="922-performance-of-demand-paging">9.2.2 Performance of Demand Paging<a class="headerlink" href="#922-performance-of-demand-paging" title="Permanent link">&para;</a></h3>
 <p>For most computer systems, the memory-access time, denoted $ma$, ranges from 10 to 200 nanoseconds.</p>
 <p>Let $p$ be the probability of a page fault ($0 \le p \le 1$). We would expect $p$ to be close to zero.</p>
 <p>$$\text{effective access time} = (1 - p) \times ma + p \times \text{page fault time}.$$</p>
-<h2 id="93-copy-on-write">9.3 Copy-on-Write</h2>
+<h2 id="93-copy-on-write">9.3 Copy-on-Write<a class="headerlink" href="#93-copy-on-write" title="Permanent link">&para;</a></h2>
 <p>Many operating systems provide a pool of free pages for such requests.</p>
 <div class="admonition note">
 <p class="admonition-title">Zero-fill-on-demand</p>
@@ -1512,8 +1584,8 @@
 <p class="admonition-title"><code>vfork()</code> (virtual memory fork)</p>
 <p>It operates differently from <code>fork()</code> with copy-on-write. With <code>vfork()</code>, the parent process is suspended, and the child process uses the address space of the parent.</p>
 </div>
-<h2 id="94-page-replacement">9.4 Page Replacement</h2>
-<h3 id="941-basic-page-replacement">9.4.1 Basic Page Replacement</h3>
+<h2 id="94-page-replacement">9.4 Page Replacement<a class="headerlink" href="#94-page-replacement" title="Permanent link">&para;</a></h2>
+<h3 id="941-basic-page-replacement">9.4.1 Basic Page Replacement<a class="headerlink" href="#941-basic-page-replacement" title="Permanent link">&para;</a></h3>
 <ol>
 <li>Find the location of the desired page on the disk.</li>
 <li>
@@ -1546,19 +1618,19 @@
 <p class="admonition-title">Reference string</p>
 <p>The string of memory references.</p>
 </div>
-<h3 id="942-fifo-page-replacement">9.4.2 FIFO Page Replacement</h3>
+<h3 id="942-fifo-page-replacement">9.4.2 FIFO Page Replacement<a class="headerlink" href="#942-fifo-page-replacement" title="Permanent link">&para;</a></h3>
 <p><img alt="normal" src="../../assets/os/9.12.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Belady's anomaly</p>
 <p>For some page-replacement algorithms, the page-fault rate may increase as the number of allocated frames increases.</p>
 </div>
-<h3 id="943-optimal-page-replacement">9.4.3 Optimal Page Replacement</h3>
+<h3 id="943-optimal-page-replacement">9.4.3 Optimal Page Replacement<a class="headerlink" href="#943-optimal-page-replacement" title="Permanent link">&para;</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Optimal page-replacement algorithm</p>
 <p>Replace the page that will not be used for the longest period of time, which will never suffer from Belady's anomaly.</p>
 </div>
 <p><img alt="normal" src="../../assets/os/9.14.png" /></p>
-<h3 id="944-lru-page-replacement">9.4.4 LRU Page Replacement</h3>
+<h3 id="944-lru-page-replacement">9.4.4 LRU Page Replacement<a class="headerlink" href="#944-lru-page-replacement" title="Permanent link">&para;</a></h3>
 <p>The LRU policy is often used as a page-replacement algorithm and is considered to be good. The major problem is <strong><em>how</em></strong> to implement LRU replacement.</p>
 <ul>
 <li>Counter<ul>
@@ -1567,15 +1639,15 @@
 </li>
 <li>Stack</li>
 </ul>
-<h3 id="945-lru-approximation-page-replacement">9.4.5 LRU-Approximation Page Replacement</h3>
-<h4 id="9451-additional-reference-bits-algorithm">9.4.5.1 Additional-Reference-Bits Algorithm</h4>
+<h3 id="945-lru-approximation-page-replacement">9.4.5 LRU-Approximation Page Replacement<a class="headerlink" href="#945-lru-approximation-page-replacement" title="Permanent link">&para;</a></h3>
+<h4 id="9451-additional-reference-bits-algorithm">9.4.5.1 Additional-Reference-Bits Algorithm<a class="headerlink" href="#9451-additional-reference-bits-algorithm" title="Permanent link">&para;</a></h4>
 <p>The operating system shifts the reference bit for each page into the high-order bit of its 8-bit byte, shifting the other bits right by 1 bit and discarding the low-order bit.</p>
 <p>These 8-bit shift registers contain the history of page use for the last eight time periods.</p>
 <p>e.g. A page with a history register value of 11000100 has been used more recently than one with a value of 01110111.</p>
-<h4 id="9452-second-chance-algorithm">9.4.5.2 Second-Chance Algorithm</h4>
+<h4 id="9452-second-chance-algorithm">9.4.5.2 Second-Chance Algorithm<a class="headerlink" href="#9452-second-chance-algorithm" title="Permanent link">&para;</a></h4>
 <p><img alt="normal" src="../../assets/os/9.17.png" /></p>
 <p>In the worst case, when all bits are set, the pointer cycles through the whole queue, giving each page a second chance. It clears all the reference bits before selecting the next page for replacement. ($\to$ FIFO)</p>
-<h4 id="9453-enhanced-second-chance-algorithm">9.4.5.3 Enhanced Second-Chance Algorithm</h4>
+<h4 id="9453-enhanced-second-chance-algorithm">9.4.5.3 Enhanced Second-Chance Algorithm<a class="headerlink" href="#9453-enhanced-second-chance-algorithm" title="Permanent link">&para;</a></h4>
 <p>ordered pair = (reference bit, modify bit)</p>
 <ol>
 <li>(0, 0) neither recently used nor modified—best page to replace</li>
@@ -1583,12 +1655,12 @@
 <li>(1, 0) recently used but clean—probably will be used again soon</li>
 <li>(1, 1) recently used and modified—probably will be used again soon, and the page will be need to be written out to disk before it can be replaced</li>
 </ol>
-<h3 id="946-counting-based-page-replacement">9.4.6 Counting-Based Page Replacement</h3>
+<h3 id="946-counting-based-page-replacement">9.4.6 Counting-Based Page Replacement<a class="headerlink" href="#946-counting-based-page-replacement" title="Permanent link">&para;</a></h3>
 <ul>
 <li>least frequently used (LFU)</li>
 <li>most frequently used (MFU)</li>
 </ul>
-<h3 id="947-page-buffering-algorithms">9.4.7 Page-Buffering Algorithms</h3>
+<h3 id="947-page-buffering-algorithms">9.4.7 Page-Buffering Algorithms<a class="headerlink" href="#947-page-buffering-algorithms" title="Permanent link">&para;</a></h3>
 <p>Systems keep a pool of free frames</p>
 <ol>
 <li>The desired page is read into a free frame from the pool before the victime is written out.</li>
@@ -1605,9 +1677,7 @@
 </ul>
 </li>
 </ol>
-<h3 id="948-applications-and-page-replacement">9.4.8 Applications and Page Replacement</h3>
-                
-                  
+<h3 id="948-applications-and-page-replacement">9.4.8 Applications and Page Replacement<a class="headerlink" href="#948-applications-and-page-replacement" title="Permanent link">&para;</a></h3>
                 
               
               
@@ -1623,71 +1693,83 @@
         
 <footer class="md-footer">
   
-  <div class="md-footer-nav">
-    <nav class="md-footer-nav__inner md-grid">
-      
-      <a
-        href="../Chap08/"
-        title="Chapter 8 Main Memory"
-        class="md-flex md-footer-nav__link md-footer-nav__link--prev"
-        rel="prev"
-      >
-        <div class="md-flex__cell md-flex__cell--shrink">
-          <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
-        </div>
-        <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-          <span class="md-flex__ellipsis">
-            <span class="md-footer-nav__direction">
-              Previous
-            </span>
-            Chapter 8 Main Memory
-          </span>
-        </div>
-      </a>
-       
-      <a
-        href="../midterm/"
-        title="Midterm"
-        class="md-flex md-footer-nav__link md-footer-nav__link--next"
-        rel="next"
-      >
-        <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-          <span class="md-flex__ellipsis">
-            <span class="md-footer-nav__direction">
-              Next
-            </span>
-            Midterm
-          </span>
-        </div>
-        <div class="md-flex__cell md-flex__cell--shrink">
-          <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-        </div>
-      </a>
-      
-    </nav>
-  </div>
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../Chap08/" title="Chapter 8 Main Memory" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Chapter 8 Main Memory
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../midterm/" title="Midterm" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Midterm
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
         
-        <div class="md-footer-copyright__highlight">
-          Built by <a href="http://github.com/walkccc">Jay Chen</a> &copy; 2017 - 2019
-        </div>
-         Email:
-        <a href="mailto:walkccray@gmail.com">walkccray@gmail.com</a>
+          <div class="md-footer-copyright__highlight">
+            Built by <a href="http://github.com/walkccc">Jay Chen</a> &copy; 2017 - 2020
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
       </div>
       
   <div class="md-footer-social">
-    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
     
-      <a href="https://github.com/walkccc" class="md-footer-social__link fa fa-github"></a>
+      
+      
+        
+        
+      
+      <a href="https://github.com/walkccc" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM277.3 415.7c-8.4 1.5-11.5-3.7-11.5-8 0-5.4.2-33 .2-55.3 0-15.6-5.2-25.5-11.3-30.7 37-4.1 76-9.2 76-73.1 0-18.2-6.5-27.3-17.1-39 1.7-4.3 7.4-22-1.7-45-13.9-4.3-45.7 17.9-45.7 17.9-13.2-3.7-27.5-5.6-41.6-5.6-14.1 0-28.4 1.9-41.6 5.6 0 0-31.8-22.2-45.7-17.9-9.1 22.9-3.5 40.6-1.7 45-10.6 11.7-15.6 20.8-15.6 39 0 63.6 37.3 69 74.3 73.1-4.8 4.3-9.1 11.7-10.6 22.3-9.5 4.3-33.8 11.7-48.3-13.9-9.1-15.8-25.5-17.1-25.5-17.1-16.2-.2-1.1 10.2-1.1 10.2 10.8 5 18.4 24.2 18.4 24.2 9.7 29.7 56.1 19.7 56.1 19.7 0 13.9.2 36.5.2 40.6 0 4.3-3 9.5-11.5 8-66-22.1-112.2-84.9-112.2-158.3 0-91.8 70.2-161.5 162-161.5S388 165.6 388 257.4c.1 73.4-44.7 136.3-110.7 158.3zm-98.1-61.1c-1.9.4-3.7-.4-3.9-1.7-.2-1.5 1.1-2.8 3-3.2 1.9-.2 3.7.6 3.9 1.9.3 1.3-1 2.6-3 3zm-9.5-.9c0 1.3-1.5 2.4-3.5 2.4-2.2.2-3.7-.9-3.7-2.4 0-1.3 1.5-2.4 3.5-2.4 1.9-.2 3.7.9 3.7 2.4zm-13.7-1.1c-.4 1.3-2.4 1.9-4.1 1.3-1.9-.4-3.2-1.9-2.8-3.2.4-1.3 2.4-1.9 4.1-1.5 2 .6 3.3 2.1 2.8 3.4zm-12.3-5.4c-.9 1.1-2.8.9-4.3-.6-1.5-1.3-1.9-3.2-.9-4.1.9-1.1 2.8-.9 4.3.6 1.3 1.3 1.8 3.3.9 4.1zm-9.1-9.1c-.9.6-2.6 0-3.7-1.5s-1.1-3.2 0-3.9c1.1-.9 2.8-.2 3.7 1.3 1.1 1.5 1.1 3.3 0 4.1zm-6.5-9.7c-.9.9-2.4.4-3.5-.6-1.1-1.3-1.3-2.8-.4-3.5.9-.9 2.4-.4 3.5.6 1.1 1.3 1.3 2.8.4 3.5zm-6.7-7.4c-.4.9-1.7 1.1-2.8.4-1.3-.6-1.9-1.7-1.5-2.6.4-.6 1.5-.9 2.8-.4 1.3.7 1.9 1.8 1.5 2.6z"/></svg>
+      </a>
     
-      <a href="https://walkccc.github.io/blog" class="md-footer-social__link fa fa-quote-left"></a>
+      
+      
+        
+        
+      
+      <a href="https://www.linkedin.com/in/walkccc/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+      </a>
     
-      <a href="https://walkccc.github.io/CLRS" class="md-footer-social__link fa fa-book"></a>
-    
-      <a href="https://www.linkedin.com/in/jay-chen-57852313a" class="md-footer-social__link fa fa-linkedin"></a>
+      
+      
+        
+        
+      
+      <a href="https://walkccc.github.io/LeetCode" target="_blank" rel="noopener" title="walkccc.github.io" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M278.9 511.5l-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2l43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3.8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2.6l144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7.8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z"/></svg>
+      </a>
     
   </div>
 
@@ -1697,15 +1779,24 @@
       
     </div>
     
-      <script src="../../assets/javascripts/application.dc02f8ce.js"></script>
+      <script src="../../assets/javascripts/vendor.2d1db4bd.min.js"></script>
+      <script src="../../assets/javascripts/bundle.6627ddf3.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
       
-      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      <script>
+        app = initialize({
+          base: "../..",
+          features: ['tabs'],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.5eca75d3.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
       
         <script src="../../js/katex.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>
