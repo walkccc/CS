@@ -59,6 +59,8 @@ markdown_extensions:
 
 nav:
   - Preface: index.md
+  - Parallel and Concurrent Programming with C++:
+      - Preface: PCP/index.md
   - Operating System:
       - Preface: OS/index.md
       - PART ONE | OVERVIEW:
