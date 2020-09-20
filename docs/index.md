@@ -9,8 +9,6 @@ In this website, I'll work on my notes about several topics:
 - [Maching Learning](./ML/)
 - [JavaScript Data Structures and Algorithms](./JavaScript/)
 
-Feel free to give me your feedback if any adjustment is needed with the sorted solutions. You can press the "pencil icon" in the upper right corner to edit the contents or simply [open an issue](https://github.com/walkccc/CS/issues/new) in [my repository](https://github.com/walkccc/CS/).
-
 ## How I generate this website
 
 I use the static site generator [MkDocs](http://www.mkdocs.org/) and the beautiful theme [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) to build this website!

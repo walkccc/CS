@@ -26,8 +26,8 @@ theme:
   icon:
     logo: material/console
     repo: fontawesome/brands/github
-  feature:
-    tabs: true
+  features:
+    - tabs
 
 # Customization
 extra:
@@ -51,17 +51,21 @@ extra_javascript:
 
 # Extensions
 markdown_extensions:
+  - pymdownx.highlight:
+      linenums: true
+      linenums_style: pymdownx.table
   - pymdownx.superfences
+  - pymdownx.tabbed
   - admonition
   - toc:
-      permalink: false
-  - pymdownx.superfences
+      permalink: true
 
 nav:
   - Preface: index.md
-  - Parallel and Concurrent Programming with C++:
+  - Parallel and Concurrent Programming:
       - Preface: PCP/index.md
-  - Operating System:
+      - 2. Threads and Processes: PCP/02.md
+  - OS:
       - Preface: OS/index.md
       - PART ONE | OVERVIEW:
           - Chapter 1 Introduction: OS/Chap01.md
@@ -78,7 +82,7 @@ nav:
       - Previous Exams:
           - Midterm: OS/midterm.md
           - Final: OS/final.md
-  - Machine Learning:
+  - ML:
       - Preface: ML/index.md
       - Lec 1 - Regression - Case Study: ML/01.md
       - Lec 2 - Where does the error com from?: ML/02.md
