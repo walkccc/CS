@@ -64,10 +64,15 @@ nav:
   - Preface: index.md
   - Parallel and Concurrent Programming:
       - Preface: PCP/index.md
-      - 2. Threads and Processes: PCP/02.md
-      - 3. Mutual Exclusion: PCP/03.md
-      - 4. Locks: PCP/04.md
-      - 5. Liveness: PCP/05.md
+      - Part 1:
+          - 2. Threads and Processes: PCP/1-2.md
+          - 3. Mutual Exclusion: PCP/1-3.md
+          - 4. Locks: PCP/1-4.md
+          - 5. Liveness: PCP/1-5.md
+      - Part 2:
+          - 1. Synchronization: PCP/2-1.md
+          - 2. Barriers: PCP/2-2.md
+          - 3. Asynchronous: PCP/2-3.md
   - OS:
       - Preface: OS/index.md
       - PART ONE | OVERVIEW:
