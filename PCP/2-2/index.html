@@ -14,7 +14,7 @@
         <meta name="description" content="Computer Science Notes, Operating System, Machine Learning, Parallel and Concurrent Programming with C++">
       
       
-        <link rel="canonical" href="https://walkccc.github.io/CS/PCP/02/">
+        <link rel="canonical" href="https://walkccc.github.io/CS/PCP/2-2/">
       
       
         <meta name="author" content="Jay Chen">
@@ -26,7 +26,7 @@
 
     
       
-        <title>2. Threads and Processes - Computer Science Notes</title>
+        <title>2. Barriers - Computer Science Notes</title>
       
     
     
@@ -75,7 +75,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#2-threads-and-processes" class="md-skip">
+        <a href="#barriers" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +103,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              2. Threads and Processes
+              2. Barriers
             
           </span>
         </div>
@@ -322,6 +322,115 @@
           
           
 
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+    
+    <label class="md-nav__link" for="nav-2-2">
+      Part 1
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Part 1" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        <span class="md-nav__icon md-icon"></span>
+        Part 1
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../1-2/" title="2. Threads and Processes" class="md-nav__link">
+      2. Threads and Processes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../1-3/" title="3. Mutual Exclusion" class="md-nav__link">
+      3. Mutual Exclusion
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../1-4/" title="4. Locks" class="md-nav__link">
+      4. Locks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../1-5/" title="5. Liveness" class="md-nav__link">
+      5. Liveness
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3" checked>
+    
+    <label class="md-nav__link" for="nav-2-3">
+      Part 2
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Part 2" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
+        <span class="md-nav__icon md-icon"></span>
+        Part 2
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../2-1/" title="1. Synchronization" class="md-nav__link">
+      1. Synchronization
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
@@ -333,12 +442,12 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        2. Threads and Processes
+        2. Barriers
         <span class="md-nav__icon md-icon"></span>
       </label>
     
-    <a href="./" title="2. Threads and Processes" class="md-nav__link md-nav__link--active">
-      2. Threads and Processes
+    <a href="./" title="2. Barriers" class="md-nav__link md-nav__link--active">
+      2. Barriers
     </a>
     
       
@@ -355,29 +464,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#thread-versus-process" class="md-nav__link">
-    Thread versus process
+  <a href="#race-condition" class="md-nav__link">
+    Race condition
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#execution-scheduling" class="md-nav__link">
-    Execution scheduling
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#thread-life-cycle" class="md-nav__link">
-    Thread life cycle
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#detached-thread" class="md-nav__link">
-    Detached thread
+  <a href="#barrier" class="md-nav__link">
+    Barrier
   </a>
   
 </li>
@@ -395,33 +490,14 @@
 
 
   <li class="md-nav__item">
-    <a href="../03/" title="3. Mutual Exclusion" class="md-nav__link">
-      3. Mutual Exclusion
+    <a href="../2-3/" title="3. Asynchronous" class="md-nav__link">
+      3. Asynchronous
     </a>
   </li>
 
         
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../04/" title="4. Locks" class="md-nav__link">
-      4. Locks
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../05/" title="5. Liveness" class="md-nav__link">
-      5. Liveness
-    </a>
+      </ul>
+    </nav>
   </li>
 
         
@@ -1258,29 +1334,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#thread-versus-process" class="md-nav__link">
-    Thread versus process
+  <a href="#race-condition" class="md-nav__link">
+    Race condition
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#execution-scheduling" class="md-nav__link">
-    Execution scheduling
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#thread-life-cycle" class="md-nav__link">
-    Thread life cycle
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#detached-thread" class="md-nav__link">
-    Detached thread
+  <a href="#barrier" class="md-nav__link">
+    Barrier
   </a>
   
 </li>
@@ -1297,7 +1359,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/walkccc/CS/edit/master/docs/PCP/02.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/walkccc/CS/edit/master/docs/PCP/2-2.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
@@ -1305,155 +1367,8 @@
                   
                 
                 
-                <h1 id="2-threads-and-processes">2. Threads and Processes<a class="headerlink" href="#2-threads-and-processes" title="Permanent link">&para;</a></h1>
-<h2 id="thread-versus-process">Thread versus process<a class="headerlink" href="#thread-versus-process" title="Permanent link">&para;</a></h2>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// Threads that waste CPU cycles</span>
-<span class="cp">#include</span> <span class="cpf">&lt;chrono&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;thread&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp"></span>
-
-<span class="c1">// a simple function that wastes CPU cycles &quot;forever&quot;</span>
-<span class="kt">void</span> <span class="nf">cpu_waster</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;CPU Waster Process ID: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">getpid</span><span class="p">());</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;CPU Waster Thread ID %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">this_thread</span><span class="o">::</span><span class="n">get_id</span><span class="p">());</span>
-  <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="k">continue</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Main Process ID: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">getpid</span><span class="p">());</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Main Thread ID: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">this_thread</span><span class="o">::</span><span class="n">get_id</span><span class="p">());</span>
-  <span class="n">std</span><span class="o">::</span><span class="kr">thread</span> <span class="n">thread1</span><span class="p">(</span><span class="n">cpu_waster</span><span class="p">);</span>
-  <span class="n">std</span><span class="o">::</span><span class="kr">thread</span> <span class="n">thread2</span><span class="p">(</span><span class="n">cpu_waster</span><span class="p">);</span>
-
-  <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">// keep the main thread alive &quot;forever&quot;</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">this_thread</span><span class="o">::</span><span class="n">sleep_for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">seconds</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
-
-<h2 id="execution-scheduling">Execution scheduling<a class="headerlink" href="#execution-scheduling" title="Permanent link">&para;</a></h2>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// Two threads chopping vegetables</span>
-<span class="cp">#include</span> <span class="cpf">&lt;chrono&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;thread&gt;</span><span class="cp"></span>
-
-<span class="kt">bool</span> <span class="n">chopping</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-
-<span class="kt">void</span> <span class="nf">vegetable_chopper</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">vegetable_count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="k">while</span> <span class="p">(</span><span class="n">chopping</span><span class="p">)</span> <span class="p">{</span>
-    <span class="o">++</span><span class="n">vegetable_count</span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s chopped %u vegetables.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">vegetable_count</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">std</span><span class="o">::</span><span class="kr">thread</span> <span class="n">olivia</span><span class="p">(</span><span class="n">vegetable_chopper</span><span class="p">,</span> <span class="s">&quot;Olivia&quot;</span><span class="p">);</span>
-  <span class="n">std</span><span class="o">::</span><span class="kr">thread</span> <span class="n">barron</span><span class="p">(</span><span class="n">vegetable_chopper</span><span class="p">,</span> <span class="s">&quot;Barron&quot;</span><span class="p">);</span>
-
-  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Barron and Olivia are chopping vegetables...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">this_thread</span><span class="o">::</span><span class="n">sleep_for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">seconds</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
-  <span class="n">chopping</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-  <span class="n">barron</span><span class="p">.</span><span class="n">join</span><span class="p">();</span>
-  <span class="n">olivia</span><span class="p">.</span><span class="n">join</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
-
-<h2 id="thread-life-cycle">Thread life cycle<a class="headerlink" href="#thread-life-cycle" title="Permanent link">&para;</a></h2>
-<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">begin</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// Two threads cooking soup</span>
-<span class="cp">#include</span> <span class="cpf">&lt;chrono&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;thread&gt;</span><span class="cp"></span>
-
-<span class="kt">void</span> <span class="nf">chef_olivia</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Olivia started &amp; waiting for sausage to thaw...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">this_thread</span><span class="o">::</span><span class="n">sleep_for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">seconds</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Olivia is done cutting sausage.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Barron requests Olivia&#39;s help.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-  <span class="n">std</span><span class="o">::</span><span class="kr">thread</span> <span class="n">olivia</span><span class="p">(</span><span class="n">chef_olivia</span><span class="p">);</span>
-
-  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Barron continues cooking soup.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">this_thread</span><span class="o">::</span><span class="n">sleep_for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">seconds</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
-
-  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Barron patiently waits for Olivia to finish and join...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-  <span class="n">olivia</span><span class="p">.</span><span class="n">join</span><span class="p">();</span>
-
-  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Barron and Olivia are both done!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
-
-</div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">end</label><div class="tabbed-content">
+                <h1 id="barriers">Barriers<a class="headerlink" href="#barriers" title="Permanent link">&para;</a></h1>
+<h2 id="race-condition">Race condition<a class="headerlink" href="#race-condition" title="Permanent link">&para;</a></h2>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -1478,38 +1393,64 @@
 22
 23
 24
-25</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// Two threads cooking soup</span>
-<span class="cp">#include</span> <span class="cpf">&lt;chrono&gt;</span><span class="cp"></span>
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// Deciding how many bags of chips to buy for the party</span>
+<span class="cp">#include</span> <span class="cpf">&lt;mutex&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;thread&gt;</span><span class="cp"></span>
 
-<span class="kt">void</span> <span class="nf">chef_olivia</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Olivia started &amp; waiting for sausage to thaw...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">this_thread</span><span class="o">::</span><span class="n">sleep_for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">seconds</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Olivia is done cutting sausage.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">bags_of_chips</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>  <span class="c1">// start with one on the list</span>
+<span class="n">std</span><span class="o">::</span><span class="n">mutex</span> <span class="n">pencil</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">cpu_work</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">workUnits</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">i</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">workUnits</span> <span class="o">*</span> <span class="mi">1000000</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">++</span><span class="n">x</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">barron_shopper</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">cpu_work</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>  <span class="c1">// do a bit of work first</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">scoped_lock</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&gt;</span> <span class="n">lock</span><span class="p">(</span><span class="n">pencil</span><span class="p">);</span>
+  <span class="n">bags_of_chips</span> <span class="o">*=</span> <span class="mi">2</span><span class="p">;</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Barron DOUBLED the bags of chips.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">olivia_shopper</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">cpu_work</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>  <span class="c1">// do a bit of work first</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">scoped_lock</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&gt;</span> <span class="n">lock</span><span class="p">(</span><span class="n">pencil</span><span class="p">);</span>
+  <span class="n">bags_of_chips</span> <span class="o">+=</span> <span class="mi">3</span><span class="p">;</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Olivia ADDED 3 bags of chips.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Barron requests Olivia&#39;s help.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-  <span class="n">std</span><span class="o">::</span><span class="kr">thread</span> <span class="n">olivia</span><span class="p">(</span><span class="n">chef_olivia</span><span class="p">);</span>
-<span class="hll">  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;  Olivia is joinable? %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">olivia</span><span class="p">.</span><span class="n">joinable</span><span class="p">()</span> <span class="o">?</span> <span class="s">&quot;true&quot;</span> <span class="o">:</span> <span class="s">&quot;false&quot;</span><span class="p">);</span>
-</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Barron continues cooking soup.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">this_thread</span><span class="o">::</span><span class="n">sleep_for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">seconds</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
-<span class="hll">  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;  Olivia is joinable? %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">olivia</span><span class="p">.</span><span class="n">joinable</span><span class="p">()</span> <span class="o">?</span> <span class="s">&quot;true&quot;</span> <span class="o">:</span> <span class="s">&quot;false&quot;</span><span class="p">);</span>
-</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Barron patiently waits for Olivia to finish and join...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-  <span class="n">olivia</span><span class="p">.</span><span class="n">join</span><span class="p">();</span>
-<span class="hll">  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;  Olivia is joinable? %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">olivia</span><span class="p">.</span><span class="n">joinable</span><span class="p">()</span> <span class="o">?</span> <span class="s">&quot;true&quot;</span> <span class="o">:</span> <span class="s">&quot;false&quot;</span><span class="p">);</span>
-</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Barron and Olivia are both done!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+  <span class="n">std</span><span class="o">::</span><span class="kr">thread</span> <span class="n">shoppers</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span> <span class="o">+=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">shoppers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="kr">thread</span><span class="p">(</span><span class="n">barron_shopper</span><span class="p">);</span>
+    <span class="n">shoppers</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="kr">thread</span><span class="p">(</span><span class="n">olivia_shopper</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span> <span class="nl">s</span> <span class="p">:</span> <span class="n">shoppers</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">s</span><span class="p">.</span><span class="n">join</span><span class="p">();</span>
+  <span class="p">}</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;We need to buy %u bags_of_chips.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">bags_of_chips</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
 
-</div>
-</div>
-<h2 id="detached-thread">Detached thread<a class="headerlink" href="#detached-thread" title="Permanent link">&para;</a></h2>
-<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">begin</label><div class="tabbed-content">
+<h2 id="barrier">Barrier<a class="headerlink" href="#barrier" title="Permanent link">&para;</a></h2>
+<div class="tabbed-set" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">begin</label><div class="tabbed-content">
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -1529,31 +1470,69 @@
 17
 18
 19
-20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// Barron finishes cooking while Olivia cleans</span>
-<span class="cp">#include</span> <span class="cpf">&lt;chrono&gt;</span><span class="cp"></span>
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// Deciding how many bags of chips to buy for the party</span>
+<span class="cp">#include</span> <span class="cpf">&lt;mutex&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;thread&gt;</span><span class="cp"></span>
 
-<span class="kt">void</span> <span class="nf">kitchen_cleaner</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Olivia cleaned the kitchen.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">this_thread</span><span class="o">::</span><span class="n">sleep_for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">seconds</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+<span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">bags_of_chips</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>  <span class="c1">// start with one on the list</span>
+<span class="n">std</span><span class="o">::</span><span class="n">mutex</span> <span class="n">pencil</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">cpu_work</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">workUnits</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">i</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">workUnits</span> <span class="o">*</span> <span class="mi">1000000</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">++</span><span class="n">x</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 
+<span class="kt">void</span> <span class="nf">barron_shopper</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">cpu_work</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>  <span class="c1">// do a bit of work first</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">scoped_lock</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&gt;</span> <span class="n">lock</span><span class="p">(</span><span class="n">pencil</span><span class="p">);</span>
+  <span class="n">bags_of_chips</span> <span class="o">*=</span> <span class="mi">2</span><span class="p">;</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Barron DOUBLED the bags of chips.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">olivia_shopper</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">cpu_work</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>  <span class="c1">// do a bit of work first</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">scoped_lock</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&gt;</span> <span class="n">lock</span><span class="p">(</span><span class="n">pencil</span><span class="p">);</span>
+  <span class="n">bags_of_chips</span> <span class="o">+=</span> <span class="mi">3</span><span class="p">;</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Olivia ADDED 3 bags of chips.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">std</span><span class="o">::</span><span class="kr">thread</span> <span class="n">olivia</span><span class="p">(</span><span class="n">kitchen_cleaner</span><span class="p">);</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Barron is cooking...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">this_thread</span><span class="o">::</span><span class="n">sleep_for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">milliseconds</span><span class="p">(</span><span class="mi">600</span><span class="p">));</span>
+  <span class="n">std</span><span class="o">::</span><span class="kr">thread</span> <span class="n">shoppers</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span> <span class="o">+=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">shoppers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="kr">thread</span><span class="p">(</span><span class="n">barron_shopper</span><span class="p">);</span>
+    <span class="n">shoppers</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="kr">thread</span><span class="p">(</span><span class="n">olivia_shopper</span><span class="p">);</span>
   <span class="p">}</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Barron is done!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-  <span class="n">olivia</span><span class="p">.</span><span class="n">join</span><span class="p">();</span>
+  <span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span> <span class="nl">s</span> <span class="p">:</span> <span class="n">shoppers</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">s</span><span class="p">.</span><span class="n">join</span><span class="p">();</span>
+  <span class="p">}</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;We need to buy %u bags_of_chips.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">bags_of_chips</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
 
 </div>
-<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">end</label><div class="tabbed-content">
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">barrier</label><div class="tabbed-content">
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -1573,25 +1552,169 @@
 17
 18
 19
-20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// Barron finishes cooking while Olivia cleans</span>
-<span class="cp">#include</span> <span class="cpf">&lt;chrono&gt;</span><span class="cp"></span>
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// Deciding how many bags of chips to buy for the party</span>
+<span class="hll"><span class="cp">#include</span> <span class="cpf">&lt;boost/thread/barrier.hpp&gt;</span><span class="cp"></span>
+</span><span class="cp">#include</span> <span class="cpf">&lt;mutex&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;thread&gt;</span><span class="cp"></span>
 
-<span class="kt">void</span> <span class="nf">kitchen_cleaner</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Olivia cleaned the kitchen.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">this_thread</span><span class="o">::</span><span class="n">sleep_for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">seconds</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+<span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">bags_of_chips</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>  <span class="c1">// start with one on the list</span>
+<span class="n">std</span><span class="o">::</span><span class="n">mutex</span> <span class="n">pencil</span><span class="p">;</span>
+<span class="hll"><span class="n">boost</span><span class="o">::</span><span class="n">barrier</span> <span class="n">fist_bump</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</span>
+<span class="kt">void</span> <span class="nf">cpu_work</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">workUnits</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">i</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">workUnits</span> <span class="o">*</span> <span class="mi">1000000</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">++</span><span class="n">x</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 
+<span class="kt">void</span> <span class="nf">barron_shopper</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">cpu_work</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>  <span class="c1">// do a bit of work first</span>
+<span class="hll">  <span class="n">fist_bump</span><span class="p">.</span><span class="n">wait</span><span class="p">();</span>
+</span>  <span class="n">std</span><span class="o">::</span><span class="n">scoped_lock</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&gt;</span> <span class="n">lock</span><span class="p">(</span><span class="n">pencil</span><span class="p">);</span>
+  <span class="n">bags_of_chips</span> <span class="o">*=</span> <span class="mi">2</span><span class="p">;</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Barron DOUBLED the bags of chips.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">olivia_shopper</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">cpu_work</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>  <span class="c1">// do a bit of work first</span>
+<span class="hll">  <span class="p">{</span>
+</span><span class="hll">    <span class="n">std</span><span class="o">::</span><span class="n">scoped_lock</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&gt;</span> <span class="n">lock</span><span class="p">(</span><span class="n">pencil</span><span class="p">);</span>
+</span><span class="hll">    <span class="n">bags_of_chips</span> <span class="o">+=</span> <span class="mi">3</span><span class="p">;</span>
+</span><span class="hll">  <span class="p">}</span>
+</span>  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Olivia ADDED 3 bags of chips.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="hll">  <span class="n">fist_bump</span><span class="p">.</span><span class="n">wait</span><span class="p">();</span>
+</span><span class="p">}</span>
+
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">std</span><span class="o">::</span><span class="kr">thread</span> <span class="n">olivia</span><span class="p">(</span><span class="n">kitchen_cleaner</span><span class="p">);</span>
-<span class="hll">  <span class="n">olivia</span><span class="p">.</span><span class="n">detach</span><span class="p">();</span>
-</span>  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Barron is cooking...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">this_thread</span><span class="o">::</span><span class="n">sleep_for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">milliseconds</span><span class="p">(</span><span class="mi">600</span><span class="p">));</span>
+  <span class="n">std</span><span class="o">::</span><span class="kr">thread</span> <span class="n">shoppers</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span> <span class="o">+=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">shoppers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="kr">thread</span><span class="p">(</span><span class="n">barron_shopper</span><span class="p">);</span>
+    <span class="n">shoppers</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="kr">thread</span><span class="p">(</span><span class="n">olivia_shopper</span><span class="p">);</span>
   <span class="p">}</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Barron is done!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+  <span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span> <span class="nl">s</span> <span class="p">:</span> <span class="n">shoppers</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">s</span><span class="p">.</span><span class="n">join</span><span class="p">();</span>
+  <span class="p">}</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;We need to buy %u bags_of_chips.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">bags_of_chips</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+
+</div>
+<input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">latch</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// Deciding how many bags of chips to buy for the party</span>
+<span class="hll"><span class="cp">#include</span> <span class="cpf">&lt;boost/thread/latch.hpp&gt;</span><span class="cp"></span>
+</span><span class="cp">#include</span> <span class="cpf">&lt;mutex&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;thread&gt;</span><span class="cp"></span>
+
+<span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">bags_of_chips</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>  <span class="c1">// start with one on the list</span>
+<span class="n">std</span><span class="o">::</span><span class="n">mutex</span> <span class="n">pencil</span><span class="p">;</span>
+<span class="hll"><span class="n">boost</span><span class="o">::</span><span class="n">latch</span> <span class="n">fist_bump</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</span>
+<span class="kt">void</span> <span class="nf">cpu_work</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">workUnits</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">i</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">workUnits</span> <span class="o">*</span> <span class="mi">1000000</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">++</span><span class="n">x</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">barron_shopper</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">cpu_work</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>  <span class="c1">// do a bit of work first</span>
+  <span class="n">fist_bump</span><span class="p">.</span><span class="n">wait</span><span class="p">();</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">scoped_lock</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&gt;</span> <span class="n">lock</span><span class="p">(</span><span class="n">pencil</span><span class="p">);</span>
+  <span class="n">bags_of_chips</span> <span class="o">*=</span> <span class="mi">2</span><span class="p">;</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Barron DOUBLED the bags of chips.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">olivia_shopper</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">cpu_work</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>  <span class="c1">// do a bit of work first</span>
+  <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">scoped_lock</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&gt;</span> <span class="n">lock</span><span class="p">(</span><span class="n">pencil</span><span class="p">);</span>
+    <span class="n">bags_of_chips</span> <span class="o">+=</span> <span class="mi">3</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Olivia ADDED 3 bags of chips.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="hll">  <span class="n">fist_bump</span><span class="p">.</span><span class="n">count_down</span><span class="p">();</span>
+</span><span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">std</span><span class="o">::</span><span class="kr">thread</span> <span class="n">shoppers</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span> <span class="o">+=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">shoppers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="kr">thread</span><span class="p">(</span><span class="n">barron_shopper</span><span class="p">);</span>
+    <span class="n">shoppers</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="kr">thread</span><span class="p">(</span><span class="n">olivia_shopper</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span> <span class="nl">s</span> <span class="p">:</span> <span class="n">shoppers</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">s</span><span class="p">.</span><span class="n">join</span><span class="p">();</span>
+  <span class="p">}</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;We need to buy %u bags_of_chips.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">bags_of_chips</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
@@ -1616,7 +1739,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../" title="Preface" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../2-1/" title="1. Synchronization" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -1625,19 +1748,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Preface
+                1. Synchronization
               </div>
             </div>
           </a>
         
         
-          <a href="../03/" title="3. Mutual Exclusion" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../2-3/" title="3. Asynchronous" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                3. Mutual Exclusion
+                3. Asynchronous
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

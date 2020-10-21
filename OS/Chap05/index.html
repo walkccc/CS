@@ -321,8 +321,29 @@
           
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+    
+    <label class="md-nav__link" for="nav-2-2">
+      Part 1
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Part 1" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        <span class="md-nav__icon md-icon"></span>
+        Part 1
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
-    <a href="../../PCP/02/" title="2. Threads and Processes" class="md-nav__link">
+    <a href="../../PCP/1-2/" title="2. Threads and Processes" class="md-nav__link">
       2. Threads and Processes
     </a>
   </li>
@@ -334,7 +355,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../PCP/03/" title="3. Mutual Exclusion" class="md-nav__link">
+    <a href="../../PCP/1-3/" title="3. Mutual Exclusion" class="md-nav__link">
       3. Mutual Exclusion
     </a>
   </li>
@@ -346,7 +367,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../PCP/04/" title="4. Locks" class="md-nav__link">
+    <a href="../../PCP/1-4/" title="4. Locks" class="md-nav__link">
       4. Locks
     </a>
   </li>
@@ -358,9 +379,76 @@
 
 
   <li class="md-nav__item">
-    <a href="../../PCP/05/" title="5. Liveness" class="md-nav__link">
+    <a href="../../PCP/1-5/" title="5. Liveness" class="md-nav__link">
       5. Liveness
     </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
+    
+    <label class="md-nav__link" for="nav-2-3">
+      Part 2
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Part 2" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
+        <span class="md-nav__icon md-icon"></span>
+        Part 2
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../PCP/2-1/" title="1. Synchronization" class="md-nav__link">
+      1. Synchronization
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../PCP/2-2/" title="2. Barriers" class="md-nav__link">
+      2. Barriers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../PCP/2-3/" title="3. Asynchronous" class="md-nav__link">
+      3. Asynchronous
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -1757,13 +1845,13 @@
 7
 8
 9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
-    <span class="cm">/* produce an item in next_produced */</span>
+  <span class="cm">/* produce an item in next_produced */</span>
 
-    <span class="k">while</span> <span class="p">(</span><span class="n">counter</span> <span class="o">==</span> <span class="n">BUFFER_SIZE</span><span class="p">)</span> <span class="p">;</span>    <span class="c1">// do nothing</span>
+  <span class="k">while</span> <span class="p">(</span><span class="n">counter</span> <span class="o">==</span> <span class="n">BUFFER_SIZE</span><span class="p">)</span> <span class="p">;</span>    <span class="c1">// do nothing</span>
 
-    <span class="n">buffer</span><span class="p">[</span><span class="n">in</span><span class="p">]</span> <span class="o">=</span> <span class="n">next_produced</span><span class="p">;</span>
-    <span class="n">in</span> <span class="o">=</span> <span class="p">(</span><span class="n">in</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">BUFFER_SIZE</span><span class="p">;</span>
-    <span class="n">counter</span><span class="o">++</span><span class="p">;</span>
+  <span class="n">buffer</span><span class="p">[</span><span class="n">in</span><span class="p">]</span> <span class="o">=</span> <span class="n">next_produced</span><span class="p">;</span>
+  <span class="n">in</span> <span class="o">=</span> <span class="p">(</span><span class="n">in</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">BUFFER_SIZE</span><span class="p">;</span>
+  <span class="n">counter</span><span class="o">++</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
@@ -1777,26 +1865,28 @@
 7
 8
 9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">while</span> <span class="p">(</span><span class="n">counter</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">;</span>      <span class="c1">// do nothing</span>
+  <span class="k">while</span> <span class="p">(</span><span class="n">counter</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">;</span>      <span class="c1">// do nothing</span>
 
-    <span class="n">next_consumed</span> <span class="o">=</span> <span class="n">buffer</span><span class="p">[</span><span class="n">out</span><span class="p">];</span>
-    <span class="n">out</span> <span class="o">=</span> <span class="p">(</span><span class="n">out</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">BUFFER_SIZE</span><span class="p">;</span>
-    <span class="n">counter</span><span class="o">--</span><span class="p">;</span>
+  <span class="n">next_consumed</span> <span class="o">=</span> <span class="n">buffer</span><span class="p">[</span><span class="n">out</span><span class="p">];</span>
+  <span class="n">out</span> <span class="o">=</span> <span class="p">(</span><span class="n">out</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">BUFFER_SIZE</span><span class="p">;</span>
+  <span class="n">counter</span><span class="o">--</span><span class="p">;</span>
 
-    <span class="cm">/* consume the item in next_consumed */</span>
+  <span class="cm">/* consume the item in next_consumed */</span>
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
 
 <p>Suppose <code>counter == 5</code> initially. After executing <code>counter++</code> in producer or <code>counter--</code> in consumer. The value of <code>counter</code> may be $4$, $5$, or $6$!</p>
-<p>\begin{array}{lllll}
+<p>$$
+\begin{array}{lllll}
 T_0: producer &amp; \text{execute} &amp; register_1 = \text{counter} &amp; \{register_1 = 5\} \\
 T_1: producer &amp; \text{execute} &amp; register_1 = register_1 + 1 &amp; \{register_1 = 6\} \\
 T_2: consumer &amp; \text{execute} &amp; register_2 = \text{counter} &amp; \{register_2 = 5\} \\
 T_3: consumer &amp; \text{execute} &amp; register_2 = register_2 - 1 &amp; \{register_2 = 4\} \\
 T_4: producer &amp; \text{execute} &amp; \text{counter} = register_1 &amp; \{counter = 6\} \\
 T_5: consumer &amp; \text{execute} &amp; \text{counter} = register_2 &amp; \{counter = 4\}
-\end{array}</p>
+\end{array}
+$$</p>
 <div class="admonition note">
 <p class="admonition-title">Race condition</p>
 <p>Several processes access and manipulate the same data concurrently and the outcome of the execution depends on the <em>particular order</em> in which the access takes place.</p>
@@ -1813,10 +1903,10 @@ T_5: consumer &amp; \text{execute} &amp; \text{counter} = register_2 &amp; \{cou
 4
 5
 6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">do</span> <span class="p">{</span>
-    <span class="cm">/* entry section */</span>
-        <span class="cm">/* critical section */</span>
-    <span class="cm">/* exit section */</span>
-        <span class="cm">/* remainder section */</span>
+  <span class="cm">/* entry section */</span>
+    <span class="cm">/* critical section */</span>
+  <span class="cm">/* exit section */</span>
+    <span class="cm">/* remainder section */</span>
 <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
 </code></pre></div>
 </td></tr></table>
@@ -1855,13 +1945,13 @@ T_5: consumer &amp; \text{execute} &amp; \text{counter} = register_2 &amp; \{cou
 7
 8
 9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">do</span> <span class="p">{</span>
-    <span class="n">flag</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-    <span class="n">turn</span> <span class="o">=</span> <span class="n">j</span><span class="p">;</span>
-    <span class="k">while</span> <span class="p">(</span><span class="n">flag</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="n">turn</span> <span class="o">==</span> <span class="n">j</span><span class="p">)</span> <span class="p">;</span>
-    <span class="cm">/* critical section */</span>
+  <span class="n">flag</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+  <span class="n">turn</span> <span class="o">=</span> <span class="n">j</span><span class="p">;</span>
+  <span class="k">while</span> <span class="p">(</span><span class="n">flag</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="n">turn</span> <span class="o">==</span> <span class="n">j</span><span class="p">)</span> <span class="p">;</span>
+  <span class="cm">/* critical section */</span>
 
-    <span class="n">flag</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-    <span class="cm">/* remainder section */</span>
+  <span class="n">flag</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+  <span class="cm">/* remainder section */</span>
 <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
 </code></pre></div>
 </td></tr></table>
@@ -1906,17 +1996,17 @@ T_5: consumer &amp; \text{execute} &amp; \text{counter} = register_2 &amp; \{cou
 11
 12
 13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">do</span> <span class="p">{</span>
-    <span class="n">choosing</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>         <span class="c1">// A process want to enter its critical section</span>
-    <span class="n">number</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">number</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">...,</span> <span class="n">number</span><span class="p">[</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="n">choosing</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>        <span class="c1">// A process has got its number</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">while</span> <span class="p">(</span><span class="n">choosing</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="p">;</span>
-        <span class="k">while</span> <span class="p">(</span><span class="n">number</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">number</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">j</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">number</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">i</span><span class="p">))</span> <span class="p">;</span>     <span class="c1">// If two processes got the same number, then we should compare their indices</span>
-    <span class="p">}</span>
-    <span class="cm">/* critical section */</span>
+  <span class="n">choosing</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>         <span class="c1">// A process want to enter its critical section</span>
+  <span class="n">number</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">number</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">...,</span> <span class="n">number</span><span class="p">[</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="n">choosing</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>        <span class="c1">// A process has got its number</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">choosing</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">number</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">number</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">j</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">number</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">i</span><span class="p">))</span> <span class="p">;</span>     <span class="c1">// If two processes got the same number, then we should compare their indices</span>
+  <span class="p">}</span>
+  <span class="cm">/* critical section */</span>
 
-    <span class="n">number</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="cm">/* remainder section */</span>
+  <span class="n">number</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="cm">/* remainder section */</span>
 <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
 </code></pre></div>
 </td></tr></table>
@@ -1947,10 +2037,10 @@ T_5: consumer &amp; \text{execute} &amp; \text{counter} = register_2 &amp; \{cou
 4
 5
 6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">boolean</span> <span class="nf">test_and_set</span><span class="p">(</span><span class="n">boolean</span> <span class="o">*</span><span class="n">target</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">boolean</span> <span class="n">rv</span> <span class="o">=</span> <span class="o">*</span><span class="n">target</span><span class="p">;</span>
-    <span class="o">*</span><span class="n">target</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+  <span class="n">boolean</span> <span class="n">rv</span> <span class="o">=</span> <span class="o">*</span><span class="n">target</span><span class="p">;</span>
+  <span class="o">*</span><span class="n">target</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
 
-    <span class="k">return</span> <span class="n">rv</span><span class="p">;</span>
+  <span class="k">return</span> <span class="n">rv</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
@@ -1962,11 +2052,11 @@ T_5: consumer &amp; \text{execute} &amp; \text{counter} = register_2 &amp; \{cou
 5
 6
 7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">do</span> <span class="p">{</span>
-    <span class="k">while</span> <span class="p">(</span><span class="n">test_and_set</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lock</span><span class="p">))</span> <span class="p">;</span>
-    <span class="cm">/* critical section */</span>
+  <span class="k">while</span> <span class="p">(</span><span class="n">test_and_set</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lock</span><span class="p">))</span> <span class="p">;</span>
+  <span class="cm">/* critical section */</span>
 
-    <span class="n">lock</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-    <span class="cm">/* remainder section */</span>
+  <span class="n">lock</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+  <span class="cm">/* remainder section */</span>
 <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
 </code></pre></div>
 </td></tr></table>
@@ -1989,9 +2079,9 @@ T_5: consumer &amp; \text{execute} &amp; \text{counter} = register_2 &amp; \{cou
 3
 4
 5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">void</span> <span class="nf">swap</span><span class="p">(</span><span class="n">boolean</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">boolean</span> <span class="o">*</span><span class="n">b</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">boolean</span> <span class="n">temp</span> <span class="o">=</span> <span class="o">*</span><span class="n">a</span><span class="p">;</span>
-    <span class="o">*</span><span class="n">a</span> <span class="o">=</span> <span class="o">*</span><span class="n">b</span><span class="p">;</span>
-    <span class="o">*</span><span class="n">b</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;</span>
+  <span class="n">boolean</span> <span class="n">temp</span> <span class="o">=</span> <span class="o">*</span><span class="n">a</span><span class="p">;</span>
+  <span class="o">*</span><span class="n">a</span> <span class="o">=</span> <span class="o">*</span><span class="n">b</span><span class="p">;</span>
+  <span class="o">*</span><span class="n">b</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
@@ -2005,13 +2095,13 @@ T_5: consumer &amp; \text{execute} &amp; \text{counter} = register_2 &amp; \{cou
 7
 8
 9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">do</span> <span class="p">{</span>
-    <span class="n">key</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-    <span class="k">while</span> <span class="p">(</span><span class="n">key</span> <span class="o">==</span> <span class="nb">true</span><span class="p">)</span>
-        <span class="n">swap</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lock</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">key</span><span class="p">);</span>
-    <span class="cm">/* critical section */</span>
+  <span class="n">key</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+  <span class="k">while</span> <span class="p">(</span><span class="n">key</span> <span class="o">==</span> <span class="nb">true</span><span class="p">)</span>
+    <span class="n">swap</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lock</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">key</span><span class="p">);</span>
+  <span class="cm">/* critical section */</span>
 
-    <span class="n">lock</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-    <span class="cm">/* remainder section */</span>
+  <span class="n">lock</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+  <span class="cm">/* remainder section */</span>
 <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
 </code></pre></div>
 </td></tr></table>
@@ -2029,12 +2119,12 @@ T_5: consumer &amp; \text{execute} &amp; \text{counter} = register_2 &amp; \{cou
 6
 7
 8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="nf">compare_and_swap</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">value</span><span class="p">,</span> <span class="kt">int</span> <span class="n">expected</span><span class="p">,</span> <span class="kt">int</span> <span class="n">new_value</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="o">*</span><span class="n">value</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="o">*</span><span class="n">value</span><span class="p">;</span>
 
-    <span class="k">if</span> <span class="p">(</span><span class="o">*</span><span class="n">value</span> <span class="o">==</span> <span class="n">expected</span><span class="p">)</span>
-        <span class="o">*</span><span class="n">value</span> <span class="o">=</span> <span class="n">new_value</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">*</span><span class="n">value</span> <span class="o">==</span> <span class="n">expected</span><span class="p">)</span>
+      <span class="o">*</span><span class="n">value</span> <span class="o">=</span> <span class="n">new_value</span><span class="p">;</span>
 
-    <span class="k">return</span> <span class="n">temp</span><span class="p">;</span>
+  <span class="k">return</span> <span class="n">temp</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
@@ -2046,11 +2136,11 @@ T_5: consumer &amp; \text{execute} &amp; \text{counter} = register_2 &amp; \{cou
 5
 6
 7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">do</span> <span class="p">{</span>
-    <span class="k">while</span> <span class="p">(</span><span class="n">compare_and_swap</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lock</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">;</span>
-    <span class="cm">/* critical section */</span>
+  <span class="k">while</span> <span class="p">(</span><span class="n">compare_and_swap</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lock</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">;</span>
+  <span class="cm">/* critical section */</span>
 
-    <span class="n">lock</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="cm">/* remainder section */</span>
+  <span class="n">lock</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="cm">/* remainder section */</span>
 <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
 </code></pre></div>
 </td></tr></table>
@@ -2080,22 +2170,22 @@ T_5: consumer &amp; \text{execute} &amp; \text{counter} = register_2 &amp; \{cou
 16
 17
 18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">do</span> <span class="p">{</span>
-    <span class="n">waiting</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-    <span class="n">key</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-    <span class="k">while</span> <span class="p">(</span><span class="n">waiting</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="n">key</span><span class="p">)</span>
-        <span class="n">key</span> <span class="o">=</span> <span class="n">test_and_set</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lock</span><span class="p">);</span>
-    <span class="n">waiting</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-    <span class="cm">/* critical section */</span>
+  <span class="n">waiting</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+  <span class="n">key</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+  <span class="k">while</span> <span class="p">(</span><span class="n">waiting</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="n">key</span><span class="p">)</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="n">test_and_set</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lock</span><span class="p">);</span>
+  <span class="n">waiting</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+  <span class="cm">/* critical section */</span>
 
-    <span class="n">j</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">n</span><span class="p">;</span>                    <span class="c1">// Assign its next process</span>
-    <span class="k">while</span> <span class="p">((</span><span class="n">j</span> <span class="o">!=</span> <span class="n">i</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">waiting</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>     <span class="c1">// Find a following process who is waiting</span>
-        <span class="n">j</span> <span class="o">=</span> <span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">n</span><span class="p">;</span>
+  <span class="n">j</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">n</span><span class="p">;</span>                    <span class="c1">// Assign its next process</span>
+  <span class="k">while</span> <span class="p">((</span><span class="n">j</span> <span class="o">!=</span> <span class="n">i</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">waiting</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>     <span class="c1">// Find a following process who is waiting</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">n</span><span class="p">;</span>
 
-    <span class="k">if</span> <span class="p">(</span><span class="n">j</span> <span class="o">==</span> <span class="n">i</span><span class="p">)</span>                         <span class="c1">// If no process is waiting</span>
-        <span class="n">lock</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-    <span class="k">else</span>
-        <span class="n">waiting</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>             <span class="c1">// Thus line 4 will be false and Pj won&#39;t be stucked anymore</span>
-    <span class="cm">/* remainder section */</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">j</span> <span class="o">==</span> <span class="n">i</span><span class="p">)</span>                         <span class="c1">// If no process is waiting</span>
+    <span class="n">lock</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+  <span class="k">else</span>
+    <span class="n">waiting</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>             <span class="c1">// Thus line 4 will be false and Pj won&#39;t be stucked anymore</span>
+  <span class="cm">/* remainder section */</span>
 <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
 </code></pre></div>
 </td></tr></table>
@@ -2106,10 +2196,10 @@ T_5: consumer &amp; \text{execute} &amp; \text{counter} = register_2 &amp; \{cou
 4
 5
 6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">boolean</span> <span class="nf">test_and_set</span><span class="p">(</span><span class="n">boolean</span> <span class="o">*</span><span class="n">target</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">boolean</span> <span class="n">rv</span> <span class="o">=</span> <span class="o">*</span><span class="n">target</span><span class="p">;</span>
-    <span class="o">*</span><span class="n">target</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+  <span class="n">boolean</span> <span class="n">rv</span> <span class="o">=</span> <span class="o">*</span><span class="n">target</span><span class="p">;</span>
+  <span class="o">*</span><span class="n">target</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
 
-    <span class="k">return</span> <span class="n">rv</span><span class="p">;</span>
+  <span class="k">return</span> <span class="n">rv</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
@@ -2134,8 +2224,8 @@ T_5: consumer &amp; \text{execute} &amp; \text{counter} = register_2 &amp; \{cou
 2
 3
 4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">acquire</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">available</span><span class="p">)</span> <span class="p">;</span>        <span class="c1">// busy wait</span>
-    <span class="n">available</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+  <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">available</span><span class="p">)</span> <span class="p">;</span>        <span class="c1">// busy wait</span>
+  <span class="n">available</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
@@ -2143,7 +2233,7 @@ T_5: consumer &amp; \text{execute} &amp; \text{counter} = register_2 &amp; \{cou
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">release</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">available</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+  <span class="n">available</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
@@ -2154,10 +2244,10 @@ T_5: consumer &amp; \text{execute} &amp; \text{counter} = register_2 &amp; \{cou
 4
 5
 6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">do</span> <span class="p">{</span>
-    <span class="c1">// acquire lock</span>
-        <span class="cm">/* critical section */</span>
-    <span class="c1">// release lock</span>
-        <span class="cm">/* remainder section */</span>
+  <span class="c1">// acquire lock</span>
+    <span class="cm">/* critical section */</span>
+  <span class="c1">// release lock</span>
+    <span class="cm">/* remainder section */</span>
 <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
 </code></pre></div>
 </td></tr></table>
@@ -2175,17 +2265,17 @@ T_5: consumer &amp; \text{execute} &amp; \text{counter} = register_2 &amp; \{cou
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">wait</span><span class="p">(</span><span class="n">S</span><span class="p">)</span> <span class="p">{</span>               <span class="cm">/* P */</span>
-    <span class="k">while</span> <span class="p">(</span><span class="n">S</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">;</span>    <span class="c1">// busy wait</span>
-    <span class="n">S</span><span class="o">--</span><span class="p">;</span>
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">wait</span><span class="p">(</span><span class="n">S</span><span class="p">)</span> <span class="p">{</span>             <span class="cm">/* P */</span>
+  <span class="k">while</span> <span class="p">(</span><span class="n">S</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">;</span>    <span class="c1">// busy wait</span>
+  <span class="n">S</span><span class="o">--</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
 
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">signal</span><span class="p">(</span><span class="n">S</span><span class="p">)</span> <span class="p">{</span>             <span class="cm">/* V */</span>
-    <span class="n">S</span><span class="o">++</span><span class="p">;</span>
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">signal</span><span class="p">(</span><span class="n">S</span><span class="p">)</span> <span class="p">{</span>           <span class="cm">/* V */</span>
+  <span class="n">S</span><span class="o">++</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
@@ -2200,10 +2290,10 @@ T_5: consumer &amp; \text{execute} &amp; \text{counter} = register_2 &amp; \{cou
 4
 5
 6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">do</span> <span class="p">{</span>
-    <span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
-    <span class="cm">/* critical section */</span>
-    <span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
-    <span class="cm">/* remainder section */</span>
+  <span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+  <span class="cm">/* critical section */</span>
+  <span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+  <span class="cm">/* remainder section */</span>
 <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
 </code></pre></div>
 </td></tr></table>
@@ -2241,8 +2331,8 @@ Even if it's implemented in a multi-CPU environment, the locks should be held fo
 2
 3
 4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">value</span><span class="p">;</span>
-    <span class="k">struct</span> <span class="n">process</span> <span class="o">*</span><span class="n">list</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">value</span><span class="p">;</span>
+  <span class="k">struct</span> <span class="n">process</span> <span class="o">*</span><span class="n">list</span><span class="p">;</span>
 <span class="p">}</span> <span class="n">semaphore</span><span class="p">;</span>
 </code></pre></div>
 </td></tr></table>
@@ -2254,11 +2344,11 @@ Even if it's implemented in a multi-CPU environment, the locks should be held fo
 5
 6
 7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">wait</span><span class="p">(</span><span class="n">semaphore</span> <span class="o">*</span><span class="n">S</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">S</span><span class="o">-&gt;</span><span class="n">value</span><span class="o">--</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">S</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">add</span> <span class="n">this</span> <span class="n">process</span> <span class="n">to</span> <span class="n">S</span><span class="o">-&gt;</span><span class="n">list</span><span class="p">;</span>
-        <span class="n">block</span><span class="p">();</span>
-    <span class="p">}</span>
+  <span class="n">S</span><span class="o">-&gt;</span><span class="n">value</span><span class="o">--</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">S</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">add</span> <span class="n">this</span> <span class="n">process</span> <span class="n">to</span> <span class="n">S</span><span class="o">-&gt;</span><span class="n">list</span><span class="p">;</span>
+    <span class="n">block</span><span class="p">();</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
@@ -2270,11 +2360,11 @@ Even if it's implemented in a multi-CPU environment, the locks should be held fo
 5
 6
 7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">signal</span><span class="p">(</span><span class="n">semaphore</span> <span class="o">*</span><span class="n">S</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">S</span><span class="o">-&gt;</span><span class="n">value</span><span class="o">++</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">S</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">remove</span> <span class="n">a</span> <span class="n">process</span> <span class="n">P</span> <span class="n">from</span> <span class="n">S</span><span class="o">-&gt;</span><span class="n">list</span><span class="p">;</span>
-        <span class="n">wakeup</span><span class="p">(</span><span class="n">P</span><span class="p">);</span>
-    <span class="p">}</span>
+  <span class="n">S</span><span class="o">-&gt;</span><span class="n">value</span><span class="o">++</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">S</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">remove</span> <span class="n">a</span> <span class="n">process</span> <span class="n">P</span> <span class="n">from</span> <span class="n">S</span><span class="o">-&gt;</span><span class="n">list</span><span class="p">;</span>
+    <span class="n">wakeup</span><span class="p">(</span><span class="n">P</span><span class="p">);</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
@@ -2298,7 +2388,7 @@ signal(S); &amp; signal(Q); \\
 signal(Q); &amp; signal(S); \\
 \end{array}
 $$</p>
-<p>Deadlock may happen (assume $S = 1$ and $Q = 1$: </p>
+<p>Deadlock may happen (assume $S = 1$ and $Q = 1$:</p>
 <ol>
 <li>$P_0$ calls $wait(S)$</li>
 <li>$P_1$ calls $wait(Q)$</li>
@@ -2327,14 +2417,14 @@ $$</p>
  8
  9
 10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">WAIT</span><span class="p">(</span><span class="n">S</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">wait</span><span class="p">(</span><span class="n">S3</span><span class="p">);</span>   <span class="c1">// protect the whole program</span>
-    <span class="n">wait</span><span class="p">(</span><span class="n">S1</span><span class="p">);</span>   <span class="c1">// protect C</span>
-    <span class="n">C</span><span class="o">--</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">C</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">signal</span><span class="p">(</span><span class="n">S1</span><span class="p">);</span>
-        <span class="n">wait</span><span class="p">(</span><span class="n">S2</span><span class="p">);</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="n">signal</span><span class="p">(</span><span class="n">S1</span><span class="p">);</span>
-    <span class="n">signal</span><span class="p">(</span><span class="n">S3</span><span class="p">);</span>
+  <span class="n">wait</span><span class="p">(</span><span class="n">S3</span><span class="p">);</span>   <span class="c1">// protect the whole program</span>
+  <span class="n">wait</span><span class="p">(</span><span class="n">S1</span><span class="p">);</span>   <span class="c1">// protect C</span>
+  <span class="n">C</span><span class="o">--</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">C</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">signal</span><span class="p">(</span><span class="n">S1</span><span class="p">);</span>
+    <span class="n">wait</span><span class="p">(</span><span class="n">S2</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="n">signal</span><span class="p">(</span><span class="n">S1</span><span class="p">);</span>
+  <span class="n">signal</span><span class="p">(</span><span class="n">S3</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
@@ -2346,11 +2436,11 @@ $$</p>
 5
 6
 7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">SIGNAL</span><span class="p">(</span><span class="n">S</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">wait</span><span class="p">(</span><span class="n">S1</span><span class="p">);</span>
-    <span class="n">C</span><span class="o">++</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">C</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>
-        <span class="n">signal</span><span class="p">(</span><span class="n">S2</span><span class="p">);</span>     <span class="c1">// wake up</span>
-    <span class="n">signal</span><span class="p">(</span><span class="n">S1</span><span class="p">);</span>
+  <span class="n">wait</span><span class="p">(</span><span class="n">S1</span><span class="p">);</span>
+  <span class="n">C</span><span class="o">++</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">C</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">signal</span><span class="p">(</span><span class="n">S2</span><span class="p">);</span>     <span class="c1">// wake up</span>
+  <span class="n">signal</span><span class="p">(</span><span class="n">S1</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
@@ -2386,15 +2476,15 @@ $$</p>
  9
 10
 11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">do</span> <span class="p">{</span>
-    <span class="cm">/* produce an item in next_produced */</span>
+  <span class="cm">/* produce an item in next_produced */</span>
 
-    <span class="n">wait</span><span class="p">(</span><span class="n">empty</span><span class="p">);</span>
-    <span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+  <span class="n">wait</span><span class="p">(</span><span class="n">empty</span><span class="p">);</span>
+  <span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
 
-    <span class="cm">/* add next_produced to the buffer */</span>
+  <span class="cm">/* add next_produced to the buffer */</span>
 
-    <span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
-    <span class="n">signal</span><span class="p">(</span><span class="n">full</span><span class="p">);</span>
+  <span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+  <span class="n">signal</span><span class="p">(</span><span class="n">full</span><span class="p">);</span>
 <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
 </code></pre></div>
 </td></tr></table>
@@ -2413,15 +2503,15 @@ $$</p>
  9
 10
 11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">do</span> <span class="p">{</span>
-    <span class="n">wait</span><span class="p">(</span><span class="n">full</span><span class="p">);</span>
-    <span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+  <span class="n">wait</span><span class="p">(</span><span class="n">full</span><span class="p">);</span>
+  <span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
 
-    <span class="cm">/* remove an item from buffer to next_consumed */</span>
+  <span class="cm">/* remove an item from buffer to next_consumed */</span>
 
-    <span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
-    <span class="n">signal</span><span class="p">(</span><span class="n">empty</span><span class="p">);</span>
+  <span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+  <span class="n">signal</span><span class="p">(</span><span class="n">empty</span><span class="p">);</span>
 
-    <span class="cm">/* consume the item in next_consumed */</span>
+  <span class="cm">/* consume the item in next_consumed */</span>
 <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
 </code></pre></div>
 </td></tr></table>
@@ -2465,11 +2555,11 @@ $$</p>
 5
 6
 7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">do</span> <span class="p">{</span>
-    <span class="n">wait</span><span class="p">(</span><span class="n">rw_mutex</span><span class="p">);</span>
+  <span class="n">wait</span><span class="p">(</span><span class="n">rw_mutex</span><span class="p">);</span>
 
-    <span class="cm">/* writing is performed */</span>
+  <span class="cm">/* writing is performed */</span>
 
-    <span class="n">signal</span><span class="p">(</span><span class="n">rw_mutex</span><span class="p">);</span>
+  <span class="n">signal</span><span class="p">(</span><span class="n">rw_mutex</span><span class="p">);</span>
 <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
 </code></pre></div>
 </td></tr></table>
@@ -2489,19 +2579,19 @@ $$</p>
 13
 14
 15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">do</span> <span class="p">{</span>
-    <span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>        <span class="c1">// protect read_count</span>
-    <span class="n">read_count</span><span class="o">++</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">read_count</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
-        <span class="n">wait</span><span class="p">(</span><span class="n">rw_mutex</span><span class="p">);</span>
-    <span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+  <span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>        <span class="c1">// protect read_count</span>
+  <span class="n">read_count</span><span class="o">++</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">read_count</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">wait</span><span class="p">(</span><span class="n">rw_mutex</span><span class="p">);</span>
+  <span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
 
-    <span class="cm">/* reading is performed */</span>
+  <span class="cm">/* reading is performed */</span>
 
-    <span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>        <span class="c1">// protect read_count</span>
-    <span class="n">read_count</span><span class="o">--</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">read_count</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
-        <span class="n">signal</span><span class="p">(</span><span class="n">rw_mutex</span><span class="p">);</span>
-    <span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+  <span class="n">wait</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>        <span class="c1">// protect read_count</span>
+  <span class="n">read_count</span><span class="o">--</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">read_count</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">signal</span><span class="p">(</span><span class="n">rw_mutex</span><span class="p">);</span>
+  <span class="n">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
 <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
 </code></pre></div>
 </td></tr></table>
@@ -2526,15 +2616,15 @@ $$</p>
  9
 10
 11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">do</span> <span class="p">{</span>
-    <span class="n">wait</span><span class="p">(</span><span class="n">chopstick</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
-    <span class="n">wait</span><span class="p">(</span><span class="n">chopstick</span><span class="p">[(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">]);</span>
+  <span class="n">wait</span><span class="p">(</span><span class="n">chopstick</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+  <span class="n">wait</span><span class="p">(</span><span class="n">chopstick</span><span class="p">[(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">]);</span>
 
-    <span class="cm">/* eat for awhile */</span>
+  <span class="cm">/* eat for awhile */</span>
 
-    <span class="n">signal</span><span class="p">(</span><span class="n">chopstick</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
-    <span class="n">signal</span><span class="p">(</span><span class="n">chopstick</span><span class="p">[(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">]);</span>
+  <span class="n">signal</span><span class="p">(</span><span class="n">chopstick</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+  <span class="n">signal</span><span class="p">(</span><span class="n">chopstick</span><span class="p">[(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">]);</span>
 
-    <span class="cm">/* think for awhile */</span>
+  <span class="cm">/* think for awhile */</span>
 <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
 </code></pre></div>
 </td></tr></table>
@@ -2550,8 +2640,8 @@ $$</p>
 2
 3
 4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="n">buffer</span> <span class="p">{</span>
-    <span class="n">item</span> <span class="n">pool</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
-    <span class="kt">int</span> <span class="n">count</span><span class="p">,</span> <span class="n">in</span><span class="p">,</span> <span class="n">out</span><span class="p">;</span>
+  <span class="n">item</span> <span class="n">pool</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
+  <span class="kt">int</span> <span class="n">count</span><span class="p">,</span> <span class="n">in</span><span class="p">,</span> <span class="n">out</span><span class="p">;</span>
 <span class="p">};</span>
 </code></pre></div>
 </td></tr></table>
@@ -2566,9 +2656,9 @@ $$</p>
 5
 6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">region</span> <span class="n">buffer</span> <span class="nf">when</span>
 <span class="p">(</span><span class="n">count</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">pool</span><span class="p">[</span><span class="n">in</span><span class="p">]</span> <span class="o">=</span> <span class="n">next_produced</span><span class="p">;</span>
-    <span class="n">in</span> <span class="o">=</span> <span class="p">(</span><span class="n">in</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">n</span><span class="p">;</span>
-    <span class="n">count</span><span class="o">++</span><span class="p">;</span>
+  <span class="n">pool</span><span class="p">[</span><span class="n">in</span><span class="p">]</span> <span class="o">=</span> <span class="n">next_produced</span><span class="p">;</span>
+  <span class="n">in</span> <span class="o">=</span> <span class="p">(</span><span class="n">in</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">n</span><span class="p">;</span>
+  <span class="n">count</span><span class="o">++</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
@@ -2583,9 +2673,9 @@ $$</p>
 5
 6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">region</span> <span class="n">buffer</span> <span class="nf">when</span>
 <span class="p">(</span><span class="n">count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">next_consumed</span> <span class="o">=</span> <span class="n">pool</span><span class="p">[</span><span class="n">out</span><span class="p">];</span>
-    <span class="n">out</span> <span class="o">=</span> <span class="p">(</span><span class="n">out</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">n</span><span class="p">;</span>
-    <span class="n">count</span><span class="o">--</span><span class="p">;</span>
+  <span class="n">next_consumed</span> <span class="o">=</span> <span class="n">pool</span><span class="p">[</span><span class="n">out</span><span class="p">];</span>
+  <span class="n">out</span> <span class="o">=</span> <span class="p">(</span><span class="n">out</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">n</span><span class="p">;</span>
+  <span class="n">count</span><span class="o">--</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
@@ -2618,22 +2708,22 @@ $$</p>
     <span class="cm">/* shared variable declarations */</span>
 
     <span class="n">function</span> <span class="n">P1</span> <span class="p">(</span> <span class="p">.</span> <span class="p">.</span> <span class="p">.</span> <span class="p">)</span> <span class="p">{</span>
-        <span class="p">.</span> <span class="p">.</span> <span class="p">.</span>
+      <span class="p">.</span> <span class="p">.</span> <span class="p">.</span>
     <span class="p">}</span>
 
     <span class="n">function</span> <span class="n">P2</span> <span class="p">(</span> <span class="p">.</span> <span class="p">.</span> <span class="p">.</span> <span class="p">)</span> <span class="p">{</span>
-        <span class="p">.</span> <span class="p">.</span> <span class="p">.</span>
+      <span class="p">.</span> <span class="p">.</span> <span class="p">.</span>
     <span class="p">}</span>
 
-        <span class="p">.</span>
-        <span class="p">.</span>
-        <span class="p">.</span>
+      <span class="p">.</span>
+      <span class="p">.</span>
+      <span class="p">.</span>
     <span class="n">function</span> <span class="n">Pn</span> <span class="p">(</span> <span class="p">.</span> <span class="p">.</span> <span class="p">.</span> <span class="p">)</span> <span class="p">{</span>
-        <span class="p">.</span> <span class="p">.</span> <span class="p">.</span>
+      <span class="p">.</span> <span class="p">.</span> <span class="p">.</span>
     <span class="p">}</span>
 
     <span class="n">initialization_code</span> <span class="p">(</span> <span class="p">.</span> <span class="p">.</span> <span class="p">.</span> <span class="p">)</span> <span class="p">{</span>
-        <span class="p">.</span> <span class="p">.</span> <span class="p">.</span>
+      <span class="p">.</span> <span class="p">.</span> <span class="p">.</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -2643,17 +2733,17 @@ $$</p>
 <p>An abstract data type—or ADT—encapsulates data with a set of functions to operate on that data that are independent of any specific implementation of the ADT.</p>
 <p>The monitor construct ensures that only one process at a time is active within the monitor.</p>
 <p>A programmer who needs to write a tailor-made synchronization scheme can define one or more variables of type $condition$:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="n">condition</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">condition</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
 </code></pre></div>
 </td></tr></table>
 
 <p>The only operations that can be invoked on a condition variable are <code>wait()</code> and <code>signal()</code>. The operation</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="n">x</span><span class="p">.</span><span class="n">wait</span><span class="p">();</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">x</span><span class="p">.</span><span class="n">wait</span><span class="p">();</span>
 </code></pre></div>
 </td></tr></table>
 
 <p>means that the process invoking this operation is suspended until another process invokes</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="n">x</span><span class="p">.</span><span class="n">signal</span><span class="p">();</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">x</span><span class="p">.</span><span class="n">signal</span><span class="p">();</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -2709,35 +2799,35 @@ $$</p>
 29
 30
 31</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">monitor</span> <span class="n">DiningPhilosophers</span> <span class="p">{</span>
-    <span class="k">enum</span> <span class="p">{</span><span class="n">THINKING</span><span class="p">,</span> <span class="n">HUNGRY</span><span class="p">,</span> <span class="n">EATING</span><span class="p">}</span> <span class="n">state</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
-    <span class="n">condition</span> <span class="n">self</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
+  <span class="k">enum</span> <span class="p">{</span> <span class="n">THINKING</span><span class="p">,</span> <span class="n">HUNGRY</span><span class="p">,</span> <span class="n">EATING</span> <span class="p">}</span> <span class="n">state</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
+  <span class="n">condition</span> <span class="n">self</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
 
-    <span class="kt">void</span> <span class="nf">pickup</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">HUNGRY</span><span class="p">;</span>
-        <span class="n">test</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">EATING</span><span class="p">)</span>
-            <span class="n">self</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">wait</span><span class="p">();</span>
-    <span class="p">}</span>
+  <span class="kt">void</span> <span class="nf">pickup</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">HUNGRY</span><span class="p">;</span>
+    <span class="n">test</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">EATING</span><span class="p">)</span>
+      <span class="n">self</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">wait</span><span class="p">();</span>
+  <span class="p">}</span>
 
-    <span class="kt">void</span> <span class="nf">putdown</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">THINKING</span><span class="p">;</span>
-        <span class="n">test</span><span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">);</span>      <span class="c1">// help your right-hand side to run test</span>
-        <span class="n">test</span><span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">);</span>      <span class="c1">// help your left-hand side to run test</span>
-    <span class="p">}</span>
+  <span class="kt">void</span> <span class="nf">putdown</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">THINKING</span><span class="p">;</span>
+    <span class="n">test</span><span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">);</span>      <span class="c1">// help your right-hand side to run test</span>
+    <span class="n">test</span><span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">);</span>      <span class="c1">// help your left-hand side to run test</span>
+  <span class="p">}</span>
 
-    <span class="kt">void</span> <span class="nf">test</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">((</span><span class="n">state</span><span class="p">[(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">]</span> <span class="o">!=</span> <span class="n">EATING</span><span class="p">)</span> <span class="o">&amp;&amp;</span>       <span class="c1">// right-hand side</span>
-            <span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">HUNGRY</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
-            <span class="p">(</span><span class="n">state</span><span class="p">[(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">]</span> <span class="o">!=</span> <span class="n">EATING</span><span class="p">))</span> <span class="p">{</span>       <span class="c1">// left-hand side</span>
-            <span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">EATING</span><span class="p">;</span>
-            <span class="n">self</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">signal</span><span class="p">();</span>
-        <span class="p">}</span>
+  <span class="kt">void</span> <span class="nf">test</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">((</span><span class="n">state</span><span class="p">[(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">]</span> <span class="o">!=</span> <span class="n">EATING</span><span class="p">)</span> <span class="o">&amp;&amp;</span>       <span class="c1">// right-hand side</span>
+        <span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">HUNGRY</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
+        <span class="p">(</span><span class="n">state</span><span class="p">[(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">5</span><span class="p">]</span> <span class="o">!=</span> <span class="n">EATING</span><span class="p">))</span> <span class="p">{</span>       <span class="c1">// left-hand side</span>
+      <span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">EATING</span><span class="p">;</span>
+      <span class="n">self</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">signal</span><span class="p">();</span>
     <span class="p">}</span>
+  <span class="p">}</span>
 
-    <span class="n">initialization_code</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
-            <span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">THINKING</span><span class="p">;</span>
-    <span class="p">}</span>
+  <span class="n">initialization_code</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+      <span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">THINKING</span><span class="p">;</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
@@ -2784,9 +2874,9 @@ $$</p>
 <span class="cm">/* body of F */</span>
 
 <span class="k">if</span> <span class="p">(</span><span class="n">next_count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="n">signal</span><span class="p">(</span><span class="n">next</span><span class="p">);</span>
+  <span class="n">signal</span><span class="p">(</span><span class="n">next</span><span class="p">);</span>
 <span class="k">else</span>
-    <span class="nf">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+  <span class="nf">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -2802,9 +2892,9 @@ $$</p>
 6
 7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">x_count</span><span class="o">++</span><span class="p">;</span>
 <span class="k">if</span> <span class="p">(</span><span class="n">next_count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="n">signal</span><span class="p">(</span><span class="n">next</span><span class="p">);</span>
+  <span class="n">signal</span><span class="p">(</span><span class="n">next</span><span class="p">);</span>
 <span class="k">else</span>
-    <span class="nf">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
+  <span class="nf">signal</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
 <span class="n">wait</span><span class="p">(</span><span class="n">x_sem</span><span class="p">);</span>
 <span class="n">x_count</span><span class="o">--</span><span class="p">;</span>
 </code></pre></div>
@@ -2819,10 +2909,10 @@ $$</p>
 4
 5
 6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="n">x_count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>      <span class="cm">/* If there&#39;s somebody being waiting */</span>
-    <span class="n">next_count</span><span class="o">++</span><span class="p">;</span>
-    <span class="n">signal</span><span class="p">(</span><span class="n">x_sem</span><span class="p">);</span>
-    <span class="n">wait</span><span class="p">(</span><span class="n">next</span><span class="p">);</span>
-    <span class="n">next_count</span><span class="o">--</span><span class="p">;</span>
+  <span class="n">next_count</span><span class="o">++</span><span class="p">;</span>
+  <span class="n">signal</span><span class="p">(</span><span class="n">x_sem</span><span class="p">);</span>
+  <span class="n">wait</span><span class="p">(</span><span class="n">next</span><span class="p">);</span>
+  <span class="n">next_count</span><span class="o">--</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
@@ -2860,23 +2950,23 @@ $$</p>
 17
 18
 19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">monitor</span> <span class="n">ResourceAllocator</span> <span class="p">{</span>
-    <span class="n">boolean</span> <span class="n">busy</span><span class="p">;</span>
-    <span class="n">condition</span> <span class="n">x</span><span class="p">;</span>
+  <span class="n">boolean</span> <span class="n">busy</span><span class="p">;</span>
+  <span class="n">condition</span> <span class="n">x</span><span class="p">;</span>
 
-    <span class="kt">void</span> <span class="nf">acquire</span><span class="p">(</span><span class="kt">int</span> <span class="n">time</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">busy</span><span class="p">)</span>
-            <span class="n">x</span><span class="p">.</span><span class="n">wait</span><span class="p">(</span><span class="n">time</span><span class="p">);</span>
-        <span class="n">busy</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-    <span class="p">}</span>
+  <span class="kt">void</span> <span class="nf">acquire</span><span class="p">(</span><span class="kt">int</span> <span class="n">time</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">busy</span><span class="p">)</span>
+      <span class="n">x</span><span class="p">.</span><span class="n">wait</span><span class="p">(</span><span class="n">time</span><span class="p">);</span>
+    <span class="n">busy</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+  <span class="p">}</span>
 
-    <span class="kt">void</span> <span class="nf">release</span><span class="p">()</span> <span class="p">{</span>
-        <span class="n">busy</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-        <span class="n">x</span><span class="p">.</span><span class="n">signal</span><span class="p">();</span>
-    <span class="p">}</span>
+  <span class="kt">void</span> <span class="nf">release</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">busy</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="n">x</span><span class="p">.</span><span class="n">signal</span><span class="p">();</span>
+  <span class="p">}</span>
 
-    <span class="n">initialization_code</span><span class="p">()</span> <span class="p">{</span>
-        <span class="n">busy</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-    <span class="p">}</span>
+  <span class="n">initialization_code</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">busy</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
@@ -3000,9 +3090,9 @@ $$</p>
 3
 4
 5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">void</span> <span class="nf">update</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">atomic</span> <span class="p">{</span>
-        <span class="cm">/* modify shared data */</span>
-    <span class="p">}</span>
+  <span class="n">atomic</span> <span class="p">{</span>
+    <span class="cm">/* modify shared data */</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
@@ -3037,9 +3127,9 @@ $$</p>
 3
 4
 5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">void</span> <span class="nf">update</span><span class="p">()</span> <span class="p">{</span>
-    <span class="cp">#pragma omp critical {</span>
-        <span class="n">counter</span> <span class="o">+=</span> <span class="n">value</span><span class="p">;</span>
-    <span class="p">}</span>
+  <span class="cp">#pragma omp critical {</span>
+    <span class="n">counter</span> <span class="o">+=</span> <span class="n">value</span><span class="p">;</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>

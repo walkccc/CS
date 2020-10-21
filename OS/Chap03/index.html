@@ -321,8 +321,29 @@
           
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+    
+    <label class="md-nav__link" for="nav-2-2">
+      Part 1
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Part 1" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        <span class="md-nav__icon md-icon"></span>
+        Part 1
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
-    <a href="../../PCP/02/" title="2. Threads and Processes" class="md-nav__link">
+    <a href="../../PCP/1-2/" title="2. Threads and Processes" class="md-nav__link">
       2. Threads and Processes
     </a>
   </li>
@@ -334,7 +355,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../PCP/03/" title="3. Mutual Exclusion" class="md-nav__link">
+    <a href="../../PCP/1-3/" title="3. Mutual Exclusion" class="md-nav__link">
       3. Mutual Exclusion
     </a>
   </li>
@@ -346,7 +367,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../PCP/04/" title="4. Locks" class="md-nav__link">
+    <a href="../../PCP/1-4/" title="4. Locks" class="md-nav__link">
       4. Locks
     </a>
   </li>
@@ -358,9 +379,76 @@
 
 
   <li class="md-nav__item">
-    <a href="../../PCP/05/" title="5. Liveness" class="md-nav__link">
+    <a href="../../PCP/1-5/" title="5. Liveness" class="md-nav__link">
       5. Liveness
     </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
+    
+    <label class="md-nav__link" for="nav-2-3">
+      Part 2
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Part 2" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
+        <span class="md-nav__icon md-icon"></span>
+        Part 2
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../PCP/2-1/" title="1. Synchronization" class="md-nav__link">
+      1. Synchronization
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../PCP/2-2/" title="2. Barriers" class="md-nav__link">
+      2. Barriers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../PCP/2-3/" title="3. Asynchronous" class="md-nav__link">
+      3. Asynchronous
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -1806,7 +1894,7 @@
 <p>Two different processes: the text section are equivalent, the data, heap and stack vary.</p>
 <p>Process can be an execution environment for other code. (<strong>simulation</strong>)</p>
 <p>e.g.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="n">java</span> <span class="n">testProgram</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">java</span> <span class="n">testProgram</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -1931,7 +2019,7 @@
 <p>One of the two processes uses the <code>exec()</code> syscall to replace the process's memory space with a new program.</p>
 </div>
 <p>Creating a separate process using the UNIX <code>fork()</code> system call.</p>
-<p><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
  4
@@ -1947,26 +2035,27 @@
 14
 15
 16
-17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span> 
-    <span class="kt">pid_t</span> <span class="n">pid</span><span class="p">;</span>
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kt">pid_t</span> <span class="n">pid</span><span class="p">;</span>
 
-    <span class="cm">/* fork a child process */</span>
-    <span class="n">pid</span> <span class="o">=</span> <span class="n">fork</span><span class="p">();</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">pid</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>                      <span class="cm">/* error occurred */</span>
-        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Fork Failed&quot;</span><span class="p">);</span>
-        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">pid</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>              <span class="cm">/* child process */</span>
-        <span class="n">execlp</span><span class="p">(</span><span class="s">&quot;/bin/ls&quot;</span><span class="p">,</span> <span class="s">&quot;ls&quot;</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>  <span class="cm">/* a version of the `exec()` */</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>                            <span class="cm">/* parent process */</span>
-        <span class="cm">/* parent will wait for the child to complete */</span>
-        <span class="n">wait</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Child Complete&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="cm">/* fork a child process */</span>
+  <span class="n">pid</span> <span class="o">=</span> <span class="n">fork</span><span class="p">();</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">pid</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>                      <span class="cm">/* error occurred */</span>
+    <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Fork Failed&quot;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">pid</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>              <span class="cm">/* child process */</span>
+    <span class="n">execlp</span><span class="p">(</span><span class="s">&quot;/bin/ls&quot;</span><span class="p">,</span> <span class="s">&quot;ls&quot;</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>    <span class="cm">/* a version of the `exec()` */</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>                            <span class="cm">/* parent process */</span>
+    <span class="cm">/* parent will wait for the child to complete */</span>
+    <span class="n">wait</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Child Complete&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
-<img alt="normal" src="../../assets/os/3.10.png" /></p>
+
+<p><img alt="normal" src="../../assets/os/3.10.png" /></p>
 <h3 id="332-process-termination">3.3.2 Process Termination<a class="headerlink" href="#332-process-termination" title="Permanent link">&para;</a></h3>
 <p>A process terminates when it finishes executing its final statement and asks the operating system to delete it by using the <code>exit()</code> system call.</p>
 <div class="admonition info">
@@ -1984,7 +2073,7 @@
 <p>If a process terminates (either normally or abnormally), then all its children must also be terminated.</p>
 </div>
 <p><code>exit()</code> may be called either directly or indirectly (<code>return</code>):</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>    <span class="cm">/* directly exit with status 1 */</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>    <span class="cm">/* directly exit with status 1 */</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -2040,7 +2129,7 @@
 9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#define BUFFER_SIZE 10</span>
 
 <span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
-    <span class="p">...</span>
+  <span class="p">...</span>
 <span class="p">}</span> <span class="n">item</span><span class="p">;</span>
 
 <span class="n">item</span> <span class="n">buffer</span><span class="p">[</span><span class="n">BUFFER_SIZE</span><span class="p">];</span>
@@ -2057,13 +2146,13 @@
 7
 8
 9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
-    <span class="cm">/* produce an item in next_produced */</span>
+  <span class="cm">/* produce an item in next_produced */</span>
 
-    <span class="k">while</span> <span class="p">(((</span><span class="n">in</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">BUFFER_SIZE</span><span class="p">)</span> <span class="o">==</span> <span class="n">out</span><span class="p">)</span>
-        <span class="p">;</span> <span class="cm">/* do nothing */</span>
+  <span class="k">while</span> <span class="p">(((</span><span class="n">in</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">BUFFER_SIZE</span><span class="p">)</span> <span class="o">==</span> <span class="n">out</span><span class="p">)</span>
+    <span class="p">;</span> <span class="cm">/* do nothing */</span>
 
-    <span class="n">buffer</span><span class="p">[</span><span class="n">in</span><span class="p">]</span> <span class="o">=</span> <span class="n">next_produced</span><span class="p">;</span>
-    <span class="n">in</span> <span class="o">=</span> <span class="p">(</span><span class="n">in</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">BUFFER_SIZE</span><span class="p">;</span>
+  <span class="n">buffer</span><span class="p">[</span><span class="n">in</span><span class="p">]</span> <span class="o">=</span> <span class="n">next_produced</span><span class="p">;</span>
+  <span class="n">in</span> <span class="o">=</span> <span class="p">(</span><span class="n">in</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">BUFFER_SIZE</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
@@ -2081,13 +2170,13 @@
 11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">item</span> <span class="n">next_consumed</span><span class="p">;</span>
 
 <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">while</span> <span class="p">(</span><span class="n">in</span> <span class="o">==</span> <span class="n">out</span><span class="p">)</span>
-        <span class="p">;</span> <span class="cm">/* do nothing */</span>
+  <span class="k">while</span> <span class="p">(</span><span class="n">in</span> <span class="o">==</span> <span class="n">out</span><span class="p">)</span>
+    <span class="p">;</span> <span class="cm">/* do nothing */</span>
 
-        <span class="n">next_consumed</span> <span class="o">=</span> <span class="n">buffer</span><span class="p">[</span><span class="n">out</span><span class="p">];</span>
-        <span class="n">out</span> <span class="o">=</span> <span class="p">(</span><span class="n">out</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">BUFFER_SIZE</span><span class="p">;</span>
+  <span class="n">next_consumed</span> <span class="o">=</span> <span class="n">buffer</span><span class="p">[</span><span class="n">out</span><span class="p">];</span>
+  <span class="n">out</span> <span class="o">=</span> <span class="p">(</span><span class="n">out</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">BUFFER_SIZE</span><span class="p">;</span>
 
-        <span class="cm">/* consume the item in next_consumed */</span>
+  <span class="cm">/* consume the item in next_consumed */</span>
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
@@ -2179,20 +2268,20 @@
 7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">message</span> <span class="n">next_consumed</span><span class="p">;</span>
 
 <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">receive</span><span class="p">(</span><span class="n">next_consumed</span><span class="p">);</span>
+  <span class="n">receive</span><span class="p">(</span><span class="n">next_consumed</span><span class="p">);</span>
 
-    <span class="cm">/* consume the item in next consumed */</span>
+  <span class="cm">/* consume the item in next consumed */</span>
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
 
 <p>A process must first create a shared-memory:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="n">shm_fd</span> <span class="o">=</span> <span class="n">shm_open</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">O_CREAT</span> <span class="o">|</span> <span class="n">O_RDRW</span><span class="p">,</span> <span class="mo">0666</span><span class="p">);</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">shm_fd</span> <span class="o">=</span> <span class="n">shm_open</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">O_CREAT</span> <span class="o">|</span> <span class="n">O_RDRW</span><span class="p">,</span> <span class="mo">0666</span><span class="p">);</span>
 </code></pre></div>
 </td></tr></table>
 
 <p>The <code>ftruncate()</code> function configure the size of the object in bytes:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="n">ftruncate</span><span class="p">(</span><span class="n">shm_fd</span><span class="p">,</span> <span class="mi">4096</span><span class="p">);</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">ftruncate</span><span class="p">(</span><span class="n">shm_fd</span><span class="p">,</span> <span class="mi">4096</span><span class="p">);</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -2350,7 +2439,7 @@
 <li>Can the pipes communicate over a network, or must the communicating processes reside on the same machine?</li>
 </ol>
 <h4 id="3631-ordinary-pipes">3.6.3.1 Ordinary Pipes<a class="headerlink" href="#3631-ordinary-pipes" title="Permanent link">&para;</a></h4>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="n">pipe</span><span class="p">(</span><span class="kt">int</span> <span class="n">fd</span><span class="p">[])</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">pipe</span><span class="p">(</span><span class="kt">int</span> <span class="n">fd</span><span class="p">[])</span>
 </code></pre></div>
 </td></tr></table>
 
