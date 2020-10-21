@@ -6,30 +6,31 @@ Recall [producer–consumer problem](./Chap03/#producerconsumer-problem). We mod
 
 ```c
 while (true) {
-    /* produce an item in next_produced */
+  /* produce an item in next_produced */
 
-    while (counter == BUFFER_SIZE) ;    // do nothing
+  while (counter == BUFFER_SIZE) ;    // do nothing
 
-    buffer[in] = next_produced;
-    in = (in + 1) % BUFFER_SIZE;
-    counter++;
+  buffer[in] = next_produced;
+  in = (in + 1) % BUFFER_SIZE;
+  counter++;
 }
 ```
 
 ```c
 while (true) {
-    while (counter == 0) ;      // do nothing
-        
-    next_consumed = buffer[out];
-    out = (out + 1) % BUFFER_SIZE;
-    counter--;
+  while (counter == 0) ;      // do nothing
 
-    /* consume the item in next_consumed */
+  next_consumed = buffer[out];
+  out = (out + 1) % BUFFER_SIZE;
+  counter--;
+
+  /* consume the item in next_consumed */
 }
 ```
 
 Suppose `counter == 5` initially. After executing `counter++` in producer or `counter--` in consumer. The value of `counter` may be $4$, $5$, or $6$!
 
+$$
 \begin{array}{lllll}
 T_0: producer & \text{execute} & register_1 = \text{counter} & \\{register_1 = 5\\} \\\\
 T_1: producer & \text{execute} & register_1 = register_1 + 1 & \\{register_1 = 6\\} \\\\
@@ -38,6 +39,7 @@ T_3: consumer & \text{execute} & register_2 = register_2 - 1 & \\{register_2 = 4
 T_4: producer & \text{execute} & \text{counter} = register_1 & \\{counter = 6\\} \\\\
 T_5: consumer & \text{execute} & \text{counter} = register_2 & \\{counter = 4\\}
 \end{array}
+$$
 
 !!! note "Race condition"
     Several processes access and manipulate the same data concurrently and the outcome of the execution depends on the *particular order* in which the access takes place.
@@ -51,10 +53,10 @@ We need to ensure that only one process at a time can be manipulating the variab
 
 ```c
 do {
-    /* entry section */
-        /* critical section */
-    /* exit section */
-        /* remainder section */
+  /* entry section */
+    /* critical section */
+  /* exit section */
+    /* remainder section */
 } while (true);
 ```
 
@@ -87,13 +89,13 @@ boolean flag[2];
 
 ```c
 do {
-    flag[i] = true;
-    turn = j;
-    while (flag[j] && turn == j) ;
-    /* critical section */
+  flag[i] = true;
+  turn = j;
+  while (flag[j] && turn == j) ;
+  /* critical section */
 
-    flag[i] = false;
-    /* remainder section */
+  flag[i] = false;
+  /* remainder section */
 } while (true);
 ```
 
@@ -106,7 +108,7 @@ do {
 2. The progress requirement is satisfied.
 3. The bounded-waiting requirement is met.
 
-    Suppose $P_i$ execute $turn = j$ first, then $P_j$ execute $turn = i$. In this assumption, $P_i$ will enter its critical section first and $P_j$ will be stucked in the `while(flag[i] && turn == i` (remember that here `i` should be thinked as `j` in the code!). After $P_i$ entering exit section, there are two possibilities:
+    Suppose $P_i$ execute $turn = j$ first, then $P_j$ execute $turn = i$. In this assumption, $P_i$ will enter its critical section first and $P_j$ will be stucked in the `while (flag[i] && turn == i)` (remember that here `i` should be thinked as `j` in the code!). After $P_i$ entering exit section, there are two possibilities:
 
     1. $P_i$ sets `flag[i] = false`, then $P_j$ enters its critical section.
     2. After $P_i$ setting `flag[i] = false`, it immediately sets `flag[i] = true` again, consequently, it'll set `turn = j`, thus $P_j$ still can enter its critical section.
@@ -123,17 +125,17 @@ boolean choosing[i];    // Pi is taking a number
 
 ```c
 do {
-    choosing[i] = true;         // A process want to enter its critical section
-    number[i] = max(number[0], ..., number[n - 1]) + 1;
-    choosing[i] = false;        // A process has got its number
-    for (int j = 0; j < n; j++) {
-        while (choosing[j]) ;
-        while (number[j] != 0 && (number[j], j) < (number[i], i)) ;     // If two processes got the same number, then we should compare their indices
-    }
-    /* critical section */
+  choosing[i] = true;         // A process want to enter its critical section
+  number[i] = max(number[0], ..., number[n - 1]) + 1;
+  choosing[i] = false;        // A process has got its number
+  for (int j = 0; j < n; j++) {
+    while (choosing[j]) ;
+    while (number[j] != 0 && (number[j], j) < (number[i], i)) ;     // If two processes got the same number, then we should compare their indices
+  }
+  /* critical section */
 
-    number[i] = 0;
-    /* remainder section */
+  number[i] = 0;
+  /* remainder section */
 } while (true);
 ```
 
@@ -159,20 +161,20 @@ Although following algorithms satisfy the mutual-exclusion requirement, they don
 
 ```c
 boolean test_and_set(boolean *target) {
-    boolean rv = *target;
-    *target = true;
+  boolean rv = *target;
+  *target = true;
 
-    return rv;
+  return rv;
 }
 ```
 
 ```c
 do {
-    while (test_and_set(&lock)) ;
-    /* critical section */
-    
-    lock = false;
-    /* remainder section */
+  while (test_and_set(&lock)) ;
+  /* critical section */
+
+  lock = false;
+  /* remainder section */
 } while (true);
 ```
 
@@ -189,21 +191,21 @@ The first process executing `while (test_and_set(&lock))` will set the address v
 
 ```c
 void swap(boolean *a, boolean *b) {
-    boolean temp = *a;
-    *a = *b;
-    *b = temp;
+  boolean temp = *a;
+  *a = *b;
+  *b = temp;
 }
 ```
 
 ```c
 do {
-    key = true;
-    while (key == true)
-        swap(&lock, &key);
-    /* critical section */
+  key = true;
+  while (key == true)
+    swap(&lock, &key);
+  /* critical section */
 
-    lock = false;
-    /* remainder section */
+  lock = false;
+  /* remainder section */
 } while (true);
 ```
 
@@ -213,22 +215,22 @@ do {
 
 ```c
 int compare_and_swap(int *value, int expected, int new_value) {
-    int temp = *value;
+  int temp = *value;
 
-    if (*value == expected)
-        *value = new_value;
-    
-    return temp;
+  if (*value == expected)
+      *value = new_value;
+
+  return temp;
 }
 ```
 
 ```c
 do {
-    while (compare_and_swap(&lock, 0, 1) != 0) ;
-    /* critical section */
+  while (compare_and_swap(&lock, 0, 1) != 0) ;
+  /* critical section */
 
-    lock = 0;
-    /* remainder section */
+  lock = 0;
+  /* remainder section */
 } while (true);
 ```
 
@@ -241,31 +243,31 @@ boolean lock;
 
 ```c
 do {
-    waiting[i] = true;
-    key = true;
-    while (waiting[i] && key)
-        key = test_and_set(&lock);
-    waiting[i] = false;
-    /* critical section */
+  waiting[i] = true;
+  key = true;
+  while (waiting[i] && key)
+    key = test_and_set(&lock);
+  waiting[i] = false;
+  /* critical section */
 
-    j = (i + 1) % n;                    // Assign its next process
-    while ((j != i) && !waiting[j])     // Find a following process who is waiting
-        j = (j + 1) % n;
-    
-    if (j == i)                         // If no process is waiting
-        lock = false;
-    else
-        waiting[j] = false;             // Thus line 4 will be false and Pj won't be stucked anymore
-    /* remainder section */
+  j = (i + 1) % n;                    // Assign its next process
+  while ((j != i) && !waiting[j])     // Find a following process who is waiting
+    j = (j + 1) % n;
+
+  if (j == i)                         // If no process is waiting
+    lock = false;
+  else
+    waiting[j] = false;             // Thus line 4 will be false and Pj won't be stucked anymore
+  /* remainder section */
 } while (true);
 ```
 
 ```c
 boolean test_and_set(boolean *target) {
-    boolean rv = *target;
-    *target = true;
+  boolean rv = *target;
+  *target = true;
 
-    return rv;
+  return rv;
 }
 ```
 
@@ -286,27 +288,27 @@ A high-level software solution to provide protect critical sections with mutual 
 
 ```c
 acquire() {
-    while (!available) ;        // busy wait
-    available = false;
+  while (!available) ;        // busy wait
+  available = false;
 }
 ```
 
 ```c
 release() {
-    available = true;
+  available = true;
 }
 ```
 
 ```c
 do {
-    // acquire lock
-        /* critical section */
-    // release lock
-        /* remainder section */
+  // acquire lock
+    /* critical section */
+  // release lock
+    /* remainder section */
 } while (true);
 ```
 
-!!! note "Spinlock" 
+!!! note "Spinlock"
     The process "spins" while waiting for the lock to become available.
 
 ## 5.6 Semaphores
@@ -317,15 +319,15 @@ A high-level solution for more complex problems.
 - Spinlock
 
 ```c
-wait(S) {               /* P */
-    while (S <= 0) ;    // busy wait
-    S--;
+wait(S) {             /* P */
+  while (S <= 0) ;    // busy wait
+  S--;
 }
 ```
 
 ```c
-signal(S) {             /* V */
-    S++;
+signal(S) {           /* V */
+  S++;
 }
 ```
 
@@ -335,16 +337,16 @@ signal(S) {             /* V */
 
     ```c
     do {
-        wait(mutex);
-        /* critical section */
-        signal(mutex);
-        /* remainder section */
+      wait(mutex);
+      /* critical section */
+      signal(mutex);
+      /* remainder section */
     } while (true);
     ```
 
 - Precedence enforcement:
     - $P_1$:
-    
+
         ```c
         S1;
         signal(synch);
@@ -366,28 +368,28 @@ We can implement the Semaphores with block waiting:
 
 ```c
 typedef struct {
-    int value;
-    struct process *list;
+  int value;
+  struct process *list;
 } semaphore;
 ```
 
 ```c
 wait(semaphore *S) {
-    S->value--;
-    if (S->value < 0) {
-        add this process to S->list;
-        block();
-    }
+  S->value--;
+  if (S->value < 0) {
+    add this process to S->list;
+    block();
+  }
 }
 ```
 
 ```c
 signal(semaphore *S) {
-    S->value++;
-    if (S->value <= 0) {
-        remove a process P from S->list;
-        wakeup(P);
-    }
+  S->value++;
+  if (S->value <= 0) {
+    remove a process P from S->list;
+    wakeup(P);
+  }
 }
 ```
 
@@ -412,7 +414,7 @@ signal(Q); & signal(S); \\\\
 \end{array}
 $$
 
-Deadlock may happen (assume $S = 1$ and $Q = 1$: 
+Deadlock may happen (assume $S = 1$ and $Q = 1$:
 
 1. $P_0$ calls $wait(S)$
 2. $P_1$ calls $wait(Q)$
@@ -435,24 +437,24 @@ We can implement counting semaphores by binary semaphores. ($S_1 = 1$, $S_2 = 0$
 
 ```c
 WAIT(S) {
-    wait(S3);   // protect the whole program
-    wait(S1);   // protect C
-    C--;
-    if (C < 0) {
-        signal(S1);
-        wait(S2);
-    } else signal(S1);
-    signal(S3);
+  wait(S3);   // protect the whole program
+  wait(S1);   // protect C
+  C--;
+  if (C < 0) {
+    signal(S1);
+    wait(S2);
+  } else signal(S1);
+  signal(S3);
 }
 ```
 
 ```c
 SIGNAL(S) {
-    wait(S1);
-    C++;
-    if (C <= 0)
-        signal(S2);     // wake up
-    signal(S1);
+  wait(S1);
+  C++;
+  if (C <= 0)
+    signal(S2);     // wake up
+  signal(S1);
 }
 ```
 
@@ -475,15 +477,15 @@ semaphore full = 0;
 
     ```c
     do {
-        /* produce an item in next_produced */
+      /* produce an item in next_produced */
 
-        wait(empty);
-        wait(mutex);
+      wait(empty);
+      wait(mutex);
 
-        /* add next_produced to the buffer */
+      /* add next_produced to the buffer */
 
-        signal(mutex);
-        signal(full);
+      signal(mutex);
+      signal(full);
     } while (true);
     ```
 
@@ -491,15 +493,15 @@ semaphore full = 0;
 
     ```c
     do {
-        wait(full);
-        wait(mutex);
+      wait(full);
+      wait(mutex);
 
-        /* remove an item from buffer to next_consumed */
+      /* remove an item from buffer to next_consumed */
 
-        signal(mutex);
-        signal(empty);
+      signal(mutex);
+      signal(empty);
 
-        /* consume the item in next_consumed */
+      /* consume the item in next_consumed */
     } while (true);
     ```
 
@@ -523,29 +525,29 @@ int read_count = 0;
 
 ```c
 do {
-    wait(rw_mutex);
+  wait(rw_mutex);
 
-    /* writing is performed */
+  /* writing is performed */
 
-    signal(rw_mutex);
+  signal(rw_mutex);
 } while (true);
 ```
 
 ```c
 do {
-    wait(mutex);        // protect read_count
-    read_count++;
-    if (read_count == 1)
-        wait(rw_mutex);
-    signal(mutex);
+  wait(mutex);        // protect read_count
+  read_count++;
+  if (read_count == 1)
+    wait(rw_mutex);
+  signal(mutex);
 
-    /* reading is performed */
+  /* reading is performed */
 
-    wait(mutex);        // protect read_count
-    read_count--;
-    if (read_count == 0)
-        signal(rw_mutex);
-    signal(mutex);
+  wait(mutex);        // protect read_count
+  read_count--;
+  if (read_count == 0)
+    signal(rw_mutex);
+  signal(mutex);
 } while (true);
 ```
 
@@ -560,15 +562,15 @@ semaphore chopstick[5];
 
 ```c
 do {
-    wait(chopstick[i]);
-    wait(chopstick[(i + 1) % 5]);
+  wait(chopstick[i]);
+  wait(chopstick[(i + 1) % 5]);
 
-    /* eat for awhile */
+  /* eat for awhile */
 
-    signal(chopstick[i]);
-    signal(chopstick[(i + 1) % 5]);
+  signal(chopstick[i]);
+  signal(chopstick[(i + 1) % 5]);
 
-    /* think for awhile */
+  /* think for awhile */
 } while (true);
 ```
 
@@ -579,8 +581,8 @@ do {
 
 ```c
 struct buffer {
-    item pool[n];
-    int count, in, out;
+  item pool[n];
+  int count, in, out;
 };
 ```
 
@@ -589,9 +591,9 @@ struct buffer {
     ```c
     region buffer when
     (count < n) {
-        pool[in] = next_produced;
-        in = (in + 1) % n;
-        count++;
+      pool[in] = next_produced;
+      in = (in + 1) % n;
+      count++;
     }
     ```
 
@@ -600,9 +602,9 @@ struct buffer {
     ```c
     region buffer when
     (count > 0) {
-        next_consumed = pool[out];
-        out = (out + 1) % n;
-        count--;
+      next_consumed = pool[out];
+      out = (out + 1) % n;
+      count--;
     }
     ```
 
@@ -613,22 +615,22 @@ monitor monitor name {
     /* shared variable declarations */
 
     function P1 ( . . . ) {
-        . . .
+      . . .
     }
 
     function P2 ( . . . ) {
-        . . .
+      . . .
     }
 
-        .
-        .
-        .
+      .
+      .
+      .
     function Pn ( . . . ) {
-        . . .
+      . . .
     }
 
     initialization_code ( . . . ) {
-        . . .
+      . . .
     }
 }
 ```
@@ -642,19 +644,19 @@ The monitor construct ensures that only one process at a time is active within t
 A programmer who needs to write a tailor-made synchronization scheme can define one or more variables of type $condition$:
 
 ```c
-    condition x, y;
+condition x, y;
 ```
 
 The only operations that can be invoked on a condition variable are `wait()` and `signal()`. The operation
 
 ```c
-    x.wait();
+x.wait();
 ```
 
 means that the process invoking this operation is suspended until another process invokes
 
 ```c
-    x.signal();
+x.signal();
 ```
 
 !!! info "Condition variables (of a monitor) vs. signal operation (of binary semaphore)"
@@ -677,35 +679,35 @@ condition self[5];
 
 ```c
 monitor DiningPhilosophers {
-    enum {THINKING, HUNGRY, EATING} state[5];
-    condition self[5];
+  enum { THINKING, HUNGRY, EATING } state[5];
+  condition self[5];
 
-    void pickup(int i) {
-        state[i] = HUNGRY;
-        test(i);
-        if (state[i] != EATING)
-            self[i].wait();
-    }
+  void pickup(int i) {
+    state[i] = HUNGRY;
+    test(i);
+    if (state[i] != EATING)
+      self[i].wait();
+  }
 
-    void putdown(int i) {
-        state[i] = THINKING;
-        test((i + 4) % 5);      // help your right-hand side to run test
-        test((i + 1) % 5);      // help your left-hand side to run test
-    }
+  void putdown(int i) {
+    state[i] = THINKING;
+    test((i + 4) % 5);      // help your right-hand side to run test
+    test((i + 1) % 5);      // help your left-hand side to run test
+  }
 
-    void test(int i ) {
-        if ((state[(i + 4) % 5] != EATING) &&       // right-hand side
-            (state[i] == HUNGRY) &&
-            (state[(i + 1) % 5] != EATING)) {       // left-hand side
-            state[i] = EATING;
-            self[i].signal();
-        }
+  void test(int i ) {
+    if ((state[(i + 4) % 5] != EATING) &&       // right-hand side
+        (state[i] == HUNGRY) &&
+        (state[(i + 1) % 5] != EATING)) {       // left-hand side
+      state[i] = EATING;
+      self[i].signal();
     }
+  }
 
-    initialization_code() {
-        for (int i = 0; i < 5; i++)
-            state[i] = THINKING;
-    }
+  initialization_code() {
+    for (int i = 0; i < 5; i++)
+      state[i] = THINKING;
+  }
 }
 ```
 
@@ -736,21 +738,21 @@ wait(mutex);
 /* body of F */
 
 if (next_count > 0)
-    signal(next);
+  signal(next);
 else
-    signal(mutex);
+  signal(mutex);
 ```
 
 For each condition `x`, we introduce a semaphore `x_sem` and an integer variable `x_count`, both initialized to $0$.
 
 - `x.wait()`
-    
+
     ```c
     x_count++;
     if (next_count > 0)
-        signal(next);
+      signal(next);
     else
-        signal(mutex);
+      signal(mutex);
     wait(x_sem);
     x_count--;
     ```
@@ -759,10 +761,10 @@ For each condition `x`, we introduce a semaphore `x_sem` and an integer variable
 
     ```c
     if (x_count > 0) {      /* If there's somebody being waiting */
-        next_count++;
-        signal(x_sem);
-        wait(next);
-        next_count--;
+      next_count++;
+      signal(x_sem);
+      wait(next);
+      next_count--;
     }
     ```
 
@@ -781,23 +783,23 @@ Consider the `ResourceAllocator` monitor, which controls the allocation of a sin
 
 ```c
 monitor ResourceAllocator {
-    boolean busy;
-    condition x;
+  boolean busy;
+  condition x;
 
-    void acquire(int time) {
-        if (busy)
-            x.wait(time);
-        busy = true;
-    }
+  void acquire(int time) {
+    if (busy)
+      x.wait(time);
+    busy = true;
+  }
 
-    void release() {
-        busy = false;
-        x.signal();
-    }
+  void release() {
+    busy = false;
+    x.signal();
+  }
 
-    initialization_code() {
-        busy = false;
-    }
+  initialization_code() {
+    busy = false;
+  }
 }
 ```
 
@@ -884,9 +886,9 @@ Committed or being roleld back:
 
 ```c
 void update() {
-    atomic {
-        /* modify shared data */
-    }
+  atomic {
+    /* modify shared data */
+  }
 }
 ```
 
@@ -906,9 +908,9 @@ void update() {
 
 ```c
 void update() {
-    #pragma omp critical {
-        counter += value;
-    }
+  #pragma omp critical {
+    counter += value;
+  }
 }
 ```
 
