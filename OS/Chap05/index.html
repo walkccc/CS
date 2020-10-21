@@ -1965,7 +1965,7 @@ $$</p>
 <li>The progress requirement is satisfied.</li>
 <li>
 <p>The bounded-waiting requirement is met.</p>
-<p>Suppose $P_i$ execute $turn = j$ first, then $P_j$ execute $turn = i$. In this assumption, $P_i$ will enter its critical section first and $P_j$ will be stucked in the <code>while(flag[i] &amp;&amp; turn == i</code> (remember that here <code>i</code> should be thinked as <code>j</code> in the code!). After $P_i$ entering exit section, there are two possibilities:</p>
+<p>Suppose $P_i$ execute $turn = j$ first, then $P_j$ execute $turn = i$. In this assumption, $P_i$ will enter its critical section first and $P_j$ will be stucked in the <code>while (flag[i] &amp;&amp; turn == i)</code> (remember that here <code>i</code> should be thinked as <code>j</code> in the code!). After $P_i$ entering exit section, there are two possibilities:</p>
 <ol>
 <li>$P_i$ sets <code>flag[i] = false</code>, then $P_j$ enters its critical section.</li>
 <li>After $P_i$ setting <code>flag[i] = false</code>, it immediately sets <code>flag[i] = true</code> again, consequently, it'll set <code>turn = j</code>, thus $P_j$ still can enter its critical section.</li>
