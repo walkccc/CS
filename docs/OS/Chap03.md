@@ -44,7 +44,7 @@ Process can be an execution environment for other code. (**simulation**)
 e.g.
 
 ```java
-    java testProgram
+java testProgram
 ```
 
 !!! info ""
@@ -163,24 +163,25 @@ There are also two address-space possibilities for the new process
 Creating a separate process using the UNIX `fork()` system call.
 
 ```c
-int main() { 
-    pid_t pid;
-    
-    /* fork a child process */
-    pid = fork();
-    if (pid < 0) {                      /* error occurred */
-        fprintf(stderr, "Fork Failed");
-        return 1;
-    } else if (pid == 0) {              /* child process */
-        execlp("/bin/ls", "ls", NULL);  /* a version of the `exec()` */
-    } else {                            /* parent process */
-        /* parent will wait for the child to complete */
-        wait(NULL);
-        printf("Child Complete");
-    }
-    return 0;
+int main() {
+  pid_t pid;
+
+  /* fork a child process */
+  pid = fork();
+  if (pid < 0) {                      /* error occurred */
+    fprintf(stderr, "Fork Failed");
+    return 1;
+  } else if (pid == 0) {              /* child process */
+    execlp("/bin/ls", "ls", NULL);    /* a version of the `exec()` */
+  } else {                            /* parent process */
+    /* parent will wait for the child to complete */
+    wait(NULL);
+    printf("Child Complete");
+  }
+  return 0;
 }
 ```
+
 ![normal](../assets/os/3.10.png)
 
 ### 3.3.2 Process Termination
@@ -202,7 +203,7 @@ A parent can terminate its children by
 `exit()` may be called either directly or indirectly (`return`):
 
 ```c
-    exit(1);    /* directly exit with status 1 */
+exit(1);    /* directly exit with status 1 */
 ```
 
 !!! note "Process Table Entry (PTE)"
@@ -252,7 +253,7 @@ Implement the shared `buffer` as a circular array.
 #define BUFFER_SIZE 10
 
 typedef struct {
-    ...
+  ...
 } item;
 
 item buffer[BUFFER_SIZE];
@@ -262,13 +263,13 @@ int out = 0;    /* points to the first full position */
 
 ```c
 while (true) {
-    /* produce an item in next_produced */
+  /* produce an item in next_produced */
 
-    while (((in + 1) % BUFFER_SIZE) == out)
-        ; /* do nothing */
+  while (((in + 1) % BUFFER_SIZE) == out)
+    ; /* do nothing */
 
-    buffer[in] = next_produced;
-    in = (in + 1) % BUFFER_SIZE;
+  buffer[in] = next_produced;
+  in = (in + 1) % BUFFER_SIZE;
 }
 ```
 
@@ -276,13 +277,13 @@ while (true) {
 item next_consumed;
 
 while (true) {
-    while (in == out)
-        ; /* do nothing */
-        
-        next_consumed = buffer[out];
-        out = (out + 1) % BUFFER_SIZE;
+  while (in == out)
+    ; /* do nothing */
 
-        /* consume the item in next_consumed */
+  next_consumed = buffer[out];
+  out = (out + 1) % BUFFER_SIZE;
+
+  /* consume the item in next_consumed */
 }
 ```
 
@@ -332,7 +333,7 @@ The process that creates a new mailbox is that mailbox's owner by default.
 Message passing may be either
 
 - Blocking (synchronous)
-    
+
     - Blocking send (blocked until the message is received)
     - Blocking receive
 
@@ -360,22 +361,22 @@ Messages reside in a temporary queue:
 message next_consumed;
 
 while (true) {
-    receive(next_consumed);
+  receive(next_consumed);
 
-    /* consume the item in next consumed */
+  /* consume the item in next consumed */
 }
 ```
 
 A process must first create a shared-memory:
 
 ```c
-    shm_fd = shm_open(name, O_CREAT | O_RDRW, 0666);
+shm_fd = shm_open(name, O_CREAT | O_RDRW, 0666);
 ```
 
 The `ftruncate()` function configure the size of the object in bytes:
 
 ```c
-    ftruncate(shm_fd, 4096);
+ftruncate(shm_fd, 4096);
 ```
 
 ### 3.5.2 An Example: Mach
@@ -523,7 +524,7 @@ In implementing a pipe, four issues:
 #### 3.6.3.1 Ordinary Pipes
 
 ```c
-    pipe(int fd[])
+pipe(int fd[])
 ```
 
 ![normal](../assets/os/3.24.png)
