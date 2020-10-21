@@ -9,7 +9,7 @@ A thread shares
 
 - code section
 - data section
-- OS resources (e.g. open files and signals) 
+- OS resources (e.g. open files and signals)
 
 A thread have its own
 
@@ -58,7 +58,7 @@ Consider an application with 4 threads.
 
 !!! note "Amdahl's Law"
     If $S$ is the portion cannot be accelerated by $N$ cores (serially).
-    
+
     $$speedup \le \frac{1}{S + \frac{(1 - S)}{N}}$$
 
 ### 4.2.1 Programming Challenges
@@ -189,7 +189,7 @@ e.g. `QueueUserWorkItem()`, `java.util.concurrent`.
 When OpenMP encounters
 
 ```c
-    #pragma omp parallel
+#pragma omp parallel
 ```
 
 it creates as many threads are there are processing cores in the system.
@@ -198,8 +198,8 @@ e.g.
 
 ```c
 #pragma omp parallel for
-for (i = 0; i < N; i++)
-    c[i] = a[i] + b[i];
+for (i = 0; i < N; ++i)
+  c[i] = a[i] + b[i];
 ```
 
 ### 4.5.3 Grand Central Dispatch
@@ -210,7 +210,7 @@ sOS/iOS combination of extensions to the C.
 Like OpenMP, GCD manges most of the details of threading.
 
 ```c
-    ^{ printf("I am a block."); }
+^{ printf("I am a block."); }
 ```
 
 GCD schedules blocks for run-time execution by placing them on a **dispatch queue**.
@@ -278,13 +278,13 @@ Functions/Methods for delivering a signal:
 - UNIX:
 
     ```c
-        kill(pid_t pid, int signal)
+    kill(pid_t pid, int signal)
     ```
 
 - POSIX:
 
     ```c
-        pthread_kill(pthread_t tid, int signal)
+    pthread_kill(pthread_t tid, int signal)
     ```
 
 - Windows:
@@ -332,10 +332,10 @@ e.g. deferred cancellation:
 
 ```c
 while (1) {
-    /* do some work for awhile */
+  /* do some work for awhile */
 
-    /* check if there is a cancellation request */
-    pthread_testcancel();
+  /* check if there is a cancellation request */
+  pthread_testcancel();
 }
 ```
 
